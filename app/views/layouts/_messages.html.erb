@@ -1,0 +1,15 @@
+<% flash.each do |name, msg| %>
+  <% if msg.is_a?(String) %>
+    <div class="ui-bar ui-bar-<%= name == :notice ? "e" : "a" %>">
+       <%= content_tag :p, msg, :id => "flash_#{name}" %>
+		<!-- 
+	   <a href="#" data-role="button" data-icon="delete" data-inline="true" data-iconpos="notext" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="e" title="Dismiss" class="ui-btn ui-btn-up-e ui-shadow ui-btn-corner-all ui-btn-inline ui-btn-icon-notext">
+
+		  <span class="ui-btn-inner ui-btn-corner-all">
+		  <span class="ui-btn-text">Dismiss</span>
+		  <span class="ui-icon ui-icon-delete ui-icon-shadow"/>
+		  </span> -->
+	   </a>
+    </div>
+  <% end %>
+<% end %>

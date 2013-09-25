@@ -1,0 +1,9 @@
+<% if @photo.new_record? %>
+	alert('erreur dans l\'envoi');
+<% else %>
+	$('#gallery').prepend('<li class="listview ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-thumb ui-first-child ui-btn-up-c" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><%= link_to(image_tag(@photo.image_url(:thumb_list), :class => "ui-li-thumb"),admin_photo_path(@photo), :class => "ui-link-inherit")%></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span></div></li>');
+	// hide the progress bar
+	$('.bar').fadeOut('slow');
+	$('#gallery').refresh(); 
+<% end %>
+	

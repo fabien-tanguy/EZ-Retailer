@@ -1,0 +1,26 @@
+<%= simple_form_for(@photo, url: admin_photos_path, html: {"data-ajax" => false}) do |f| %>
+  <%= f.error_notification %>
+  
+  <ul data-role="listview" data-theme="c" data-inset="true"  data-divider-theme ="b">
+  	<li data-role="list-divider" >Gestion photo</li>
+
+	<% if @photo.image_url %>
+  		<li data-role="fieldcontain">
+			<%= image_tag @photo.image_url(:thumb), :alt => "" %>
+  		</li>
+    <% end %>
+
+  <li data-role="fieldcontain"> 
+    <%= f.input :image %>
+    <% hidden_field_tag :image_cache %>
+  </li>
+	
+  <li data-role="fieldcontain"> 
+    <%= f.input :nom %>
+  </li>
+
+  <li data-role="fieldcontain"> 
+    <%= f.button :submit %>
+  </li>
+</ul>
+<% end %>
