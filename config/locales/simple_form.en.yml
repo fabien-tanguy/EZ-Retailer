@@ -10,17 +10,14 @@ en:
       # html: '<abbr title="required">*</abbr>'
     error_notification:
       default_message: "Please review the problems below:"
+      
+      
     # Labels and hints examples
-    # labels:
-    #   defaults:
-    #     password: 'Password'
-    #   user:
-    #     new:
-    #       email: 'E-mail to sign in.'
-    #     edit:
-    #       email: 'E-mail.'
-    # hints:
-    #   defaults:
-    #     username: 'User name to sign in.'
-    #     password: 'No special characters, please.'
+    labels:
+      page:
+          title: "titre"
+          menu_item_id: "titre dqns lq nqvigation"
+      menu_item:
+          title: "titre"
+          order: "ordre dans la navigation"
 
