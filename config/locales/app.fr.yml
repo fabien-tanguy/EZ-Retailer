@@ -1,0 +1,39 @@
+fr:
+    main:
+        home: "accueil"
+        show: "afficher"
+        back: "retour"
+        edit: "modifier"
+        destroy: "supprimer"
+        sure: "etes vous sur ?"
+        phone: "nous appeler"
+        upload: "choisir une image"
+        error:
+            one: "erreur"
+            other: "erreurs"
+    model:
+        page:
+            new: "créer une page"
+            edit: "modifier la page"
+            show: "aperçu de la page"
+            listing: "liste des pages"
+            title: "titre de la page"
+            menu_title: "titre dans le menu"
+            bind_with_menu: "lier la page à un élément de la navigation"
+            save_error:
+                one: "a empêché  l'enregistrement de cette page"
+                other: "ont empêchés l'enregistrement de cette page"
+        menu_item:
+            new: "ajouter un élément de navigation"
+            listing: "liste des éléments de la navigation"
+            title: "titre de l'élément"
+            save_error: "ont empêchée(s) l'enregistrement de cet élément de navigation"
+            
+    activerecord:
+        models:
+            page: "page"
+        attributes:
+            page:
+                title: "titre de la page"
+                menu_item_id: "élément de navigation"
+                menu_item: "élément de navigation"

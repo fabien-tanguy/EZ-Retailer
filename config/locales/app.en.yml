@@ -1,0 +1,32 @@
+en:
+    main:
+        home: "home"
+        show: "show"
+        back: "back"
+        edit: "update"
+        destroy: "delete"
+        sure: "Are you sure ?"
+        phone: "call us"
+        upload: "Select a file"
+        error:
+            one: "error"
+            other: "errors"
+    model:
+        page:
+            new: "new page"
+            show: "show"
+            edit: "edit page"
+            listing: "listing pages"
+            title: "title"
+            menu_title: "menu title"
+            save_error:
+                one: "prohibited this page from being saved:"
+                other: "prohibited this page from being saved:"
+            bind_with_menu: "bind this page with a navigation item"
+            
+
+        menu_item:
+            new: "add an item in the navigation"
+            listing: "menu items listing"
+            title: "menu item title"
+            save_error: "prohibited this menu item from being saved:"

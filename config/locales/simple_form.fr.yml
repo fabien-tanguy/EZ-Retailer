@@ -1,0 +1,21 @@
+fr:
+  simple_form:
+    "yes": 'Oui'
+    "no": 'Non'
+    required:
+      text: 'obligatoire'
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: "Merci de corriger l'(es) erreur(s) suivant(es)"
+    
+    # Labels and hints examples
+    labels:
+        page:
+            title: "titre"
+            menu_item_id: "titre dans lq nqvigation"
+        menu_item:
+            title: "titre"
+            order: "ordre dans la navigation"    
