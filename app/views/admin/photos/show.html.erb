@@ -1,11 +1,4 @@
-<p>
-  <b>Nom:</b>
-  <%= @photo.nom %>
-</p>
-<p>
-  <%= image_tag  @photo.image_url().to_s %>
+<%= image_tag  @photo.image_url().to_s %>
 
-</p>
+<%= link_to t('main.destroy'), @photo, method: :delete, data: { confirm: t('main.sure') } %>
 
-<%= link_to 'Edit', edit_admin_photo_path(@photo) %> |
-<%= link_to 'Back', admin_photos_path %>
