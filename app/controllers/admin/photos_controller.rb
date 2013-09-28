@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Admin::PhotosController < ApplicationController
   # GET /photos
   # GET /photos.json

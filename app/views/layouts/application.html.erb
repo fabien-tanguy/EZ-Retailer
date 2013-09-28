@@ -20,7 +20,11 @@
 		    	<h1><%= @title %></h1>
 		   </div>
 		  <!-- /header -->
-		<% end %>	
+		<% end %>
+			
+		<!-- Panel -->
+		<%= render('/layouts/panel') %>
+		
 		<div data-role="content">
 			<%= render 'layouts/messages' %>
 			<%= yield %>

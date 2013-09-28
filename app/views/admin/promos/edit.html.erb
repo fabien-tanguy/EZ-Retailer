@@ -1,0 +1,51 @@
+
+<div class="ui-grid-a">
+	<div class="ui-block-a">
+		<a href="#mypanel" data-role="button">Choisir photo</a>
+	</div>
+</div>		
+
+
+<!-- Gallery in list -->
+<ul data-role="listview" data-theme="c" data-inset="true" id="gallery">
+	<% @photos.each do |photo| %>
+			<li class="listview">
+				<%= link_to(image_tag(photo.image_url(:thumb_list)),admin_photo_path(photo))  %>
+			</li>
+	<% end %>
+</ul>
+
+<!-- Progress bar -->
+
+<script id="template-upload" type="text/x-tmpl">
+	<div class="upload">
+		<div class="progress"><div class="bar" style="width: 0%"></div></div>
+	</div>
+</script>
+
+<%= simple_form_for Photo.new, url: admin_photos_path, html: {:id => "new-photo"} do |f| %>
+	<%= f.error_notification %>
+
+	<ul data-role="listview" data-theme="c" data-inset="true"  data-divider-theme ="b">
+		<li data-role="list-divider" id="essai" >Gestion des images et des photos</li>
+		<li class="fieldcontain">
+			<%= f.input :image, input_html: {"name" => "photo[image]"} %>
+		</li>	
+	</ul> 
+<% end %>
+
+
+<%= simple_form_for(@promo) do |f| %>
+  <%= f.error_notification %>
+  
+  <ul data-role="listview" data-theme="c" data-inset="true"  data-divider-theme ="b">
+  	<li data-role="list-divider" >Mettre à jour le descriptif de ma promo</li>
+
+  		<li data-role="fieldcontain">
+			<%= f.input :description, :as => :text, input_html: {:cols => 50, :rows => 5}  %>
+  		</li>
+		<li data-role="fieldcontain"> 
+		   <%= f.button :submit %>
+		</li>
+  </ul>
+<% end %>

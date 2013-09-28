@@ -1,0 +1,35 @@
+<div class="ui-grid-a">
+	<div class="ui-block-a">
+		<label for="flip-mini">Activer la promo</label>
+		<br>
+		<select name="flip-mini" id="flip-mini1" data-role="slider" data-mini="true">
+			<option value="off">Off</option>
+			<option value="on">On</option>
+		</select>
+	</div>
+	<div class="ui-block-b">
+		<label for="flip-mini">Activer le focus</label>
+		<br>
+		<select name="flip-mini" id="flip-mini2" data-role="slider" data-mini="true">
+			<option value="off">Off</option>
+			<option value="on">On</option>
+		</select>		
+	</div>
+</div><!-- /grid-a -->
+
+
+
+
+<ul data-role="listview" data-theme="c" data-inset="true"  data-divider-theme ="b" >
+	<li><%= link_to "<i class='icon-tag'></i>&nbsp;Promo".html_safe, edit_admin_promo_path(@promo) %></li>
+</ul>	
+<ul data-role="listview" data-theme="c" data-inset="true"  data-divider-theme ="b" >
+	<li><%= link_to "<i class='icon-star'></i>&nbsp;Focus".html_safe, edit_admin_focu_path(@focus) %></li>
+</ul>
+
+<ul data-role="listview" data-theme="c" data-inset="true"  data-divider-theme ="b" >	
+	<li data-role="list-divider" >Mes informations permanentes</li>
+	<li><%= link_to "<i class='icon-th-list'></i>&nbsp;Activité".html_safe, edit_admin_activity_path(@activity) %></li>
+	<li><a href="#"><i class="icon-location"></i>&nbsp;Gérer mon Plan & mes horaires</a></li>
+	<li><a href="#"><i class="icon-phone-1"></i>&nbsp;Gérer mes coordonnées de contact</a></li>
+</ul>

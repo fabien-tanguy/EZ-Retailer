@@ -3,7 +3,9 @@ Adw::Application.routes.draw do
   
  
   namespace :admin do  
-     resources :photos 
+     resources :photos
+     resources :activities, :promos, :focus,  :only => [:edit, :update]
+     get "/", :to => "home#index", :as => "index"       
   end 
   
   

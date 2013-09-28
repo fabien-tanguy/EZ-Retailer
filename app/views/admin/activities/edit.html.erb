@@ -1,0 +1,14 @@
+<%= simple_form_for(@activity, url: admin_activity_path(@activity)) do |f| %>
+  <%= f.error_notification %>
+  
+  <ul data-role="listview" data-theme="c" data-inset="true"  data-divider-theme ="b">
+  	<li data-role="list-divider" >Mettre à jour le descriptif de mon activité</li>
+
+  		<li data-role="fieldcontain">
+			<%= f.input :description, :as => :text, input_html: {:cols => 50, :rows => 5}  %>
+  		</li>
+		<li data-role="fieldcontain"> 
+		   <%= f.button :submit %>
+		</li>
+  </ul>
+<% end %>
