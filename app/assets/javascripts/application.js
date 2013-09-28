@@ -16,4 +16,3 @@
 //= require jquery-fileupload/vendor/tmpl
 //= require jquery.mobile
 //= require admin/photos
-//= require admin/promos
