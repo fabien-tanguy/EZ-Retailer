@@ -1,5 +1,7 @@
 # encoding: utf-8
 class Admin::PhotosController < ApplicationController
+  layout 'admin'
+  
   # GET /photos
   # GET /photos.json
   def index

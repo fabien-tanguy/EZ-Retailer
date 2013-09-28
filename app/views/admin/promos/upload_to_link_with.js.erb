@@ -1,0 +1,7 @@
+<% if @photo.new_record? %>
+	alert('erreur dans l\'envoi');
+<% else %>
+	$('#thumb-selected').html('<%= image_tag(@photo.image_url(:thumb_list), :alt => "", :class => ["center-thumb", "thumb-selected"]) %>');
+	// hide the progress bar
+	$('.bar').fadeOut('slow');
+<% end %>

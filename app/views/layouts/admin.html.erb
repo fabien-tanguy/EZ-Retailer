@@ -12,15 +12,13 @@
 	<body class="home">
 	<!-- Home -->
 	<div data-role="page" class="page" <% unless request.fullpath != "/"%> id="home" <%end%>>
-		<% unless request.fullpath != "/"%>
-			<div id="wordmark"> <%= image_tag "logo-mobile-big.png", :alt =>" Logo Artisans du web", :width => "320" %> </div>
-			<h2 id="banner">&nbsp;</h2>
-		<% else %>
+	
 			<div data-role="header">
 		    	<h1><%= @title %></h1>
 		   </div>
-		  <!-- /header -->
-		<% end %>
+
+		<!-- Panel for media library -->
+		<%= render('/layouts/panel_admin') %>
 		
 		<div data-role="content">
 			<%= render 'layouts/messages' %>

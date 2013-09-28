@@ -1,5 +1,7 @@
 # encoding: utf-8
 class Admin::FocusController < ApplicationController
+  layout 'admin'
+  
   def edit 
     @title = "Modification Activité"
     @focus = Focu.first

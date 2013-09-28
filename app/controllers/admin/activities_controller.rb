@@ -1,5 +1,6 @@
 # encoding: utf-8
 class Admin::ActivitiesController < ApplicationController
+  layout 'admin'
   def edit 
     @title = "Modification Activité"
     @activity = Activity.first

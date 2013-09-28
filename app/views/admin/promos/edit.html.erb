@@ -3,7 +3,11 @@
 	<div class="ui-block-a">
 		<a href="#mypanel" data-role="button">Choisir photo</a>
 	</div>
+	<div class="ui-block-b" id="thumb-selected">
+		
+	</div>
 </div>		
+<!-- Or upload a new photo -->
 
 <!-- Progress bar -->
 
@@ -13,7 +17,9 @@
 	</div>
 </script>
 
-<%= simple_form_for Photo.new, url: admin_photos_path, html: {:id => "new-photo"} do |f| %>
+<!-- /Progress bar -->
+
+<%= simple_form_for Photo.new, url: admin_upload_to_link_path, html: {:id => "new-photo"} do |f| %>
 	<%= f.error_notification %>
 
 	<ul data-role="listview" data-theme="c" data-inset="true"  data-divider-theme ="b">
@@ -23,11 +29,14 @@
 	</ul> 
 <% end %>
 
+<!--   Update the promo      -->
 
 <%= simple_form_for(@promo) do |f| %>
   <%= f.error_notification %>
   
   <ul data-role="listview" data-theme="c" data-inset="true"  data-divider-theme ="b">
+
+		<%= hidden_field_tag(:photo_attached, "") %>			
 
   		<li data-role="fieldcontain">
 			<%= f.input :description, :as => :text, input_html: {:cols => 50, :rows => 5}  %>
@@ -37,3 +46,4 @@
 		</li>
   </ul>
 <% end %>
+<%= javascript_include_tag('admin/promos') %>

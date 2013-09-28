@@ -278,3 +278,25 @@ ui-btn-down-e {
     height: 5px;
     background: #F05323;
 }
+
+.ui-body-c .ui-link { 
+	border:none;	
+}
+
+.photo-selected {
+	border: solid 2px #FFFFFF;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.thumb-selected {
+	border: solid 2px #999999;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.center-thumb {
+	float:right;
+}

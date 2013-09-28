@@ -5,7 +5,8 @@ Adw::Application.routes.draw do
   namespace :admin do  
      resources :photos
      resources :activities, :promos, :focus,  :only => [:edit, :update]
-     get "/", :to => "home#index", :as => "index"       
+     get "/", :to => "home#index", :as => "index"
+     post "upload-to-link-with", :to => "promos#upload_to_link_with", :as => "upload_to_link"       
   end 
   
   
