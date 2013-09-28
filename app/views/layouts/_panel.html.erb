@@ -5,9 +5,7 @@
 		<br>
 		<% if @photos %> 
 			<% @photos.each do |photo| %>
-
 						<%= image_tag photo.image_url(:thumb_list), :alt => "" %>
-
 			<% end %>
 		<% end %>	
 	</div>

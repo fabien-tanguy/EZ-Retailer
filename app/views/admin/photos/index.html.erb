@@ -17,10 +17,8 @@
 
 
 <!-- Gallery in list -->
-<ul data-role="listview" data-theme="c" data-inset="true" id="gallery">
-	<% @photos.each do |photo| %>
-			<li class="listview">
+	<% if @photos %> 
+		<% @photos.each do |photo| %>
 				<%= link_to(image_tag(photo.image_url(:thumb_list)),admin_photo_path(photo))  %>
-			</li>
+		<% end %>
 	<% end %>
-</ul>
