@@ -1,31 +1,12 @@
 <div data-role="panel" data-display="overlay" id="mypanel" style="background:#333;">
 	<div >
-		<a href="#my-header" data-rel="close">Fermer</a>
-		<table data-role="table" id="album-panel" data-mode="reflow">
-		  <thead>
-		    <tr>
-		      <th>&nbsp;</th>
-		      <th>&nbsp;</th>
-		      <th>&nbsp;</th>
-		    </tr>
-		  </thead>
-		  <tbody>
-		    <tr>
-		      <td><%= image_tag 'logo_promo.jpg', :width => '32', :height => '32'%></td>
-		      <td><%= image_tag 'logo_promo.jpg', :width => '32', :height => '32'%></td>
-		      <td><%= image_tag 'logo_promo.jpg', :width => '32', :height => '32'%></td>
-		    </tr>
-		    <tr>
-		      <td><%= image_tag 'logo_promo.jpg', :width => '32', :height => '32'%></td>
-		      <td><%= image_tag 'logo_promo.jpg', :width => '32', :height => '32'%></td>
-		      <td><%= image_tag 'logo_promo.jpg', :width => '32', :height => '32'%></td>
-		    </tr>
-		    <tr>
-		      <td><%= image_tag 'logo_promo.jpg', :width => '32', :height => '32'%></td>
-		      <td><%= image_tag 'logo_promo.jpg', :width => '32', :height => '32'%></td>
-		      <td><%= image_tag 'logo_promo.jpg', :width => '32', :height => '32'%></td>
-		    </tr>
-		    </tbody>
-		</table>		
+		<a href="#my-header" data-rel="close" data-role="button">Fermer</a>
+		<br>
+		<br>
+			<% @photos.each do |photo| %>
+
+						<%= image_tag photo.image_url(:thumb_list), :alt => "" %>
+
+			<% end %>
 	</div>
 </div><!-- /panel -->
