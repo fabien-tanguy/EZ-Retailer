@@ -1,8 +1,6 @@
-<div class="ui-grid-a">
-	<% if @promo.photo_active %>
-		<%= image_tag @promo.photos[0].image_url, :alt => "promotion" %>
-	<% end %>
-	<br>
-	<br>
-	<%= @promo.description.html_safe.capitalize %>
-</div>
+<% if @promo.photo_active %>
+	<%= image_tag @promo.photos[0].image_url, :alt => "promotion" %>
+<% end %>
+<br>
+<br>
+<%= @promo.description.html_safe.capitalize %>
