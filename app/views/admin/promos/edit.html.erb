@@ -37,12 +37,12 @@
 
 <!-- Photo uploading  -->
 
-<%= simple_form_for Photo.new, url: admin_upload_to_link_path, html: {:id => "new-photo", :class => "photo-actived"} do |f| %>
+<%= simple_form_for Photo.new, url: admin_upload_to_link_path, html: {:id => "new-photo"} do |f| %>
 	<%= f.error_notification %>
 
 	<ul data-role="listview" data-theme="c" data-inset="true"  data-divider-theme ="b">
 		<li class="fieldcontain">
-			<%= f.input :image, label: false, input_html: {"name" => "photo[image]"} %>
+			<%= f.input :image, label: false, input_html: {"name" => "photo[image]", :class => "photo-actived"} %>
 		</li>	
 	</ul> 
 <% end %>
