@@ -53,9 +53,11 @@
   <%= f.error_notification %>
   
   <ul data-role="listview" data-theme="c" data-inset="true"  data-divider-theme ="b">
-
-		<%= hidden_field_tag(:photo_attached, @promo.photos[0].id, :id => "photo-selected-to-register") %>			
-
+		<% unless @promo.photos.empty? %>
+			<%= hidden_field_tag(:photo_attached, @promo.photos[0].id, :id => "photo-selected-to-register") %>			
+		<% else %>
+			<%= hidden_field_tag(:photo_attached, nil, :id => "photo-selected-to-register") %>							
+		<% end %>	
   		<li data-role="fieldcontain">
 			<%= f.input :description, :as => :text, input_html: {:cols => 50, :rows => 15}  %>
   		</li>
