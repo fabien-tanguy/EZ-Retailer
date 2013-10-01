@@ -1,7 +1,7 @@
 <% if @photo.new_record? %>
 	alert('erreur dans l\'envoi');
 <% else %>
-	$('#gallery').prepend('<%= link_to(image_tag(@photo.image_url(:thumb_list)),admin_photo_path(@photo), :class => "ui-link-inherit")%>');
+	$('#gallery').prepend('<%= link_to(image_tag(@photo.image_url(:thumb_list)),admin_photo_path(@photo), :class => "ui-link-inherit", :id => @photo.id)%>');
 	// hide the progress bar
 	$('.bar').fadeOut('slow'); 
 <% end %>

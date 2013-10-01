@@ -4,7 +4,7 @@ class Admin::PromosController < ApplicationController
   
   def edit 
     @title = "Modification Promo"
-    @promo = Activity.first
+    @promo = Promo.first
     @photos = Photo.all
   end
   
@@ -12,10 +12,13 @@ class Admin::PromosController < ApplicationController
   #PUT /promos/1
   def update
     @promo = Promo.find(params[:id])
+    @photo = Photo.find(params[:photo_attached].to_i)
     
-    if @promo.update_attributes(params[:id])
+    if @promo.update_attributes(params[:promo])
+      @promo.photos.clear
+      @promo.photos << @photo
       flash[:notice] = "Promo bien mise à jour"
-      redirect_to admin_home_path  
+      redirect_to admin_index_path  
     else
       @title = "Modification Promo"
       @photos = Photo.all 
@@ -34,5 +37,22 @@ class Admin::PromosController < ApplicationController
       end
     end
   end  
+  
+  def activate_photo
+    promo = Promo.find(params[:promo_id])
+    if params[:photo_active] == "false"
+      photo_activate = false
+    else 
+      photo_activate = true
+    end    
+    respond_to do |format|
+      if !promo.update_attributes(:photo_active => photo_activate)
+        format.js
+      else 
+        format.js { render :nothing => true }   
+      end  
+    end
+  end  
+  
       
 end

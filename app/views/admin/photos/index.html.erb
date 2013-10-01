@@ -17,12 +17,10 @@
 
 
 <!-- Gallery in list -->
-<div class="ui-grid-a">
-	<div id="gallery" class="ui-block-a">
-		<% if @photos %> 
-			<% @photos.each do |photo| %>
-					<%= link_to(image_tag(photo.image_url(:thumb_list)),admin_photo_path(photo))  %>
-			<% end %>
-		<% end %>	
-	</div>
+<div id="gallery">
+	<% if @photos %> 
+		<% @photos.each do |photo| %>					
+			<%= link_to(image_tag(photo.image_url(:thumb_list)),admin_photo_path(photo))  %>
+		<% end %>
+	<% end %>	
 </div>

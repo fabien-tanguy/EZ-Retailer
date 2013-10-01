@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130928154944) do
+ActiveRecord::Schema.define(:version => 20130930223054) do
 
   create_table "activities", :force => true do |t|
     t.text     "description"
@@ -21,8 +21,15 @@ ActiveRecord::Schema.define(:version => 20130928154944) do
 
   create_table "focus", :force => true do |t|
     t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+    t.boolean  "photo_active", :default => false
+    t.boolean  "active",       :default => false
+  end
+
+  create_table "focus_photos", :id => false, :force => true do |t|
+    t.integer "focu_id"
+    t.integer "photo_id"
   end
 
   create_table "photos", :force => true do |t|
@@ -39,8 +46,10 @@ ActiveRecord::Schema.define(:version => 20130928154944) do
 
   create_table "promos", :force => true do |t|
     t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+    t.boolean  "photo_active", :default => false
+    t.boolean  "active",       :default => false
   end
 
 end

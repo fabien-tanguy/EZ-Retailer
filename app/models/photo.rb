@@ -10,6 +10,6 @@ class Photo < ActiveRecord::Base
   
   
   #associations 
-  has_and_belongs_to_many :promos
+  has_and_belongs_to_many :promos, uniq: true
   
 end

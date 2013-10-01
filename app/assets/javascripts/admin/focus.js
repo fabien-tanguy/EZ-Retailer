@@ -4,16 +4,16 @@ $('#add-photo').on('change', function() {
 	{
 		$('.photo-actived').hide();
 		// ajax call to desactivate the photo 
-		var datas = {'photo_active': false, 'promo_id': $(this).attr('data-promo') }; 
-		$.post( "/admin/promos-activate-photo", datas);
+		var datas = {'photo_active': false, 'focus_id': $(this).attr('data-focus') }; 
+		$.post( "/admin/focus-activate-photo", datas);
 	}
 	else 
 	{
 		// ajax call to desactivate the photo 
 		$('.photo-actived').show();
 		// ajax call to desactivate the photo 
-		var datas = {'photo_active': true, 'promo_id': $(this).attr('data-promo') }; 
-		$.post( "/admin/promos-activate-photo", datas);		
+		var datas = {'photo_active': true, 'focus_id': $(this).attr('data-focus') }; 
+		$.post( "/admin/focus-activate-photo", datas);		
 	}
 });
 
@@ -25,6 +25,3 @@ $('.choose_from_album').click(function(){
 	var photo_selected = $('#thumb-selected img').attr("id");
     $('#photo-selected-to-register').val(photo_selected);
 });
-
-
-

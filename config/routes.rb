@@ -6,7 +6,15 @@ Adw::Application.routes.draw do
      resources :photos
      resources :activities, :promos, :focus,  :only => [:edit, :update]
      get "/", :to => "home#index", :as => "index"
-     post "upload-to-link-with", :to => "promos#upload_to_link_with", :as => "upload_to_link"       
+     
+     #promos
+     post "promo-upload-to-link-with", :to => "promos#upload_to_link_with", :as => "upload_to_link"       
+     post "promos-activate-photo", :to => "promos#activate_photo"       
+
+     #focus
+     post "focus-upload-to-link-with", :to => "focus#upload_to_link_with", :as => "upload_to_link"       
+     post "focus-activate-photo", :to => "focus#activate_photo"       
+     
   end 
   
   

@@ -1,10 +1,28 @@
+<form>
+    <ul data-role="listview">
+        <li data-role="fieldcontain">
+			<label for="add-photo">Ajouter une photo</label>
+			<br>
+			<select name="flip-mini" id="add-photo" data-role="slider" data-mini="true" data-promo="<%= @promo.id %>" >
+				<option value="off" <%= 'selected="true"' unless @promo.photo_active %> >Off</option>
+				<option value="on" <%= 'selected="true"' if @promo.photo_active %>  >On</option>
+			</select>
+        </li>
+    </ul>
+</form>
+<br>
+<br>		
 
-<div class="ui-grid-a">
+<div class="ui-grid-a <%= 'photo-actived' unless @promo.photo_active %>">
 	<div class="ui-block-a">
-		<a href="#mypanel" data-role="button">Choisir photo</a>
+		<a href="#mypanel" data-role="button" data-mini="true" data-theme="b">Choisir photo</a>
 	</div>
 	<div class="ui-block-b" id="thumb-selected">
-		
+		<% if !@promo.photos.empty?
+			@promo.photos.each do |p| %>
+				<%= image_tag(p.image_url(:thumb_list), :alt => "", :class => ["center-thumb", "thumb-selected"], :id => p.id) %>
+			<% end %>
+		<% end %>
 	</div>
 </div>		
 <!-- Or upload a new photo -->
@@ -12,14 +30,14 @@
 <!-- Progress bar -->
 
 <script id="template-upload" type="text/x-tmpl">
-	<div class="upload">
+	<div class="upload photo-actived">
 		<div class="progress"><div class="bar" style="width: 0%"></div></div>
 	</div>
 </script>
 
-<!-- /Progress bar -->
+<!-- Photo uploading  -->
 
-<%= simple_form_for Photo.new, url: admin_upload_to_link_path, html: {:id => "new-photo"} do |f| %>
+<%= simple_form_for Photo.new, url: admin_upload_to_link_path, html: {:id => "new-photo", :class => "photo-actived"} do |f| %>
 	<%= f.error_notification %>
 
 	<ul data-role="listview" data-theme="c" data-inset="true"  data-divider-theme ="b">
@@ -31,15 +49,18 @@
 
 <!--   Update the promo      -->
 
-<%= simple_form_for(@promo) do |f| %>
+<%= simple_form_for(@promo, url: admin_promo_path(@promo), method: "put", html: {"data-ajax" => false}) do |f| %>
   <%= f.error_notification %>
   
   <ul data-role="listview" data-theme="c" data-inset="true"  data-divider-theme ="b">
 
-		<%= hidden_field_tag(:photo_attached, "") %>			
+		<%= hidden_field_tag(:photo_attached, @promo.photos[0].id, :id => "photo-selected-to-register") %>			
 
   		<li data-role="fieldcontain">
-			<%= f.input :description, :as => :text, input_html: {:cols => 50, :rows => 5}  %>
+			<%= f.input :description, :as => :text, input_html: {:cols => 50, :rows => 15}  %>
+  		</li>
+  		<li data-role="fieldcontain">
+			<%= f.collection_radio_buttons :active, [[true, 'Active'] ,[false, 'Non active']], :first, :last %>
   		</li>
 		<li data-role="fieldcontain"> 
 		   <%= f.button :submit %>
