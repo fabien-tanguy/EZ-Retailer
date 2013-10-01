@@ -11,6 +11,9 @@ class HomeController < ApplicationController
   def promo
     @title = "Promos"
     @promo = Promo.first
+    unless @promo.active
+      redirect_to root_path
+    end    
   end
 
   def focus

@@ -1,3 +1,8 @@
 <div class="ui-grid-a">
-	<%= @focus.description.html_safe %>
+	<% if @focus.photo_active %>
+		<%= image_tag @focus.photos[0].image_url, :alt => "focus" %>
+	<% end %>
+	<br>
+	<br>
+	<%= @focus.description.html_safe.capitalize %>
 </div>
