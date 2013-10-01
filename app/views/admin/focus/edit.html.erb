@@ -57,7 +57,7 @@
 		<% unless @focus.photos.empty? %>
 			<%= hidden_field_tag(:photo_attached, @focus.photos[0].id, :id => "photo-selected-to-register") %>			
 		<% else %>
-		<%= hidden_field_tag(:photo_attached, nil, :id => "photo-selected-to-register") %>						
+		<%= hidden_field_tag(:photo_attached, @photo.id, :id => "photo-selected-to-register") %>						
 		<% end %>	
 		
   		<li data-role="fieldcontain">

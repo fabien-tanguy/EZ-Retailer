@@ -56,7 +56,7 @@
 		<% unless @promo.photos.empty? %>
 			<%= hidden_field_tag(:photo_attached, @promo.photos[0].id, :id => "photo-selected-to-register") %>			
 		<% else %>
-			<%= hidden_field_tag(:photo_attached, nil, :id => "photo-selected-to-register") %>							
+			<%= hidden_field_tag(:photo_attached, @photo.id, :id => "photo-selected-to-register") %>							
 		<% end %>	
   		<li data-role="fieldcontain">
 			<%= f.input :description, :as => :text, input_html: {:cols => 50, :rows => 15}  %>

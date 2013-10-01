@@ -3,9 +3,10 @@ class Admin::PromosController < ApplicationController
   layout 'admin'
   
   def edit 
-    @title = "Modification Promo"
-    @promo = Promo.first
+    @title  = "Modification Promo"
+    @promo  = Promo.first
     @photos = Photo.all
+    @photo  = Photo.first
   end
   
   

@@ -4,7 +4,7 @@ class Admin::HomeController < ApplicationController
   
   def index
     @title = "Administration"
-    @promo = Promo.all
+    @promo = Promo.first
     @focus = Focu.first
     @activity = Activity.first
 

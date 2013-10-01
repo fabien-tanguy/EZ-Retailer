@@ -3,9 +3,10 @@ class Admin::FocusController < ApplicationController
   layout 'admin'
   
   def edit 
-    @title = "Modification Activité"
-    @focus = Focu.first
+    @title  = "Modification Activité"
+    @focus  = Focu.first
     @photos = Photo.all
+    @photo  = Photo.first
   end
   
   

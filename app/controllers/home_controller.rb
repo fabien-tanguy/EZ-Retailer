@@ -3,6 +3,8 @@ class HomeController < ApplicationController
   
   def index 
     @title = "Site mobile et référencement géolocalisé | Artisans du web"
+    @promo = Promo.first
+    @focus = Focu.first
   end  
   
   
