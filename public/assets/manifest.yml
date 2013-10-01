@@ -11,8 +11,8 @@ thumb-promo-default.gif: thumb-promo-default-b54d7c26a01bb8f5378316601c585167.gi
 thumb-promo-default/index.gif: thumb-promo-default-b54d7c26a01bb8f5378316601c585167.gif
 admin/promos.js: admin/promos-7c587f5007143ad3d1bd4961d5427c1a.js
 admin/promos/index.js: admin/promos-7c587f5007143ad3d1bd4961d5427c1a.js
-application.js: application-261aa6b8ea47ed3757a010c0355ffda7.js
-application/index.js: application-261aa6b8ea47ed3757a010c0355ffda7.js
+application.js: application-b3afd9726b8526932d982df78bcda8d6.js
+application/index.js: application-b3afd9726b8526932d982df78bcda8d6.js
 application.css: application-c4a9460ea8e3169de5d13bdf60d0b4b0.css
 application/index.css: application-c4a9460ea8e3169de5d13bdf60d0b4b0.css
 fontello/LICENSE.txt: fontello/LICENSE-2e08a24ec9954508572fb0ea7db48800.txt

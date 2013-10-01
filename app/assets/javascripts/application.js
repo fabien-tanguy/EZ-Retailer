@@ -16,4 +16,4 @@
 //= require jquery-fileupload/vendor/tmpl
 //= require jquery.mobile
 //= require admin/photos
-//= require_tree . 
+//= require admin/focus
