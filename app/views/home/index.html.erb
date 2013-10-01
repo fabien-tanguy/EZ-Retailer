@@ -2,7 +2,7 @@
 	<% if promo_actived? @promo %>
 		<li><%= link_to "<i class='icon-tag'></i>&nbsp;Promo".html_safe,promo_path %></li>
 	<% end %>	
-	<% if focus_actived? @promo %>
+	<% if focus_actived? @focus %>
 		<li><%= link_to "<i class='icon-tag'></i>&nbsp;Focus".html_safe,focus_path %></li>
 	<% end %>
 	<li><%= link_to "<i class='icon-signal'></i>&nbsp;Activité".html_safe,activity_path %></li>

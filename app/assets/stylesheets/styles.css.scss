@@ -14,7 +14,7 @@
 .ui-bar-a .ui-link-inherit {color: #333;}
 .ui-bar-a .ui-link {color: #820000; font-weight: bold;}
 
-.ui-btn-up-a {border: 1px solid #600; background: #9a0000; font-weight: bold; color: #fff; cursor: pointer; text-shadow: 0 1px 1px #600; text-decoration: none; background-image: -moz-linear-gradient(top, #9a0000, #6e0000); background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #9a0000), color-stop(1, #6e0000)); -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#9a0000', EndColorStr='#6e0000')";}
+.ui-btn-up-a {border: 1px solid #600; background: #9a0000; font-weight: bold; color: #fff; cursor: pointer; text-decoration: none; background-image: -moz-linear-gradient(top, #9a0000, #6e0000); background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #9a0000), color-stop(1, #6e0000)); -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#9a0000', EndColorStr='#6e0000')";}
 .ui-btn-up-a a.ui-link-inherit {color: #fff;}
 .ui-btn-hover-a {border: 1px solid #600; background: #a00; font-weight: bold; color: #fff; text-decoration: none; text-shadow: 0 1px 1px #600; background-image: -moz-linear-gradient(top, #a00, #6e0000); background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #a00), color-stop(1, #6e0000)); -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#a00', EndColorStr='#6e0000')";}
 .ui-btn-hover-a a.ui-link-inherit {color: #fff;}
@@ -86,24 +86,7 @@ h2 {color: #820000;}
 .ui-header h1 {
 	text-transform:capitalize;	
 }
-/* Full Site/About icon spacing */
-.ui-btn-inner {
-	padding-left:40px;	
-}
-/* Nested list width fix http://bit.ly/fJGPsg */
-.ui-li .ui-btn-inner a.ui-link-inherit {
-	padding-top:0.7em;
-	padding-right:30px;
-	padding-bottom:0.7em;
-}
-/* Remove background seal */
-.ui-content {
-	background:none;
-}
-/* Make time aside smaller to allow for longer titles */
-.ui-li-aside {
-	width:20% !important;
-}
+
 /* add space after list dividers */
 ul.copy-divider {
 	margin:20px -15px 0 -15px !important;
@@ -157,14 +140,7 @@ p.intro {
 .ui-grid-b {
 	font-weight:normal;	
 }
-/* About */
-#about-stanford {
-	background:url(../img/logos/about-stanford.png) no-repeat left top;
-	text-indent:-5000px;
-	width:254px;
-	height:50px;
-	margin:0 auto;
-}
+
 /* Don't append headline */
 #news h3 {
 	white-space:normal;
@@ -265,6 +241,10 @@ ui-btn-down-e {
 			Custom styles 		  
 			
 **********************************/
+
+.ui-bar-a {
+	text-shadow:none;
+}
 
 .error {
 	color:red;
