@@ -15,9 +15,11 @@ class Admin::FocusController < ApplicationController
     @focus = Focu.find(params[:id])
     @photo = Photo.find(params[:photo_attached].to_i)
     
-    if @focus.updates_attributes(params[:id])
+    if @focus.update_attributes(params[:focus])
+      @focus.photos.clear
+      @focus.photos << @photo
       flash[:notice] = "Focus bien mise à jour"
-      redirect_to admin_home_path  
+      redirect_to admin_index_path  
     else
       @title = "Modification Focus"
       @photos = Photo.all 

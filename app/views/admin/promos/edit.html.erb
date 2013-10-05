@@ -4,8 +4,8 @@
 			<label for="add-photo">Ajouter une photo</label>
 			<br>
 			<select name="flip-mini" id="add-photo" data-role="slider" data-mini="true" data-promo="<%= @promo.id %>" >
-				<option value="off" <%= 'selected="true"' unless @promo.photo_active %> >Off</option>
-				<option value="on" <%= 'selected="true"' if @promo.photo_active %>  >On</option>
+				<option value=off <%= 'selected="true"' unless @promo.photo_active %> >Off</option>
+				<option value=on <%= 'selected="true"' if @promo.photo_active %>  >On</option>
 			</select>
         </li>
     </ul>
@@ -13,11 +13,33 @@
 <br>
 <br>		
 
-<div class="ui-grid-a <%= 'photo-actived' unless @promo.photo_active %>">
-	<div class="ui-block-a">
-		<a href="#mypanel" data-role="button" data-mini="true" data-theme="b">Choisir photo</a>
+<div class="ui-grid-a <%='photo-actived' unless @promo.photo_active %>">
+	<div class="ui-block-a <%='photo-actived' unless @promo.photo_active %>">
+		<a href="#mypanel" data-role="button" data-mini="true" data-theme="b">Depuis l'album</a>
+		<br>
+		<!-- Or upload a new photo -->
+
+		<!-- Progress bar -->
+
+		<script id="template-upload" type="text/x-tmpl">
+			<div class="upload">
+				<div class="progress"><div class="bar" style="width: 0%"></div></div>
+			</div>
+		</script>
+
+		<!-- Photo uploading  -->
+
+		<%= simple_form_for Photo.new, url: admin_upload_to_link_path, html: {:id => "new-photo"} do |f| %>
+			<%= f.error_notification %>
+
+			<ul data-role="listview" data-theme="c" data-inset="true"  data-divider-theme ="b">
+				<li class="fieldcontain">
+					<%= f.input :image, label: false, input_html: {"name" => "photo[image]"} %>
+				</li>	
+			</ul> 
+		<% end %>
 	</div>
-	<div class="ui-block-b" id="thumb-selected">
+	<div class="ui-block-b <%= 'photo-actived' unless @promo.photo_active %>" id="thumb-selected">
 		<% if !@promo.photos.empty?
 			@promo.photos.each do |p| %>
 				<%= image_tag(p.image_url(:thumb_list), :alt => "", :class => ["center-thumb", "thumb-selected"], :id => p.id) %>
@@ -25,27 +47,6 @@
 		<% end %>
 	</div>
 </div>		
-<!-- Or upload a new photo -->
-
-<!-- Progress bar -->
-
-<script id="template-upload" type="text/x-tmpl">
-	<div class="upload photo-actived">
-		<div class="progress"><div class="bar" style="width: 0%"></div></div>
-	</div>
-</script>
-
-<!-- Photo uploading  -->
-
-<%= simple_form_for Photo.new, url: admin_upload_to_link_path, html: {:id => "new-photo"} do |f| %>
-	<%= f.error_notification %>
-
-	<ul data-role="listview" data-theme="c" data-inset="true"  data-divider-theme ="b">
-		<li class="fieldcontain">
-			<%= f.input :image, label: false, input_html: {"name" => "photo[image]", :class => "photo-actived"} %>
-		</li>	
-	</ul> 
-<% end %>
 
 <!--   Update the promo      -->
 
@@ -62,10 +63,10 @@
 			<%= f.input :description, :as => :text, input_html: {:cols => 50, :rows => 15}  %>
   		</li>
   		<li data-role="fieldcontain">
-			<%= f.collection_radio_buttons :active, [[true, 'Active'] ,[false, 'Non active']], :first, :last %>
+			<%= f.collection_radio_buttons :active, [[true, 'Activer la promo'] ,[false, 'Désactiver la promo']], :first, :last %>
   		</li>
 		<li data-role="fieldcontain"> 
-		   <%= f.button :submit %>
+		   <%= f.button :submit, 'Enregistrer' %>
 		</li>
   </ul>
 <% end %>

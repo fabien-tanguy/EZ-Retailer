@@ -1,6 +1,6 @@
 // photo to add or not 
 $('#add-photo').on('change', function() {
-  	if($(this).val() == "off") 
+  	if($(this).val() == 'off') 
 	{
 		$('.photo-actived').hide();
 		// ajax call to desactivate the photo 
