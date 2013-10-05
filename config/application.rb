@@ -66,5 +66,6 @@ module Adw
     config.assets.version = '1.0'
     
     config.assets.precompile += %w(admin/focus.js)
+    config.assets.initialize_on_precompile = false
   end
 end

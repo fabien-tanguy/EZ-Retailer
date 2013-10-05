@@ -2,6 +2,8 @@ Adw::Application.routes.draw do
  
   
  
+  devise_for :admins
+
   namespace :admin do  
      resources :photos
      resources :activities, :promos, :focus,  :only => [:edit, :update]
