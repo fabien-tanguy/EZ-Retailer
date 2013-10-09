@@ -14,8 +14,8 @@ Activity.create!(:description => "décrire mon activité (mes produits et servic
 
 # Create Promo
 Promo.delete_all 
-Promo.create!(:description => "décrire ma ou mes promo(s), attention la description doit contenir au minimum 10 lettres")
+Promo.create!(:title => "le titre de votre promo", :description => "décrire ma ou mes promo(s), attention la description doit contenir au minimum 10 lettres")
 
 # Create Focus
 Focu.delete_all 
-Focu.create!(:description => "décrire ma ou mes focus, attention la description doit contenir au minimum 10 lettres")
+Focu.create!(:title => "le titre de votre focus", :description => "décrire ma ou mes focus, attention la description doit contenir au minimum 10 lettres")
