@@ -1,7 +1,7 @@
 # encoding: utf-8
 class Admin::ActivitiesController < ApplicationController
   
-  before_filter :authenticate_user!
+  before_filter :authenticate_admin!
   layout 'admin'
   def edit 
     @title = "Modification Activité"
