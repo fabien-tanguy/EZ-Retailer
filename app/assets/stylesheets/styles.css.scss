@@ -235,7 +235,7 @@ ui-btn-down-e {
 .icon-th-list:before { content: '\e807'; }
 .icon-picture:before {content: '\E800';}
 .icon-mail:before {content: '\E803';}
-
+.icon-comment:before {content: '\E81E';}
 
 /*********************************
 
@@ -301,13 +301,13 @@ ui-btn-down-e {
 .photo-featured {
 	display:block;
 	width:480px;
-	margin:0 auto 0 auto;
+	margin:0 auto 0 0;
 } 
 
 .title-featured {
 	width:480px;
-	margin:0 auto 0 auto;
-	text-align:center;	
+	text-align:left;
+	font-size:1.5em;
 }
 
 /* Flexible iFrame for Google Map */

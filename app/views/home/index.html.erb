@@ -12,6 +12,13 @@
 <br>
 <br>
 <br>
-<ul data-role="listview" data-inset="true">
-	<li data-theme="e"><%= link_to "<i class='icon-th-large'></i>&nbsp;&nbsp;Admin".html_safe, admin_index_path %></li>	
-</ul>
+<% if admin_signed_in? %>
+	<ul data-role="listview" data-inset="true">
+		<li data-theme="a"><%= link_to "<i class='icon-th-large'></i>&nbsp;Se déconnecter".html_safe, destroy_admin_session_path %>
+		</li>
+	</ul>		
+<% else %>		
+	<ul data-role="listview" data-inset="true">
+		<li data-theme="e"><%= link_to "<i class='icon-th-large'></i>&nbsp;&nbsp;Admin".html_safe, admin_index_path %></li>
+	</ul>
+<% end %>

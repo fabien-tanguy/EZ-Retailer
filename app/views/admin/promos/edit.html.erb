@@ -78,6 +78,8 @@
 <% end %>
 
 <ul data-role="listview" data-inset="true">
-	<li data-theme="e"><%= link_to "<i class='icon-th-large'></i>&nbsp;Aller sur le site".html_safe, promo_path %></li>	
+	<li data-theme="e"><%= link_to "<i class='icon-th-large'></i>&nbsp;Aller sur le site".html_safe, promo_path %></li>
+	<li data-theme="a"><%= link_to "<i class='icon-th-large'></i>&nbsp;Se déconnecter".html_safe, destroy_admin_session_path %>
+	</li>	
 </ul>
 <%= javascript_include_tag('admin/promos') %>
