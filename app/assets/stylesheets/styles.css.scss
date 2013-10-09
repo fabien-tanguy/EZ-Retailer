@@ -185,8 +185,8 @@ ui-btn-down-e {
 
 @font-face {
   font-family: 'fontello';
-  src: url("fontello/font/adw.eot");
-  src: url("fontello/font/adw.eot") format('embedded-opentype'), url("fontello/font/adw.woff") format('woff'), url("fontello/font/adw.ttf") format('truetype'), url("fontello/font/adw.svg") format('svg');
+  src: url("fontello/font/mob-adw.eot");
+  src: url("fontello/font/mob-adw.eot") format('embedded-opentype'), url("fontello/font/mob-adw.woff") format('woff'), url("fontello/font/mob-adw.ttf") format('truetype'), url("fontello/font/mob-adw.svg") format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -227,13 +227,14 @@ ui-btn-down-e {
 /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
 
-.icon-tag:before { content: '\e811'; }
-.icon-signal:before { content: '\e819'; }
-.icon-location:before { content: '\e812'; } 
-.icon-phone-1:before { content: '\e803'; }
-.icon-th-large:before { content: '\e82c'; }
-.icon-star:before { content: '\e800'; }
-.icon-th-list:before { content: '\e82a'; }
+.icon-tag:before { content: '\e820'; }
+.icon-signal:before { content: '\e80f'; }
+.icon-location:before { content: '\e80e'; } 
+.icon-th-large:before { content: '\e806'; }
+.icon-star:before { content: '\e804'; }
+.icon-th-list:before { content: '\e807'; }
+.icon-picture:before {content: '\E800';}
+.icon-mail:before {content: '\E803';}
 
 
 /*********************************
@@ -254,8 +255,19 @@ ui-btn-down-e {
 	border-color:red;
 }			
 
+.upload {
+	border:solid 1px  #F05323;
+	border-radius:10px;
+	padding:4px 8px;
+}
+
+.progress {
+/**	border:solid 4px blue;*/
+	
+}
+
 .bar {
-    height: 5px;
+    height: 2px;
     background: #F05323;
 }
 
@@ -280,9 +292,6 @@ ui-btn-down-e {
 .center-thumb {
 	float:right;
 }
-.photo-actived {
-	display:none;
-}
 
 .actived {
 	color:green;
@@ -291,3 +300,20 @@ ui-btn-down-e {
 .non-actived {
 	color:red;
 }
+
+.photo-desactived {
+	display:none;
+}
+
+.photo-featured {
+	display:block;
+	width:480px;
+	margin:0 auto 0 auto;
+} 
+
+.title-featured {
+	width:480px;
+	margin:0 auto 0 auto;
+	text-align:center;	
+}
+

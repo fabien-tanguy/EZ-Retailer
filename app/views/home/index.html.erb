@@ -1,17 +1,17 @@
 <ul data-role="listview" data-theme="c" data-inset="true">
 	<% if @promo.active %>
-		<li><%= link_to "<i class='icon-tag'></i>&nbsp;Promo".html_safe,promo_path,  "data-transition" => "flip" %></li>
+		<li><%= link_to "<i class='icon-tag'></i>&nbsp;&nbsp;Promo".html_safe,promo_path,  "data-transition" => "flip" %></li>
 	<% end %>	
 	<% if @focus.active %>
-		<li><%= link_to "<i class='icon-tag'></i>&nbsp;Focus".html_safe,focus_path, "data-transition" => "flip" %></li>
+		<li><%= link_to "<i class='icon-star'></i>&nbsp;&nbsp;#{@focus.type_of_focus}".html_safe,focus_path, "data-transition" => "flip" %></li>
 	<% end %>
-	<li><%= link_to "<i class='icon-signal'></i>&nbsp;Activité".html_safe,activity_path, "data-transition" => "flip" %></li>
-	<li><%= link_to "<i class='icon-location'></i>&nbsp;Plan & Horaires".html_safe,map_path, "data-transition" => "flip" %></li>
-	<li><%= link_to "<i class='icon-phone'></i>&nbsp;Contact".html_safe,contact_path, "data-transition" => "flip" %></li>
+	<li><%= link_to "<i class='icon-signal'></i>&nbsp;&nbsp;Mieux nous connaître".html_safe,activity_path, "data-transition" => "flip" %></li>
+	<li><%= link_to "<i class='icon-location'></i>&nbsp;&nbsp;Plan & Horaires".html_safe,map_path, "data-transition" => "flip" %></li>
+	<li><%= link_to "<i class='icon-mail'></i>&nbsp;&nbsp;Contact".html_safe,contact_path, "data-transition" => "flip" %></li>
 </ul>
 <br>
 <br>
 <br>
 <ul data-role="listview" data-inset="true">
-	<li data-theme="e"><%= link_to "<i class='icon-th-large'></i>&nbsp;Admin".html_safe, admin_index_path %></li>	
+	<li data-theme="e"><%= link_to "<i class='icon-th-large'></i>&nbsp;&nbsp;Admin".html_safe, admin_index_path %></li>	
 </ul>

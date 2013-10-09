@@ -3,7 +3,7 @@ class Admin::FocusController < ApplicationController
   layout 'admin'
   
   def edit 
-    @title  = "Modification Activité"
+    @title  = "Focus"
     @focus  = Focu.first
     @photos = Photo.all
     @photo  = Photo.first
@@ -15,11 +15,11 @@ class Admin::FocusController < ApplicationController
     @focus = Focu.find(params[:id])
     @photo = Photo.find(params[:photo_attached].to_i)
     
-    if @focus.update_attributes(params[:focus])
+    if @focus.update_attributes(params[:focu])
       @focus.photos.clear
       @focus.photos << @photo
       flash[:notice] = "Focus bien mise à jour"
-      redirect_to admin_index_path  
+      redirect_to edit_admin_focu_path(@focus)   
     else
       @title = "Modification Focus"
       @photos = Photo.all 
@@ -40,10 +40,10 @@ class Admin::FocusController < ApplicationController
   
   def activate_photo
     focus = Focu.find(params[:focus_id])
-    if params[:photo_active] == "false"
-      photo_activate = false
-    else 
+    if params[:photo_active]
       photo_activate = true
+    else 
+      photo_activate = false
     end    
     respond_to do |format|
       if !focus.update_attributes(:photo_active => photo_activate)

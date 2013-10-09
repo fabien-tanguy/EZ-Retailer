@@ -17,8 +17,8 @@ class HomeController < ApplicationController
   end
 
   def focus
-    @title = "Focus"
     @focus = Focu.first
+    @title = @focus.type_of_focus
   end
   
   def activities
@@ -28,7 +28,6 @@ class HomeController < ApplicationController
 
   def map 
     @title = "Plan & horaires"
-    @image_map = Photo.find(5)
   end
   
   def contact

@@ -23,6 +23,9 @@
 		<div data-role="content">
 			<%= render 'layouts/messages' %>
 			<%= yield %>
+			<ul data-role="listview" data-inset="true">
+				<li data-theme="e"><%= link_to "<i class='icon-th-large'></i>&nbsp;Accueil Admin".html_safe, admin_index_path %></li>	
+			</ul>
 		</div>
 		<!-- end content --> 
 	</div>

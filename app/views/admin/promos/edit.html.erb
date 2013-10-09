@@ -1,9 +1,9 @@
 <form>
     <ul data-role="listview">
         <li data-role="fieldcontain">
-			<label for="add-photo">Ajouter une photo</label>
+			<label for="add-photo-promo">Ajouter une photo</label>
 			<br>
-			<select name="flip-mini" id="add-photo" data-role="slider" data-mini="true" data-promo="<%= @promo.id %>" >
+			<select name="flip-mini" id="add-photo-promo" data-role="slider" data-mini="true" data-promo="<%= @promo.id %>" >
 				<option value=off <%= 'selected="true"' unless @promo.photo_active %> >Off</option>
 				<option value=on <%= 'selected="true"' if @promo.photo_active %>  >On</option>
 			</select>
@@ -13,8 +13,8 @@
 <br>
 <br>		
 
-<div class="ui-grid-a <%='photo-actived' unless @promo.photo_active %>">
-	<div class="ui-block-a <%='photo-actived' unless @promo.photo_active %>">
+<div class="ui-grid-a photo-actived <%='photo-desactived' unless @promo.photo_active %>">
+	<div class="ui-block-a photo-actived <%='photo-desactived' unless @promo.photo_active %>">
 		<a href="#mypanel" data-role="button" data-mini="true" data-theme="b">Depuis l'album</a>
 		<br>
 		<!-- Or upload a new photo -->
@@ -39,7 +39,7 @@
 			</ul> 
 		<% end %>
 	</div>
-	<div class="ui-block-b <%= 'photo-actived' unless @promo.photo_active %>" id="thumb-selected">
+	<div class="ui-block-b photo-actived <%='photo-desactived' unless @promo.photo_active %>" id="thumb-selected">
 		<% if !@promo.photos.empty?
 			@promo.photos.each do |p| %>
 				<%= image_tag(p.image_url(:thumb_list), :alt => "", :class => ["center-thumb", "thumb-selected"], :id => p.id) %>
@@ -58,16 +58,23 @@
 			<%= hidden_field_tag(:photo_attached, @promo.photos[0].id, :id => "photo-selected-to-register") %>			
 		<% else %>
 			<%= hidden_field_tag(:photo_attached, @photo.id, :id => "photo-selected-to-register") %>							
-		<% end %>	
+		<% end %>
+		<li data-role="fieldcontain">
+			<%= f.input :title, label: "Titre de la promo", required: true  %>
+  		</li>	
   		<li data-role="fieldcontain">
-			<%= f.input :description, :as => :text, input_html: {:cols => 50, :rows => 15}  %>
+			<%= f.input :description, :as => :text, input_html: {:cols => 50, :rows => 15}, required: true  %>
   		</li>
   		<li data-role="fieldcontain">
-			<%= f.collection_radio_buttons :active, [[true, 'Activer la promo'] ,[false, 'Désactiver la promo']], :first, :last %>
+			<%= f.collection_radio_buttons :active, [[true, 'Promo activée'] ,[false, 'Promo désactivée']], :first, :last %>
   		</li>
 		<li data-role="fieldcontain"> 
 		   <%= f.button :submit, 'Enregistrer' %>
 		</li>
   </ul>
 <% end %>
+
+<ul data-role="listview" data-inset="true">
+	<li data-theme="e"><%= link_to "<i class='icon-th-large'></i>&nbsp;Aller sur le site".html_safe, promo_path %></li>	
+</ul>
 <%= javascript_include_tag('admin/promos') %>

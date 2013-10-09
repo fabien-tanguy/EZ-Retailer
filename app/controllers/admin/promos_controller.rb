@@ -19,7 +19,7 @@ class Admin::PromosController < ApplicationController
       @promo.photos.clear
       @promo.photos << @photo
       flash[:notice] = "Promo bien mise à jour"
-      redirect_to admin_index_path  
+      redirect_to edit_admin_promo_path(@promo)  
     else
       @title = "Modification Promo"
       @photos = Photo.all 
@@ -41,10 +41,10 @@ class Admin::PromosController < ApplicationController
   
   def activate_photo
     promo = Promo.find(params[:promo_id])
-    if params[:photo_active] == "false"
-      photo_activate = false
-    else 
+    if params[:photo_active]
       photo_activate = true
+    else 
+      photo_activate = false
     end    
     respond_to do |format|
       if !promo.update_attributes(:photo_active => photo_activate)
@@ -54,6 +54,5 @@ class Admin::PromosController < ApplicationController
       end  
     end
   end  
-  
-      
+   
 end

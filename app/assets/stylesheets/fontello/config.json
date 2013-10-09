@@ -1,277 +1,231 @@
 {
-  "name": "adw",
+  "name": "mob-adw",
   "css_prefix_text": "icon-",
   "css_use_suffix": false,
   "hinting": true,
+  "units_per_em": 1000,
+  "ascent": 850,
   "glyphs": [
-    {
-      "uid": "474656633f79ea2f1dad59ff63f6bf07",
-      "css": "star",
-      "code": 59392,
-      "src": "fontawesome"
-    },
-    {
-      "uid": "9f7e588c66cfd6891f6f507cf6f6596b",
-      "css": "phone",
-      "code": 59393,
-      "src": "fontawesome"
-    },
-    {
-      "uid": "b6ef4443ecc502136135437837d9724b",
-      "css": "mail",
-      "code": 59394,
-      "src": "elusive"
-    },
-    {
-      "uid": "e1c372b8d386329b38dff5cd1ec46513",
-      "css": "star-1",
-      "code": 59397,
-      "src": "elusive"
-    },
-    {
-      "uid": "93faa7cec68bf69ec455bbab61e58e48",
-      "css": "th",
-      "code": 59398,
-      "src": "elusive"
-    },
-    {
-      "uid": "67a9d2e5512b8aa812eff7da6d36bffc",
-      "css": "ok-circled",
-      "code": 59396,
-      "src": "elusive"
-    },
-    {
-      "uid": "fd32deda7b2f5b8cad46d13897c19ae8",
-      "css": "cancel-circled",
-      "code": 59399,
-      "src": "elusive"
-    },
-    {
-      "uid": "c91098f07ff0df45b3f8666b72b75801",
-      "css": "phone-1",
-      "code": 59395,
-      "src": "elusive"
-    },
-    {
-      "uid": "5403802c07a547ae140985f9e2c6bc73",
-      "css": "globe",
-      "code": 59402,
-      "src": "elusive"
-    },
-    {
-      "uid": "b622423405bcc984de6553e2f23c9fb6",
-      "css": "barcode",
-      "code": 59401,
-      "src": "elusive"
-    },
-    {
-      "uid": "5e5a88921aa39b292bdd56c3b9c923d3",
-      "css": "gift",
-      "code": 59400,
-      "src": "elusive"
-    },
     {
       "uid": "221947bea81f49a11b863c686a7bd235",
       "css": "search",
-      "code": 59403,
+      "code": 59393,
       "src": "websymbols"
     },
     {
       "uid": "cba6018f5de17c76f70b7d2c06037e5a",
-      "css": "mail-1",
-      "code": 59404,
+      "css": "mail",
+      "code": 59395,
       "src": "websymbols"
     },
     {
       "uid": "1526e1ee08023c1542cbf65d3a9afa93",
-      "css": "star-2",
-      "code": 59405,
+      "css": "star",
+      "code": 59396,
+      "src": "websymbols"
+    },
+    {
+      "uid": "fd3128bf109153952b1b775ea574504b",
+      "css": "user",
+      "code": 59428,
       "src": "websymbols"
     },
     {
       "uid": "c23a66951b34ed7d449688d559afb213",
       "css": "video",
-      "code": 59407,
+      "code": 59397,
       "src": "websymbols"
     },
     {
       "uid": "baa375529925294ea0a2bc889c93ba2d",
       "css": "picture",
-      "code": 59406,
+      "code": 59392,
       "src": "websymbols"
     },
     {
       "uid": "46cacfc5030a225f338323a3538a18e8",
       "css": "th-large",
-      "code": 59436,
+      "code": 59398,
       "src": "websymbols"
     },
     {
       "uid": "84d19120538dd143b9cf5433f2417f48",
       "css": "th-list",
-      "code": 59434,
+      "code": 59399,
       "src": "websymbols"
     },
     {
       "uid": "157f2382d2c608c41d984c693174c83b",
       "css": "ok-circle",
-      "code": 59411,
+      "code": 59400,
       "src": "websymbols"
     },
     {
       "uid": "15739f3032c2aa3df67efc96b3ffef56",
       "css": "cancel-circle",
-      "code": 59412,
-      "src": "websymbols"
-    },
-    {
-      "uid": "a66e72da83c98248ae3ef43808efc452",
-      "css": "plus-circle",
-      "code": 59413,
+      "code": 59401,
       "src": "websymbols"
     },
     {
       "uid": "994eaa764b3f30721f3839c64c390ce3",
       "css": "minus-circle",
-      "code": 59414,
+      "code": 59427,
       "src": "websymbols"
     },
     {
       "uid": "21115bb09fa242341cb91ed34710aa13",
       "css": "attach",
-      "code": 59415,
+      "code": 59402,
+      "src": "websymbols"
+    },
+    {
+      "uid": "95c84da411a955a12baff8b0859c9276",
+      "css": "lock",
+      "code": 59403,
       "src": "websymbols"
     },
     {
       "uid": "5184430eda6a2b9c989990e4bca70746",
       "css": "lock-open",
-      "code": 59408,
+      "code": 59425,
       "src": "websymbols"
     },
     {
       "uid": "e6ad31134a018fdeb64efe72d39edd65",
       "css": "tag",
-      "code": 59409,
+      "code": 59424,
+      "src": "websymbols"
+    },
+    {
+      "uid": "63e2a597d744c3093e09fdd6108ee44f",
+      "css": "retweet",
+      "code": 59423,
+      "src": "websymbols"
+    },
+    {
+      "uid": "889a8bd0b481e3523ede8a7d75164cd1",
+      "css": "comment",
+      "code": 59422,
+      "src": "websymbols"
+    },
+    {
+      "uid": "b52aa05c9c55c41f1768cdaa940401a8",
+      "css": "comment-alt",
+      "code": 59421,
+      "src": "websymbols"
+    },
+    {
+      "uid": "21f6a88daf13c62e5a70f5ef6ad9e23f",
+      "css": "chat",
+      "code": 59420,
       "src": "websymbols"
     },
     {
       "uid": "69f76f7134f721d16c28ab23f84d4882",
       "css": "location",
-      "code": 59410,
+      "code": 59406,
+      "src": "websymbols"
+    },
+    {
+      "uid": "f242fed2af708c938523b0e14d9c6b07",
+      "css": "folder",
+      "code": 59419,
       "src": "websymbols"
     },
     {
       "uid": "26aba7edd46944209b4961670675a813",
       "css": "cog",
-      "code": 59416,
+      "code": 59405,
+      "src": "websymbols"
+    },
+    {
+      "uid": "74b2f1d1ee541715b3f389f7cdf63d1c",
+      "css": "logout",
+      "code": 59404,
       "src": "websymbols"
     },
     {
       "uid": "501f33ed61da407feb057a7699ef93f7",
       "css": "clock",
-      "code": 59435,
+      "code": 59426,
+      "src": "websymbols"
+    },
+    {
+      "uid": "41eeea14413f2539da21b4d1754bf4be",
+      "css": "arrows-cw",
+      "code": 59417,
       "src": "websymbols"
     },
     {
       "uid": "af3a08c6f521a065252ee35392864e15",
       "css": "signal",
-      "code": 59417,
-      "src": "websymbols"
-    },
-    {
-      "uid": "c87205006317fa2c4baa78a8f010336e",
-      "css": "progress-0",
-      "code": 59426,
-      "src": "websymbols"
-    },
-    {
-      "uid": "219f912320853b772ced5ef8dcd90aa8",
-      "css": "progress-1",
-      "code": 59427,
-      "src": "websymbols"
-    },
-    {
-      "uid": "52a572564b343cac4094f4065d9a60c7",
-      "css": "progress-2",
-      "code": 59428,
-      "src": "websymbols"
-    },
-    {
-      "uid": "e1619edac8d9d337c29dad11e661b5ca",
-      "css": "progress-3",
-      "code": 59429,
-      "src": "websymbols"
-    },
-    {
-      "uid": "7eb19468929f2d110339227ab4ea795f",
-      "css": "progress-4",
-      "code": 59430,
-      "src": "websymbols"
-    },
-    {
-      "uid": "be68e15ee051e52d4922090cd05c176c",
-      "css": "progress-5",
-      "code": 59431,
-      "src": "websymbols"
-    },
-    {
-      "uid": "5c56ff8528dc54a54e8c1d4a850b9014",
-      "css": "progress-6",
-      "code": 59432,
-      "src": "websymbols"
-    },
-    {
-      "uid": "a54fbbda12ee4eff1a91d04a80f836b1",
-      "css": "progress-7",
-      "code": 59433,
+      "code": 59407,
       "src": "websymbols"
     },
     {
       "uid": "7e25a96981e6bd6b1592c409da293c45",
       "css": "cloud",
-      "code": 59423,
+      "code": 59415,
       "src": "websymbols"
     },
     {
       "uid": "ebbe0cc0600cb69375abc20af545967f",
       "css": "facebook-rect",
-      "code": 59422,
+      "code": 59416,
       "src": "websymbols"
     },
     {
       "uid": "a4765de460cc6485b1ca5b36222f41d5",
       "css": "twitter-bird",
-      "code": 59421,
+      "code": 59418,
       "src": "websymbols"
     },
     {
       "uid": "335bfd225407f1205eddd3d47744e6be",
       "css": "vimeo-rect",
-      "code": 59420,
+      "code": 59410,
       "src": "websymbols"
     },
     {
       "uid": "9829cb345a4512f5aece933ba836ff1f",
       "css": "tumblr-rect",
-      "code": 59419,
+      "code": 59409,
       "src": "websymbols"
     },
     {
       "uid": "0e5740f288f6f5cb04eef63f7f0a1506",
       "css": "googleplus-rect",
-      "code": 59418,
+      "code": 59408,
+      "src": "websymbols"
+    },
+    {
+      "uid": "8870252f5da59a63564fb6790a347c8e",
+      "css": "linkedin-rect",
+      "code": 59414,
       "src": "websymbols"
     },
     {
       "uid": "a25ef3626c7bd7031709a8264f280bfe",
       "css": "skype",
-      "code": 59425,
+      "code": 59413,
+      "src": "websymbols"
+    },
+    {
+      "uid": "f6dfd6896053ff75262b8ad4baec251e",
+      "css": "vkontakte-rect",
+      "code": 59412,
       "src": "websymbols"
     },
     {
       "uid": "2d3ce9463ed5525c6faa01f84c957843",
       "css": "youtube",
-      "code": 59424,
+      "code": 59411,
+      "src": "websymbols"
+    },
+    {
+      "uid": "5fb90c2cd2cc4ceb3fb6e787aae73fd3",
+      "css": "odnoklassniki-rect",
+      "code": 59394,
       "src": "websymbols"
     }
   ]
