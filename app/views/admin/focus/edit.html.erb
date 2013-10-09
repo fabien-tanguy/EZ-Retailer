@@ -1,8 +1,9 @@
-<form>
-    <ul data-role="listview">
-        <li data-role="fieldcontain">
-			<label for="add-photo-focus">Ajouter une photo</label>
-			<br>
+<form class="add-photo">
+    <ul data-role="listview" data-divider-theme="e" data-inset="true">
+        <li data-role="list-divider">
+			Ajouter une photo à mon focus 
+		</li>
+		<li class="fieldcontain">
 			<select name="flip-mini" id="add-photo-focus" data-role="slider" data-mini="true" data-focus="<%= @focus.id %>" >
 				<option value=off <%= 'selected="true"' unless @focus.photo_active %> >Off</option>
 				<option value=on <%= 'selected="true"' if @focus.photo_active %>  >On</option>
@@ -10,46 +11,45 @@
         </li>
     </ul>
 </form>
-<br>
-<br>		
 
-<div class="ui-grid-a photo-actived <%='photo-desactived' unless @focus.photo_active %>">
-	<div class="ui-block-a photo-actived <%='photo-desactived' unless @focus.photo_active %>">
-		<a href="#mypanel" data-role="button" data-mini="true" data-theme="b">Depuis l'album</a>
-		<br>
-		<!-- Or upload a new photo -->
+<ul data-role="listview" data-theme="c" data-divider-theme="c" data-inset="true" class="photo-actived <%='photo-desactived' unless @focus.photo_active %>">
+	<li data-role="list-divider">
+		&nbsp;
+	</li>
+	<li>
+		<a href="#mypanel">Depuis l'album</a>
+	</li>
+	
+	<!-- *********** Or upload a new photo ************* -->
+	
 
-		<!-- Progress bar -->
+	<!-- Progress bar -->
 
-		<script id="template-upload" type="text/x-tmpl">
-			<div class="upload">
-				<div class="progress"><div class="bar" style="width: 0%"></div></div>
-			</div>
-		</script>
+	<script id="template-upload" type="text/x-tmpl">
+		<li class="upload">
+			<div class="progress"><div class="bar" style="width: 0%"></div></div>
+		</li>
+	</script>
 
-		<!-- Photo uploading  -->
-
-		<%= simple_form_for Photo.new, url: admin_upload_to_link_path, html: {:id => "new-photo"} do |f| %>
-			<%= f.error_notification %>
-
-			<ul data-role="listview" data-theme="c" data-inset="true"  data-divider-theme ="b">
-				<li class="fieldcontain">
-					<%= f.input :image, label: false, input_html: {"name" => "photo[image]"} %>
-				</li>	
-			</ul> 
-		<% end %>
-	</div>
-	<div class="ui-block-b photo-actived <%= 'photo-desactived' unless @focus.photo_active %>" id="thumb-selected">
-		<% if !@focus.photos.empty?
-			@focus.photos.each do |p| %>
-				<%= image_tag(p.image_url(:thumb_list), :alt => "", :class => ["center-thumb", "thumb-selected"], :id => p.id) %>
+	<!-- Photo uploading  -->
+	<%= simple_form_for Photo.new, url: admin_upload_to_link_path, html: {:id => "new-photo"} do |f| %>
+		<li class="fieldcontain"><%= f.error_notification %></li>
+		<li class="fieldcontain">
+				<%= f.input :image, label: false, input_html: {"name" => "photo[image]"} %>
+			</li>	
+	<% end %>
+	
+		<!-- ********************************************** -->
+		<li class="photo-actived <%= 'photo-desactived' unless @focus.photo_active %>"  id="thumb-selected">
+			<% if !@focus.photos.empty?
+				@focus.photos.each do |p| %>
+					<%= link_to image_tag(p.image_url(:thumb_list), :alt => "", :class => "thumb-selected", :id => p.id), admin_photo_path(p.id) %>
+				<% end %>
 			<% end %>
-		<% end %>
-	</div>
-</div>
-
-<!--   Update the focus      -->
-
+		</li>
+	</ul>
+	
+	<!-- **************  Update the promo  ************** -->
 <%= simple_form_for(@focus, url: admin_focu_path(@focus), method: "put", html: {"data-ajax" => false}) do |f| %>
   <%= f.error_notification %>
   
