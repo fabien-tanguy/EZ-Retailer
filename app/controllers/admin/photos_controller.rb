@@ -2,6 +2,7 @@
 class Admin::PhotosController < ApplicationController
 
   before_filter :authenticate_admin!
+  before_filter :no_param_after_destroy, only: :show 
   layout 'admin'
   
   # GET /photos
@@ -83,8 +84,18 @@ class Admin::PhotosController < ApplicationController
     @photo.destroy
 
     respond_to do |format|
-      format.html { redirect_to admin_photos_url }
+      format.html { redirect_to admin_photos_path }
       format.json { head :no_content }
     end
   end
+  
+  
+  private 
+  
+  def no_param_after_destroy 
+    if Photo.find_by_id(params[:id]) == nil
+      redirect_to admin_photos_path
+    end  
+  end  
+  
 end
