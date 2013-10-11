@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Artisans du web | Mobile</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <!-- For iphone -->	
+   <link rel="apple-touch-icon" href="/adw-icone.png">
+  
+  <%= stylesheet_link_tag  "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>	
+
+  <%= csrf_meta_tags %>
+</head>
+	<body class="home">
+	<!-- Home -->
+	<div data-role="page" class="page" <% unless request.fullpath != "/"%> id="home" <%end%>>
+			<div data-role="header">
+				<a href="/" data-icon="home" class="ui-btn-left" data-iconpos="notext" data-transition="flip">Accueil</a>
+		    	<h1><%= @title %></h1>
+		   </div>
+		  <!-- /header -->
+		
+		
+		<!-- Panel for media library -->
+		<%= render('/layouts/panel_admin') %>
+		
+		<div data-role="content">
+			<%= render 'layouts/messages' %>
+			<%= yield %>
+		</div>
+		<!-- end content --> 
+	</div>
+	<!-- end page -->	
+</body>
+</html>
+

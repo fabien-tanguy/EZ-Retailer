@@ -3,5 +3,7 @@
 <% else %>
 	$('#thumb-selected').html('<%= image_tag(@photo.image_url(:thumb_list), :alt => "", :class => ["center-thumb", "thumb-selected"], :id => @photo.id) %>');
 	// hide the progress bar
-	$('.bar').fadeOut('slow');
+	$('.upload-message').fadeOut('slow',function(){
+		$('.upload').fadeOut('slow'); 		
+	});
 <% end %>

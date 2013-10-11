@@ -3,6 +3,7 @@ class Admin::PhotosController < ApplicationController
 
   before_filter :authenticate_admin!
   before_filter :no_param_after_destroy, only: :show 
+
   layout 'admin'
   
   # GET /photos
@@ -50,7 +51,7 @@ class Admin::PhotosController < ApplicationController
 
     respond_to do |format|
       if @photo.save
-        format.html { redirect_to admin_photo_path(@photo), notice: 'Photo was successfully created.' }
+        format.html { redirect_to admin_photo_path(@photo), flash[:notice]= 'Photo was successfully created.' }
         format.json { render json: @photo, status: :created, location: @photo }
         format.js
       else
@@ -82,13 +83,29 @@ class Admin::PhotosController < ApplicationController
     @photo = Photo.find(params[:id])
     @photo.remove_image! if @photo.image_url 
     @photo.destroy
+    @photos = Photo.all
+
 
     respond_to do |format|
-      format.html { redirect_to admin_photos_path }
-      format.json { head :no_content }
+      flash[:notice] = "Photo bien supprimée"
+      format.html
     end
   end
   
+  
+  # DELETE /photos/1
+  # DELETE /photos/1.json
+  def destroy_photo
+    @photo = Photo.find(params[:id])
+    @photo.remove_image! if @photo.image_url 
+    @photo.destroy
+
+
+    respond_to do |format|
+      flash[:notice] = "Photo bien supprimée"
+      format.html { redirect_to admin_photos_path}
+    end
+  end
   
   private 
   
@@ -96,6 +113,7 @@ class Admin::PhotosController < ApplicationController
     if Photo.find_by_id(params[:id]) == nil
       redirect_to admin_photos_path
     end  
-  end  
+  end 
+  
   
 end

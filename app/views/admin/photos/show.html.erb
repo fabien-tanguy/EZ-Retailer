@@ -1,5 +1,5 @@
-<%= image_tag  @photo.image_url().to_s %>
+<%= image_tag  @photo.image_url().to_s, :class => "photo-featured" %>
 <ul data-role="listview" data-theme="c" data-inset="true">
-	<li><%= link_to "<i class='icon-th-list'></i>&nbsp;#{t('main.destroy')}".html_safe, admin_photo_path(@photo), method: :delete, data: { confirm: t('main.sure') } %></li>
+	<li><%= link_to "<i class='icon-th-list'></i>&nbsp;#{t('main.destroy')}".html_safe,  admin_destroy_photo_path(@photo) , "data-ajax" => false %></li>
 </ul>
 

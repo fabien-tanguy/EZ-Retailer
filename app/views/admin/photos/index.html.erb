@@ -9,14 +9,14 @@
 	<%= f.error_notification %>
 
 	<ul data-role="listview" data-theme="c" data-inset="true"  data-divider-theme ="b">
-		<li data-role="list-divider" id="essai" >Gestion des images et des photos</li>
+		<li data-role="list-divider" id="essai" >Ajouter une photo</li>
 		<li class="fieldcontain">
 			<%= f.input :image, input_html: {"name" => "photo[image]"} %>
 		</li>	
 	</ul> 
 <% end %>
 
-
+<h2>Mon album :</h2>
 <!-- Gallery in list -->
 <div id="gallery">
 	<% if @photos %> 
@@ -26,6 +26,6 @@
 	<% end %>	
 </div>
 <ul data-role="listview" data-inset="true">
-	<li data-theme="a"><%= link_to "<i class='icon-logout'></i>&nbsp;Se déconnecter".html_safe, destroy_admin_session_path, method: :delete, data: { confirm: t('main.sure') }, "data-ajax" => "false" %>
+	<li data-theme="a"><%= link_to "<i class='icon-logout'></i>&nbsp;Se déconnecter".html_safe, destroy_admin_session_path, method: :delete, data: { confirm: t('main.sure') }, "data-ajax" => false %>
 	</li>
 </ul>	

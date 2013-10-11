@@ -2,9 +2,14 @@ Adw::Application.routes.draw do
  
   
  
+ # resources :produits
+
+
   devise_for :admins
 
   namespace :admin do  
+     #photos 
+     get "destroy_photo/:id", :to => "photos#destroy_photo", :as => "destroy_photo"  
      resources :photos
      resources :activities, :promos, :focus,  :only => [:edit, :update]
      get "/", :to => "home#index", :as => "index"
@@ -16,6 +21,7 @@ Adw::Application.routes.draw do
      #focus
      post "focus-upload-to-link-with", :to => "focus#upload_to_link_with", :as => "upload_to_link"       
      post "focus-activate-photo", :to => "focus#activate_photo"       
+     
      
   end 
   

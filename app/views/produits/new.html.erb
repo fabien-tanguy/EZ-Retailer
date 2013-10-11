@@ -1,0 +1,61 @@
+<form class="add-photo">
+    <ul data-role="listview" data-divider-theme="e" data-inset="true">
+        <li data-role="list-divider">
+			Ajouter une photo à mon produit 
+		</li>	
+		<li class="fieldcontain">	
+			<select name="flip-mini" id="add-photo-produit" data-role="slider" data-mini="true" data-promo="<%= @produit.id %>" >
+				<option value=off <%= 'selected="true"' unless @produit.photo_active %> >Off</option>
+				<option value=on <%= 'selected="true"' if @produit.photo_active %>  >On</option>
+			</select>
+        </li>
+    </ul>
+</form>
+	
+<ul data-role="listview" data-theme="c" data-divider-theme="c" data-inset="true" class="photo-actived <%='photo-desactived' unless @produit.photo_active %>">
+	<li data-role="list-divider">
+		&nbsp;
+	</li>
+	<li>
+		<a href="#mypanel">Depuis l'album</a>
+	</li>	
+	
+	<!-- *********** Or upload a new photo ************* -->
+	
+	
+	<!-- Progress bar -->
+
+	<script id="template-upload" type="text/x-tmpl">
+		<p class="upload-message">Merci de patienter pendant le traitement de votre photo ...</p>
+		<div class="upload">
+			<div class="progress"><div class="bar" style="width: 0%"></div></div>
+		</div>
+	</script>
+
+
+	<!-- Photo uploading  -->
+	<%= simple_form_for Photo.new, url: admin_upload_to_link_path, html: {:id => "new-photo"} do |f| %>
+		<li class="fieldcontain"><%= f.error_notification %></li>
+		<li class="fieldcontain">
+				<%= f.input :image, label: false, input_html: {"name" => "photo[image]"} %>
+			</li>	
+	<% end %>
+	
+	
+	<!-- ********************************************** -->
+	<li class="photo-actived <%= 'photo-desactived' unless @produit.photo_active %>"  id="thumb-selected">
+		<% if !@produit.photos.empty?
+			@produit.photos.each do |p| %>
+				<%= link_to image_tag(p.image_url(:thumb_list), :alt => "", :class => "thumb-selected", :id => p.id), admin_photo_path(p.id) %>
+			<% end %>
+		<% end %>
+	</li>
+</ul>		
+
+	<!-- **************  Ajout du produit  ************** -->
+
+	<%= render 'form' %>
+
+	<%= link_to 'Back', produits_path %>
+	
+	<%= javascript_include_tag('produits.js') %>
