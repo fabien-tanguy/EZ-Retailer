@@ -6,7 +6,8 @@
 
   <ul data-role="listview" data-theme="c" data-inset="true"  data-divider-theme ="b">
   	<li data-role="fieldcontain">
-		<%= f.collection_radio_buttons :type_of_produit, [['Produit', 'Produit'],['Service', 'Service']], :first, :last, label: "Produit ou Service"  %>
+		<label class="text optional control-label ui-input-text">Produit ou Service ?</label>
+		<%= f.collection_radio_buttons :type_of_produit, [['Produit', 'Produit'],['Service', 'Service']], :first, :last %>
   	</li>
 	<li data-role="fieldcontain">
 		<%= f.input :titre %>
