@@ -1,0 +1,26 @@
+<%= simple_form_for(@produit, url: admin_produits_path, method: "post", html: {"data-ajax" => false}) do |f| %>
+  <%= f.error_notification %>
+
+  <%= hidden_field_tag(:photo_attached, "", :id => "photo-selected-to-register") %>	
+  <%= hidden_field_tag("produit[photo_active]", "", :id => "photo-active") %>	
+
+  <ul data-role="listview" data-theme="c" data-inset="true"  data-divider-theme ="b">
+  	<li data-role="fieldcontain">
+		<%= f.collection_radio_buttons :type_of_produit, [['Produit', 'Produit'],['Service', 'Service']], :first, :last, label: "Produit ou Service"  %>
+  	</li>
+	<li data-role="fieldcontain">
+		<%= f.input :titre %>
+	</li>
+	<li data-role="fieldcontain">
+    	<%= f.input :description %>		
+	</li>
+	
+	<li data-role="fieldcontain">
+	    <%= f.input :prix %>	
+	</li>
+	
+	<li data-role="fieldcontain"> 
+	   <%= f.button :submit, 'Modifier' %>
+	</li>
+  </ul>
+<% end %>

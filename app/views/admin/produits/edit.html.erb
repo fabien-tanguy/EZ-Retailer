@@ -1,10 +1,11 @@
+<h2 class="title-featured">Modifier un produit ou un service</h2>
 <form class="add-photo">
     <ul data-role="listview" data-divider-theme="e" data-inset="true">
         <li data-role="list-divider">
 			Ajouter une photo à mon produit 
 		</li>	
 		<li class="fieldcontain">	
-			<select name="flip-mini" id="add-photo-produit" data-role="slider" data-mini="true" data-promo="<%= @produit.id %>" >
+			<select name="flip-mini" id="add-photo-produit" data-role="slider" data-mini="true" data-produit="" >
 				<option value=off <%= 'selected="true"' unless @produit.photo_active %> >Off</option>
 				<option value=on <%= 'selected="true"' if @produit.photo_active %>  >On</option>
 			</select>
@@ -46,16 +47,29 @@
 	<li class="photo-actived <%= 'photo-desactived' unless @produit.photo_active %>"  id="thumb-selected">
 		<% if !@produit.photos.empty?
 			@produit.photos.each do |p| %>
-				<%= link_to image_tag(p.image_url(:thumb_list), :alt => "", :class => "thumb-selected", :id => p.id), admin_photo_path(p.id) %>
+				<%= link_to image_tag(p.image_url(:thumb_list), :alt => "", :class => "thumb-selected", :id => p.id), "" %>
 			<% end %>
 		<% end %>
 	</li>
 </ul>		
 
-	<!-- **************  Ajout du produit  ************** -->
+	<!-- **************  Modification du produit ou du service  ************** -->
+<%= render 'form_edit' %>
+<br>
+<br>
+<ul data-role="listview" data-inset="true">	
+	<li data-theme="e"><%= link_to "<i class='icon-th-large'></i>&nbsp;Supprimer".html_safe, admin_photo_path, method: :delete, data: { confirm: t('main.sure') }, "data-ajax" => "false" %>
+	</li>	
+</ul>
+<br>
+<br>
+<br>
+<% if admin_signed_in? %>
+	<ul data-role="listview" data-inset="true">
+		<li data-theme="e"><%= link_to "<i class='icon-th-large'></i>&nbsp;Aller dans l'admin".html_safe, edit_admin_focu_path(@produit) %></li>
+		<li data-theme="a"><%= link_to "<i class='icon-th-large'></i>&nbsp;Se déconnecter".html_safe, destroy_admin_session_path, method: :delete, data: { confirm: t('main.sure') }, "data-ajax" => "false" %>
+		</li>	
+	</ul>
+<% end %>
 
-	<%= render 'form' %>
-
-	<%= link_to 'Back', produits_path %>
-	
-	<%= javascript_include_tag('produits.js') %>
+<%= javascript_include_tag('admin/produits') %>

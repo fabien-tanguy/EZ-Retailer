@@ -17,8 +17,8 @@ $(document).on('pageinit',function() {
 		}
 		else 
 		{
+
 			// ajax call to activate the photo 
-			// ajax call to desactivate the photo 
 			var datas = {'photo_active': true, 'focus_id': $(this).attr('data-focus') }; 
 			$.post( "/admin/focus-activate-photo", datas,function(){
 				$('#add-photo-focus').slider({ disabled: false });

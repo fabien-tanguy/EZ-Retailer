@@ -1,24 +1,26 @@
 Adw::Application.routes.draw do
- 
-  
- 
- # resources :produits
-
 
   devise_for :admins
 
   namespace :admin do  
+        
      #photos 
-     get "destroy_photo/:id", :to => "photos#destroy_photo", :as => "destroy_photo"  
-     resources :photos
+     get "destroy_photo/:id", :to => "photos#destroy_photo", :as => "destroy_photo"
+     
+     #produits with photo       
+     post "produits-activate-photo", :to => "produits#activate_photo"
+     
+       
+     resources :photos, :produits    
      resources :activities, :promos, :focus,  :only => [:edit, :update]
+     
      get "/", :to => "home#index", :as => "index"
      
      #promos
-     post "promo-upload-to-link-with", :to => "promos#upload_to_link_with", :as => "upload_to_link"       
      post "promos-activate-photo", :to => "promos#activate_photo"       
 
      #focus
+     # upload_with_links for focus, promos and produits 
      post "focus-upload-to-link-with", :to => "focus#upload_to_link_with", :as => "upload_to_link"       
      post "focus-activate-photo", :to => "focus#activate_photo"       
      
@@ -29,6 +31,8 @@ Adw::Application.routes.draw do
   # front-end pages 
   get "promo", :to => "home#promo", :as => "promo"
   get "focus", :to => "home#focus", :as => "focus"
+  get "produits", :to => "home#produits", :as => "produit"
+  get "services", :to => "home#services", :as => "service"
   get "notre-activite", :to => "home#activities", :as => "activity"
   get "plan-horaires", :to => "home#map", :as => "map"
   get "contact", :to => "home#contact", :as => "contact"

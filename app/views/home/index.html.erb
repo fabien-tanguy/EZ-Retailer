@@ -5,6 +5,14 @@
 	<% if @focus.active %>
 		<li><%= link_to "<i class='icon-star'></i>&nbsp;&nbsp;#{@focus.type_of_focus}".html_safe,focus_path, "data-transition" => "flip" %></li>
 	<% end %>
+	<% unless @produits.empty? %>
+		<li><%= link_to "<i class='icon-th-list'></i>&nbsp;&nbsp;Produits".html_safe,produit_path, "data-transition" => "flip" %>
+		</li>
+	<% end %>
+	<% unless @services.empty? %>	
+		<li><%= link_to "<i class='icon-th-list'></i>&nbsp;&nbsp;Services".html_safe,service_path, "data-transition" => "flip" %>
+		</li>
+	<% end %>	
 	<li><%= link_to "<i class='icon-user'></i>&nbsp;&nbsp;Mieux nous connaître".html_safe,activity_path, "data-transition" => "flip" %></li>
 	<li><%= link_to "<i class='icon-location'></i>&nbsp;&nbsp;Plan & Horaires".html_safe,map_path, "data-transition" => "flip" %></li>
 	<li><%= link_to "<i class='icon-mail'></i>&nbsp;&nbsp;Contact".html_safe,contact_path, "data-transition" => "flip" %></li>

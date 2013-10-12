@@ -1,0 +1,31 @@
+<ul data-role="listview" data-divider-theme="e" data-inset="true">
+	<li data-role="list-divider">
+		Produits
+	</li>
+	<% @produits.each do |produit| %>
+		<li>
+
+			<% if produit.photo_active and !produit.photos.empty? %>
+				<%= link_to "#{image_tag(produit.photos[0].image_url(:thumb_list), :alt => 'produit', :class => 'photo-featured')}&nbsp;&nbsp;<h1>#{produit.titre}</h1>".html_safe, admin_produit_path(produit) %>
+			<% else %>
+				<%= link_to "<h1>#{produit.titre}</h1>".html_safe, admin_produit_path(produit) %>
+			<% end %>
+		</li>
+	<% end %>
+</ul>
+
+<ul data-role="listview" data-divider-theme="e" data-inset="true">
+	<li data-role="list-divider">
+		Services
+	</li>
+	<% @services.each do |serv| %>
+		<li>
+
+			<% if serv.photo_active and !serv.photos.empty? %>
+				<%= link_to "#{image_tag(serv.photos[0].image_url(:thumb_list), :alt => 'service', :class => 'photo-featured')}&nbsp;&nbsp;<h1>#{serv.titre}</h1>".html_safe, admin_produit_path(serv) %>
+			<% else %>
+				<%= link_to "<h1>#{serv.titre}</h1>".html_safe, admin_produit_path(serv) %>
+			<% end %>
+		</li>
+	<% end %>
+</ul>

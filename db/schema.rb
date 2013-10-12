@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131011230028) do
+ActiveRecord::Schema.define(:version => 20131012162625) do
 
   create_table "activities", :force => true do |t|
     t.text     "description"
@@ -73,9 +73,10 @@ ActiveRecord::Schema.define(:version => 20131011230028) do
     t.string   "titre"
     t.text     "description"
     t.string   "prix"
-    t.boolean  "photo_active", :default => false
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
+    t.boolean  "photo_active",    :default => false
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+    t.string   "type_of_produit", :default => "Produit"
   end
 
   create_table "promos", :force => true do |t|

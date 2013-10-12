@@ -5,6 +5,8 @@ class HomeController < ApplicationController
     @title = "Site mobile et référencement géolocalisé | Artisans du web"
     @promo = Promo.first
     @focus = Focu.first
+    @produits = Produit.where(:type_of_produit => "Produit").limit(15).order("created_at DESC")
+    @services = Produit.where(:type_of_produit => "Service").limit(15).order("created_at DESC")
   end  
   
   
@@ -20,6 +22,17 @@ class HomeController < ApplicationController
     @focus = Focu.first
     @title = @focus.type_of_focus
   end
+  
+  def produits
+    @produits = Produit.where(:type_of_produit => "Produit").limit(15).order("created_at DESC")
+    @title = "Produits"
+  end
+  
+  def services
+    @services = Produit.where(:type_of_produit => "Service").limit(15).order("created_at DESC")
+    @title = "Services"
+  end
+  
   
   def activities
     @title = "Notre activité"    

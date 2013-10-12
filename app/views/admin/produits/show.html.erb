@@ -1,0 +1,33 @@
+<h2 class="title-featured"><%= @produit.titre.html_safe.upcase %></h2>
+<% if @produit.photo_active and !@produit.photos.empty? %>
+	<%= image_tag @produit.photos[0].image_url, :alt => "produit", :class => "photo-featured" %>
+<% end %>
+<br>
+<br>
+<%= @produit.description.capitalize.gsub(/\n/, '<br/>').html_safe %>
+<br>
+<% if @produit.prix != '' %>
+	<strong>
+		Prix: <%= @produit.prix %>
+	</strong>
+<% end %>	
+<br>
+<% if admin_signed_in? %>
+	<ul data-role="listview" data-inset="true">
+		<li data-theme="e"><%= link_to "<i class='icon-th-large'></i>&nbsp;Modifier".html_safe, edit_admin_produit_path(@produit) %>
+		</li>
+	</ul>
+	<ul data-role="listview" data-inset="true">	
+		<li data-theme="e"><%= link_to "<i class='icon-th-large'></i>&nbsp;Supprimer".html_safe, admin_produit_path, method: :delete, data: { confirm: t('main.sure') }, "data-ajax" => "false" %>
+		</li>	
+	</ul>
+	<br>
+	<br>
+	<br>
+	<ul data-role="listview" data-inset="true">
+		<li data-theme="e"><%= link_to "<i class='icon-th-large'></i>&nbsp;Aller dans l'admin".html_safe, edit_admin_focu_path(@produit) %></li>
+		<li data-theme="a"><%= link_to "<i class='icon-th-large'></i>&nbsp;Se déconnecter".html_safe, destroy_admin_session_path, method: :delete, data: { confirm: t('main.sure') }, "data-ajax" => "false" %>
+		</li>	
+	</ul>
+<% end %>
+

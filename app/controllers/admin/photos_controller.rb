@@ -97,14 +97,15 @@ class Admin::PhotosController < ApplicationController
   # DELETE /photos/1.json
   def destroy_photo
     @photo = Photo.find(params[:id])
-    @photo.remove_image! if @photo.image_url 
-    @photo.destroy
-
-
-    respond_to do |format|
+    if @photo.focus.empty? and @photo.produits.empty? and @photo.promos.empty?
+      @photo.remove_image! if @photo.image_url 
+      @photo.destroy
       flash[:notice] = "Photo bien supprimée"
-      format.html { redirect_to admin_photos_path}
-    end
+      redirect_to admin_photos_path
+    else
+      flash[:notice] = "Impossible de supprimer cette photo, vérifiez qu'elle n'est pas liée à un focus, à un produit ou à une promo"
+      redirect_to admin_photos_path
+    end  
   end
   
   private 
