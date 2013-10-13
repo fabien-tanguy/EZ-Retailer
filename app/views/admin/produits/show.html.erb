@@ -14,7 +14,7 @@
 <br>
 <% if admin_signed_in? %>
 	<ul data-role="listview" data-inset="true">
-		<li data-theme="e"><%= link_to "<i class='icon-th-large'></i>&nbsp;Modifier".html_safe, edit_admin_produit_path(@produit) %>
+		<li data-theme="e"><%= link_to "<i class='icon-th-large'></i>&nbsp;Modifier".html_safe, edit_admin_produit_path(@produit), "data-ajax" => "false" %>
 		</li>
 	</ul>
 	<ul data-role="listview" data-inset="true">	

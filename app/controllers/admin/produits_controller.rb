@@ -66,12 +66,14 @@ class Admin::ProduitsController < ApplicationController
   # PUT /produits/1.json
   def update
     @produit = Produit.find(params[:id])
-    @photo = Photo.find(params[:photo_attached].to_i)
+    @photo = Photo.find_by_id(params[:photo_attached].to_i)
     
     respond_to do |format|
       if @produit.update_attributes(params[:produit])
-        @produit.photos.clear
-        @produit.photos << @photo
+        if @photo 
+          @produit.photos.clear
+          @produit.photos << @photo
+        end  
         format.html { redirect_to admin_produits_path, notice: 'Le Produit ou le service a bien été mis à jour.' }
       else
         format.html { render action: "edit" }

@@ -11,9 +11,9 @@
 		<li>
 
 			<% if produit.photo_active and !produit.photos.empty? %>
-				<%= link_to "#{image_tag(produit.photos[0].image_url(:thumb_list), :alt => 'produit', :class => 'photo-featured')}&nbsp;&nbsp;<h1>#{produit.titre}</h1>".html_safe, admin_produit_path(produit) %>
+				<%= link_to "#{image_tag(produit.photos[0].image_url(:thumb_list), :alt => 'produit', :class => 'photo-featured')}&nbsp;&nbsp;<h1>#{produit.titre}</h1>".html_safe, admin_produit_path(produit), "data-ajax" => "false" %>
 			<% else %>
-				<%= link_to "<h1>#{produit.titre}</h1>".html_safe, admin_produit_path(produit) %>
+				<%= link_to "<h1>#{produit.titre}</h1>".html_safe, admin_produit_path(produit), "data-ajax" => "false" %>
 			<% end %>
 		</li>
 	<% end %>
