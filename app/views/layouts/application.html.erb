@@ -15,7 +15,7 @@
 	<!-- Home -->
 	<div data-role="page" class="page" <% unless request.fullpath != "/"%> id="home" <%end%>>
 		<% unless request.fullpath != "/"%>
-			<div id="wordmark"> <%= image_tag "logo-mobile-big.png", :alt =>" Logo Artisans du web", :width => "320" %> </div>
+			<div id="wordmark"> <%= image_tag "logo-mobile-320px.png", :alt =>" Logo Artisans du web", :width => "320" %> </div>
 			<h2 id="banner">&nbsp;</h2>
 		<% else %>
 			<div data-role="header">
