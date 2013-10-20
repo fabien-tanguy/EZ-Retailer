@@ -4,7 +4,7 @@
 	<br>
 	<% if @photos %> 
 		<% @photos.each do |photo| %>
-					<%= image_tag(photo.image, :alt => "", :class => "choose_from_album", :id => photo.id) %>
+					<%= image_tag(photo.image_url, :alt => "", :class => "choose_from_album", :id => photo.id) %>
 		<% end %>
 	<% end %>	
 </div><!-- /panel -->
