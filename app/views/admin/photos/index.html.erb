@@ -1,47 +1,19 @@
 <ul data-role="listview" data-theme="c" data-inset="true"  data-divider-theme ="b">
-	<li><a href="#" id="add-pho">Ajouter une photo</a></li>
+	<li><%= link_to "Ajouter une photo", new_admin_photo_path, "data-ajax" => false %></li>
 </ul>
-<script id="template-upload" type="text/x-jquery-tmpl">
-	<p class="upload-message">Merci de patienter pendant le traitement de votre photo ...
-	</p>
-	<div class="upload" data-role=dialog>
-		<div class="progress">
-			<div class="bar" style="width: 0%"></div>
-		</div>
-	</div>
-
-</script>
-<div data-role="dialog" id="45">
-	<div data-role="header"><h1>Ajouter une photo</h1></div>
-	<%= simple_form_for Photo.new, url: admin_photos_path, html: {:id => "new-photo"} do |f| %>
-		<%= f.error_notification %>
-
-		<ul data-role="listview" data-theme="c" data-inset="true"  data-divider-theme ="b">
-			<li data-role="list-divider" id="essai" >Ajouter une photo</li>
-			<li class="fieldcontain">
-				<%= f.input :image, input_html: {"name" => "photo[image]"} %>
-			</li>	
-		</ul> 
-	<% end %>	
-</div>
-
-
-<h2>Mon album :</h2>
-<!-- Gallery in list -->
-<div id="gallery">
+<ul data-role="listview" data-theme="c" data-inset="true"  data-divider-theme ="b">
+	<li data-role="list-divider">
+		Mon album
+	</li>
 	<% if @photos %> 
 		<% @photos.each do |photo| %>					
-			<%= link_to(image_tag(photo.image_url(:thumb_list)),admin_photo_path(photo))  %>
+			<li><%= link_to(image_tag(photo.image_url),admin_photo_path(photo),:width => "80", :height => "80")  %></li>
 		<% end %>
 	<% end %>	
-</div>
+</ul>
 <ul data-role="listview" data-inset="true">
 	<li data-theme="a"><%= link_to "<i class='icon-logout'></i>&nbsp;Se déconnecter".html_safe, destroy_admin_session_path, method: :delete, data: { confirm: t('main.sure') }, "data-ajax" => false %>
 	</li>
 </ul>
-<script>
-$('#add-pho').bind('click', function(event)
-{
-	$.mobile.changePage($('#45'), {transition: "pop"});
-});
-</script>	
+
+

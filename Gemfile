@@ -48,23 +48,12 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
   #gem "therubyracer"
   #gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS  
-  
-  #Jquery uploader
-  gem "jquery-fileupload-rails"
 end
 
-
-
-#twitter authentification
-#gem 'twitter'
-#gem 'oauth'
-
-
-
-gem 'rmagick'
+#carrierwave
 gem 'carrierwave'
-gem 'carrierwave-aws'
-
+#image on the cloud 
+gem 'cloudinary'
 
 #development 
 group :development do 

@@ -1,12 +1,11 @@
 class Photo < ActiveRecord::Base
   attr_accessible :nom, :image
+
+  #carrierwave
+   mount_uploader :image, ImageUploader
   
   #validation
   validates :image, :presence => true
-  
-  
-  #attachment with carrierwave
-  mount_uploader :image, ImageUploader
   
   
   #associations 

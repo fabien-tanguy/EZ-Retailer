@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: adw-coop
+  api_key: '333266144468137'
+  api_secret: vzXPbQgRa6X5EIYqkE3uTvKakos
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: adw-coop
+  api_key: '333266144468137'
+  api_secret: vzXPbQgRa6X5EIYqkE3uTvKakos
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: adw-coop
+  api_key: '333266144468137'
+  api_secret: vzXPbQgRa6X5EIYqkE3uTvKakos
+  enhance_image_tag: true
+  static_image_support: false

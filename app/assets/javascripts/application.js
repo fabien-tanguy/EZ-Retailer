@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery-fileupload/basic
-//= require jquery-fileupload/vendor/tmpl
 //= require jquery.mobile
-//= require admin/photos
+//= require cloudinary
+//= require cloudinary/processing 

@@ -1,11 +1,1 @@
-<% if @photo.new_record? %>
-	$('.upload-message').prepend("erreur dans l'envoi de la photo");
-<% else %>
-	$('#gallery').prepend('<%= link_to(image_tag(@photo.image_url(:thumb_list)),admin_photo_path(@photo), :class => "ui-link-inherit", :id => @photo.id)%>');
-	// hide the progress bar
-	$('.upload-message').fadeOut('slow',function(){
-		$('.upload').fadeOut('slow'); 		
-	}); 	
-
-<% end %>
-	
+<%= image_tag @photo.image%>

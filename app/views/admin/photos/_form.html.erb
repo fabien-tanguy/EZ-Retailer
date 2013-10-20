@@ -1,26 +1,27 @@
-<%= simple_form_for(@photo, url: admin_photos_path, html: {"data-ajax" => false}) do |f| %>
-  <%= f.error_notification %>
-  
-  <ul data-role="listview" data-theme="c" data-inset="true"  data-divider-theme ="b">
-  	<li data-role="list-divider" >Gestion photo</li>
-
-	<% if @photo.image_url %>
-  		<li data-role="fieldcontain">
-			<%= image_tag @photo.image_url(:thumb), :alt => "" %>
-  		</li>
-    <% end %>
-
-  <li data-role="fieldcontain"> 
-    <%= f.input :image %>
-    <% hidden_field_tag :image_cache %>
-  </li>
-	
-  <li data-role="fieldcontain"> 
-    <%= f.input :nom %>
-  </li>
-
-  <li data-role="fieldcontain"> 
-    <%= f.button :submit %>
-  </li>
-</ul>
+<%= cloudinary_js_config %>
+<%= form_tag(admin_photos_path,:method => :post, "data-ajax" => false) do  %>
+        <li data-role="fieldcontain">
+          <%= cl_image_upload_tag(:image, :html => {:class => "image_upload"}) %>
+      </li>
+	  <li data-role="fieldcontain">
+          <span class="status"></span>
+          <span class="preview"></span>	  	
+	  </li>
+	<%= submit_tag "Enregistrer " %>
 <% end %>
+
+<ul data-role="listview" data-theme="c" data-inset="true"  data-divider-theme ="b"  style="display:none;" id="delete-photo">
+	<li><%= link_to "#{t('main.destroy')}".html_safe,  admin_destroy_photo_path(:image) , "data-ajax" => false, :id => "delete-photo" %></li>
+</ul>
+
+<!-- Progression -->
+<script>
+$('.cloudinary-fileupload').bind('fileuploadprogress', function(e, data) { 
+  $(".status").text("Chargement... " + Math.round((data.loaded * 100.0) / data.total) + "%");
+});
+
+$('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {  
+  $('.status').hide();	
+  $('.preview').html($.cloudinary.image(data.result.public_id, { format: data.result.format, version: data.result.version,crop: 'fill', width: 80, height: 80 }));
+});
+</script>

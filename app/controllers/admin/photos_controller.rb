@@ -47,18 +47,13 @@ class Admin::PhotosController < ApplicationController
   # POST /photos
   # POST /photos.json
   def create
-    @photo = Photo.new(params[:photo])
-
-    respond_to do |format|
-      if @photo.save
-        format.html { redirect_to admin_photo_path(@photo), flash[:notice]= 'Photo was successfully created.' }
-        format.json { render json: @photo, status: :created, location: @photo }
-        format.js
-      else
-        format.html { render action: "new" }
-        format.json { render json: @photo.errors, status: :unprocessable_entity }
-      end
-    end
+    @photo = Photo.new(:image => params[:image])
+    if @photo.save
+      flash[:notice] = "La photo a bien été ajouté à votre album"
+      redirect_to admin_photos_path
+    else
+      render 'new'
+    end    
   end
 
   # PUT /photos/1
