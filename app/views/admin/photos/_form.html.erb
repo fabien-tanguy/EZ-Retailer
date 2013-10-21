@@ -1,5 +1,5 @@
 <%= cloudinary_js_config %>
-<%= form_tag(admin_photos_path,:method => :post, "data-ajax" => false, :id => "add-photo-form") do  %>
+<%= form_tag(admin_photos_path,:method => :post, "data-ajax" => false, :id => "add-photo-form", "enctype" => "multipart/form-data") do  %>
         <li data-role="fieldcontain">
           <%= cl_image_upload_tag(:image, :html => {:class => "image_upload"}) %>
       </li>
@@ -10,7 +10,7 @@
    	<div class="preview"></div>	
    	<div class="progress-bar" style="width:0%; height:25px; background-color:#999999;"></div>	  			
 <ul data-role="listview" data-theme="c" data-inset="true"  data-divider-theme ="b"  style="display:none;" id="delete-photo">
-	<li><%= link_to "#{t('main.destroy')}".html_safe,  admin_destroy_photo_path(:image) , "data-ajax" => false, :id => "delete-photo", "enctype" => "multipart/form-data" %></li>
+	<li><%= link_to "#{t('main.destroy')}".html_safe,  admin_destroy_photo_path(:image) , "data-ajax" => false, :id => "delete-photo" %></li>
 </ul>
 
 <!-- Progression -->
@@ -18,12 +18,12 @@
 	//start
 	$('.cloudinary-fileupload').bind('fileuploadsend', function(e, data) { 
 		$('#add-photo-form').append('<div class="patienter">Merci de patienter ...</div>');
-	    $('#add-photo-form').prepend('<div class="progress_bar" style="width:1%; height:25px; background-color:#999999;"></div>');	
+	    $('#add-photo-form').prepend('<div class="progress_bar" style="width:1%; height:19px; background:url(adw-loader2.gif);"></div>');	
 	});
 	
    //progress
 	$('.cloudinary-fileupload').bind('fileuploadprogress', function(e, data) { 
-	  	$('.progress_bar').css('width', Math.round((data.loaded * 100) / data.total) + '%'); 
+	  	$('.progress_bar').css('width', Math.round((data.loaded * 100.0) / data.total) + '%'); 
 	});
 	
 	// image done 
