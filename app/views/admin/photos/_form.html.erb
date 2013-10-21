@@ -15,18 +15,20 @@
 <!-- Progression -->
 <script>
 	//start
-	//$('.cloudinary-fileupload').bind('fileuploadsend', function(e, data) { 
-	//});
+	$('.cloudinary-fileupload').bind('fileuploadsend', function(e, data) { 
+		$('#add-photo-form').append('<div id="patienter">Merci de patienter ...</div>');
+	    $('#add-photo-form').append('<div class="progress_bar" style="width:0%; height:25px; background-color:#999999;"></div>');	
+	});
 	
    //progress
 	 $('.cloudinary-fileupload').bind('fileuploadprogress', function(e, data) { 
-	    //$('.progress_bar').css('width', Math.round((data.loaded * 100.0) / data.total) + '%'); 
-	    $('#add-photo-form').prepend('<div>En cours de chargement ...</div>');
+	    $('.progress_bar').css('width', Math.round((data.loaded * 100.0) / data.total) + '%') 
 	});
 	
 	// image done 
 	$('.cloudinary-fileupload').bind('fileuploaddone', function(e, data) { 
 		$('.progress_bar').css('display','none');
+		$('#patienter').css('display','none');
 		$('.preview').html($.cloudinary.image(data.result.public_id, { format: data.result.format, version: data.result.version, crop: 'limit', width: 320, height: 320 }));	 
 	});
 
