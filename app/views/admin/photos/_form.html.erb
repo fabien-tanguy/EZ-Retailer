@@ -10,7 +10,7 @@
 </ul>
 
 		<div class="preview"></div>	
-	   	<div class="progress_bar" style="width:0%; height:25px; background-color:#999999;"></div>	  			
+	   	<div class="progress_bar" style="width:0%; height:19px; background-color:#999999;"></div>	  			
 
 
 <ul data-role="listview" data-theme="c" data-inset="true"  data-divider-theme ="b"  style="display:none;" id="delete-photo">
@@ -27,11 +27,6 @@
    //progress
 	$('.cloudinary-fileupload').bind('fileuploadprogress', function(e, data) { 
   		$('.progress_bar').css('width', Math.round((data.loaded * 100.0) / data.total) + '%'); 
-	});
-	
-	// image done 
-	$('.cloudinary-fileupload').bind('fileuploaddone', function(e, data) { 
-		$('.patienter').css('display','none');	 
 	});
 	
 	// image treatment done
