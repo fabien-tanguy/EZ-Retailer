@@ -3,12 +3,16 @@
         <li data-role="fieldcontain">
           <%= cl_image_upload_tag(:image, :html => {:class => "image_upload"}) %>
       </li>
-	  <li data-role="fieldcontain">
-          <span class="status">&nbsp;</span>
-          <span class="preview"></span>	  	
-	  </li>
-	<%= submit_tag "Enregistrer dans l'album" %>
+	  <li data-role="fieldcontain">	
+		  <%= submit_tag "Enregistrer dans l'album" %>
+	  </li>	
 <% end %>
+<ul data-role="listview" data-theme="c" data-inset="true" >
+	<li>
+    	<span class="status">Chargement ...</span>
+    	<span class="preview"></span>	  	
+	</li>
+</ul>	
 
 <ul data-role="listview" data-theme="c" data-inset="true"  data-divider-theme ="b"  style="display:none;" id="delete-photo">
 	<li><%= link_to "#{t('main.destroy')}".html_safe,  admin_destroy_photo_path(:image) , "data-ajax" => false, :id => "delete-photo" %></li>
