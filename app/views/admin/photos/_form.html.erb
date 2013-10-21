@@ -23,7 +23,7 @@
    //progress
 	 $('.cloudinary-fileupload').bind('fileuploadprogress', function(e, data) {
 		var progress = parseInt(data.loaded / data.total *100,10); 
-	    $('.progress_bar').css('width', progress+'%') 
+	    $('.progress_bar').css('width', progress+'%'); 
 	});
 	
 	// image done 
