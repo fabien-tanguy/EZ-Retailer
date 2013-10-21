@@ -41,7 +41,7 @@ class Admin::PhotosController < ApplicationController
 
   # GET /photos/1/edit
   def edit
-    @photo = Photo.find(params[:id])
+    redirect_to admin_photos_path
   end
 
   # POST /photos

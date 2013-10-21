@@ -4,10 +4,10 @@
           <%= cl_image_upload_tag(:image, :html => {:class => "image_upload"}) %>
       </li>
 	  <li data-role="fieldcontain">
-          <span class="status"></span>
+          <span class="status">&nbsp;</span>
           <span class="preview"></span>	  	
 	  </li>
-	<%= submit_tag "Enregistrer " %>
+	<%= submit_tag "Enregistrer dans l'album" %>
 <% end %>
 
 <ul data-role="listview" data-theme="c" data-inset="true"  data-divider-theme ="b"  style="display:none;" id="delete-photo">

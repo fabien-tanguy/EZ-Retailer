@@ -7,7 +7,7 @@
 	</li>
 	<% if @photos %> 
 		<% @photos.each do |photo| %>					
-			<li><%= link_to(image_tag(photo.image_url),admin_photo_path(photo),:width => "80", :height => "80")  %></li>
+			<li><%= link_to(image_tag(photo.image_url,:width => "80", :height => "80"),admin_photo_path(photo))  %></li>
 		<% end %>
 	<% end %>	
 </ul>
