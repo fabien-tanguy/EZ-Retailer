@@ -18,7 +18,6 @@
 $( document ).bind("pageinit", function( event, data ){
 	//start
 	$('.cloudinary-fileupload').bind('fileuploadsend', function(e, data) { 
-		$('.progress_bar').css('display','block');
 	});
 	
    //progress
@@ -26,14 +25,10 @@ $( document ).bind("pageinit", function( event, data ){
 	    $('.progress_bar').css('width', Math.round((data.loaded * 100.0) / data.total) + '%'); 
 	});
 	
-	// image treatment 
+	// image done 
 	$('.cloudinary-fileupload').bind('fileuploaddone', function(e, data) { 
-		$('.preview').html($.cloudinary.image(data.result.public_id, { format: data.result.format, version: data.result.version, crop: 'limit', width: 320, height: 320 }));	 
-	});
-	
-   //done
-	$('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {  	
 		$('.progress_bar').css('display','none');
+		$('.preview').html($.cloudinary.image(data.result.public_id, { format: data.result.format, version: data.result.version, crop: 'limit', width: 320, height: 320 }));	 
 	});
 });	
 </script>
