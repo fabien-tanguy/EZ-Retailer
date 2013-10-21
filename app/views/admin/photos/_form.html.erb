@@ -23,12 +23,12 @@
 $( document ).bind("pageinit", function( event, data ){
 
 	$('.cloudinary-fileupload').bind('fileuploadprogress', function(e, data) { 
-  		$(".status").text("Chargement... " + Math.round((data.loaded * 100.0) / data.total) + "%");
+  		$(".status").html("Chargement... " + Math.round((data.loaded * 100.0) / data.total) + "%");
 	});
 
 	$('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {  
   		$('.status').hide();	
-  		$('.preview').html($.cloudinary.image(data.result.public_id, { format: data.result.format, version: data.result.version,crop: 'fill', width: 80, height: 80 }));
+  		$('.preview').html($.cloudinary.image(data.result.public_id, { format: data.result.format, version: data.result.version, crop: 'fill', width: 320, height: 320 }));
 	});
 });	
 </script>
