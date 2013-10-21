@@ -1,5 +1,5 @@
 <%= cloudinary_js_config %>
-<%= form_tag(admin_photos_path,:method => :post, "data-ajax" => false) do  %>
+<%= form_tag(admin_photos_path,:method => :post, "data-ajax" => false, :id => 'form-photo-upload') do  %>
         <li data-role="fieldcontain">
           <%= cl_image_upload_tag(:image, :html => {:class => "image_upload"}) %>
       </li>
@@ -7,14 +7,7 @@
 		  <%= submit_tag "Enregistrer dans l'album" %>
 	  </li>	
 <% end %>
-<ul data-role="listview" data-theme="c" data-inset="true" >
-	<li class="bar" style="display:none;">
-    	<div class="progress_bar"></div>
-	</li>
-	<li>
-    	<div class="preview"></div>	  			
-	</li>
-</ul>	
+   	<div class="preview"></div>	  			
 
 <ul data-role="listview" data-theme="c" data-inset="true"  data-divider-theme ="b"  style="display:none;" id="delete-photo">
 	<li><%= link_to "#{t('main.destroy')}".html_safe,  admin_destroy_photo_path(:image) , "data-ajax" => false, :id => "delete-photo" %></li>
@@ -25,7 +18,7 @@
 $( document ).bind("pageinit", function( event, data ){
 	//start
 	$('.cloudinary-fileupload').bind('fileuploadsend', function(e, data) { 
-	  $('.bar').show('slow'); 
+		$('#form-photo-upload').after('<div class="progress_bar"></div>');
 	});
 	
    //progress
@@ -35,13 +28,12 @@ $( document ).bind("pageinit", function( event, data ){
 	
 	// image treatment 
 	$('.cloudinary-fileupload').bind('fileuploaddone', function(e, data) { 
-	  $('.bar').hide();
-	  $('.preview').html('traitement de la photo ...');
+		$('.preview').html($.cloudinary.image(data.result.public_id, { format: data.result.format, version: data.result.version, crop: 'limit', width: 320 }));
 	});
 	
    //done
 	$('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {  	
-  		$('.preview').html($.cloudinary.image(data.result.public_id, { format: data.result.format, version: data.result.version, crop: 'limit', width: 320 }));
+		$('.progress_bar').hide();
 	});
 });	
 </script>
