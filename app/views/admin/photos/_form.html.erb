@@ -7,15 +7,13 @@
 		  <%= submit_tag "Enregistrer dans l'album" %>
 	  </li>	
 <% end %>
-    <div class="progress_bar"></div>
    	<div class="preview"></div>	  			
 <ul data-role="listview" data-theme="c" data-inset="true"  data-divider-theme ="b"  style="display:none;" id="delete-photo">
 	<li><%= link_to "#{t('main.destroy')}".html_safe,  admin_destroy_photo_path(:image) , "data-ajax" => false, :id => "delete-photo" %></li>
 </ul>
 
 <!-- Progression -->
-<script type="text/javascript">
-$(document).bind("pageinit", function( event, data ){
+<script>
 	//start
 	//$('.cloudinary-fileupload').bind('fileuploadsend', function(e, data) { 
 	//});
@@ -31,5 +29,5 @@ $(document).bind("pageinit", function( event, data ){
 		$('.progress_bar').css('display','none');
 		$('.preview').html($.cloudinary.image(data.result.public_id, { format: data.result.format, version: data.result.version, crop: 'limit', width: 320, height: 320 }));	 
 	});
-});	
+
 </script>
