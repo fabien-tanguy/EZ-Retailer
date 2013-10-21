@@ -9,8 +9,9 @@
 <% end %>
 </ul>
 
-   	<div class="preview"></div>	
-   	<div class="progress_bar" style="width:0%; height:25px; background-color:#999999;"></div>	  			
+		<div class="preview"></div>	
+	   	<div class="progress_bar" style="width:0%; height:25px; background-color:#999999;"></div>	  			
+
 
 <ul data-role="listview" data-theme="c" data-inset="true"  data-divider-theme ="b"  style="display:none;" id="delete-photo">
 	<li><%= link_to "#{t('main.destroy')}".html_safe,  admin_destroy_photo_path(:image) , "data-ajax" => false, :id => "delete-photo" %></li>
@@ -20,7 +21,7 @@
 <script>
 	//start
 	$('.cloudinary-fileupload').bind('fileuploadsend', function(e, data) { 
-		$('#add-photo-form').append('<div class="patienter">Merci de patienter ...</div>');
+		$('.preview').html('<p>Merci de patienter lors du chargement de la photo ... </p>');
 	});
 	
    //progress
@@ -32,6 +33,13 @@
 	$('.cloudinary-fileupload').bind('fileuploaddone', function(e, data) { 
 
 		$('.patienter').css('display','none');
+		$('.preview').html($.cloudinary.image(data.result.public_id, { format: data.result.format, version: data.result.version, crop: 'limit', width: 320, height: 320 }));	 
+	});
+	
+	// image treatment done
+	$('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) { 
+
+		$('.progress_bar').css('display','none');
 		$('.preview').html($.cloudinary.image(data.result.public_id, { format: data.result.format, version: data.result.version, crop: 'limit', width: 320, height: 320 }));	 
 	});
 
