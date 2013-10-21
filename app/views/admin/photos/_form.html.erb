@@ -18,7 +18,8 @@
 $( document ).bind("pageinit", function( event, data ){
 	//start
 	$('.cloudinary-fileupload').bind('fileuploadsend', function(e, data) { 
-		$('#form-photo-upload').after('<div class="progress_bar"></div>');
+	//	$('#form-photo-upload').after('<div class="progress_bar"></div>');
+	alert('c est parti');
 	});
 	
    //progress
@@ -28,7 +29,7 @@ $( document ).bind("pageinit", function( event, data ){
 	
 	// image treatment 
 	$('.cloudinary-fileupload').bind('fileuploaddone', function(e, data) { 
-		$('.preview').html($.cloudinary.image(data.result.public_id, { format: data.result.format, version: data.result.version, crop: 'limit', width: 320 }));
+		$('.preview').html($.cloudinary.image(data.result.public_id, { format: data.result.format, version: data.result.version, crop: 'limit', width: 320, height: 320 }));
 	});
 	
    //done
