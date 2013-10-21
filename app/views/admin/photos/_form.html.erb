@@ -10,7 +10,7 @@
    	<div class="preview"></div>	
    	<div class="progress-bar" style="width:0%; height:25px; background-color:#999999;"></div>	  			
 <ul data-role="listview" data-theme="c" data-inset="true"  data-divider-theme ="b"  style="display:none;" id="delete-photo">
-	<li><%= link_to "#{t('main.destroy')}".html_safe,  admin_destroy_photo_path(:image) , "data-ajax" => false, :id => "delete-photo" %></li>
+	<li><%= link_to "#{t('main.destroy')}".html_safe,  admin_destroy_photo_path(:image) , "data-ajax" => false, :id => "delete-photo", "enctype" => "multipart/form-data" %></li>
 </ul>
 
 <!-- Progression -->
@@ -22,8 +22,8 @@
 	});
 	
    //progress
-	 $('.cloudinary-fileupload').bind('fileuploadprogress', function(e, data) {
-			$('.progress-bar').append('<p>coucou</p>'); 
+	$('.cloudinary-fileupload').bind('fileuploadprogress', function(e, data) { 
+	  	$('.progress_bar').css('width', Math.round((data.loaded * 100.0) / data.total) + '%'); 
 	});
 	
 	// image done 
