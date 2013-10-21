@@ -34,7 +34,7 @@
 
 
 		$('.preview').html($.cloudinary.image(data.result.public_id, { format: data.result.format, version: data.result.version, crop: 'limit', width: 320, height: 320 }));
-
+		$('.progress_bar').css('width','0%');	 
 	});
 
 </script>
