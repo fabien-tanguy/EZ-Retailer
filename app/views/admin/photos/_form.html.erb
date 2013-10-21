@@ -8,9 +8,11 @@
 	  </li>	
 <% end %>
 <ul data-role="listview" data-theme="c" data-inset="true" >
-	<li>
+	<li class="bar" style="display:none;">
     	<div class="progress_bar"></div>
-    	<div class="preview"></div>	  	
+	</li>
+	<li>
+    	<div class="preview"></div>	  			
 	</li>
 </ul>	
 
@@ -21,14 +23,20 @@
 <!-- Progression -->
 <script type="text/javascript">
 $( document ).bind("pageinit", function( event, data ){
-
+	//start
+	$('.cloudinary-fileupload').bind('fileuploadsend', function(e, data) { 
+	  $('.bar').show('slow'); 
+	});
+	
+   //progress
 	$('.cloudinary-fileupload').bind('fileuploadprogress', function(e, data) { 
 	  $('.progress_bar').css('width', Math.round((data.loaded * 100.0) / data.total) + '%'); 
 	});
-
+	
+   //done
 	$('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {  
-  		$('.status').hide();	
-  		$('.preview').html($.cloudinary.image(data.result.public_id, { format: data.result.format, version: data.result.version, crop: 'fill', width: 320, height: 320 }));
+  		$('.bar').hide();	
+  		$('.preview').html($.cloudinary.image(data.result.public_id, { format: data.result.format, version: data.result.version, crop: 'limit', width: 320 }));
 	});
 });	
 </script>
