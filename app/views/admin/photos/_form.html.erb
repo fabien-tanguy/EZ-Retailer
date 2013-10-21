@@ -21,8 +21,9 @@
 	});
 	
    //progress
-	 $('.cloudinary-fileupload').bind('fileuploadprogress', function(e, data) { 
-	    $('.progress_bar').css('width', Math.round((data.loaded * 100.0) / data.total) + '%') 
+	 $('.cloudinary-fileupload').bind('fileuploadprogress', function(e, data) {
+		var progress = parseInt(data.loaded / data.total *100,10); 
+	    $('.progress_bar').css('width', progress+'%') 
 	});
 	
 	// image done 
