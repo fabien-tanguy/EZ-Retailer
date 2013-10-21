@@ -7,8 +7,8 @@
 		  <%= submit_tag "Enregistrer dans l'album" %>
 	  </li>	
 <% end %>
+    <div class="progress_bar"></div>
    	<div class="preview"></div>	  			
-
 <ul data-role="listview" data-theme="c" data-inset="true"  data-divider-theme ="b"  style="display:none;" id="delete-photo">
 	<li><%= link_to "#{t('main.destroy')}".html_safe,  admin_destroy_photo_path(:image) , "data-ajax" => false, :id => "delete-photo" %></li>
 </ul>
@@ -18,27 +18,22 @@
 $( document ).bind("pageinit", function( event, data ){
 	//start
 	$('.cloudinary-fileupload').bind('fileuploadsend', function(e, data) { 
-	//	$('#form-photo-upload').after('<div class="progress_bar"></div>');
-	 alert('ca marche ! send');
-
+		$('.progress_bar').css('display','block');
 	});
 	
    //progress
 	 $('.cloudinary-fileupload').bind('fileuploadprogress', function(e, data) { 
-	  $('.progress_bar').css('width', Math.round((data.loaded * 100.0) / data.total) + '%'); 
-	 alert('ca marche ! progress');
+	    $('.progress_bar').css('width', Math.round((data.loaded * 100.0) / data.total) + '%'); 
 	});
 	
 	// image treatment 
 	$('.cloudinary-fileupload').bind('fileuploaddone', function(e, data) { 
-		$('.preview').html($.cloudinary.image(data.result.public_id, { format: data.result.format, version: data.result.version, crop: 'limit', width: 320, height: 320 }));
-		alert('ca marche ! done');
-	 
+		$('.preview').html($.cloudinary.image(data.result.public_id, { format: data.result.format, version: data.result.version, crop: 'limit', width: 320, height: 320 }));	 
 	});
 	
    //done
 	$('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {  	
-		$('.progress_bar').hide();
+		$('.progress_bar').css('display','none');
 	});
 });	
 </script>
