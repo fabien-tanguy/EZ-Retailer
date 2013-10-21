@@ -32,7 +32,7 @@
 	// image treatment done
 	$('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) { 
 
-		$('.progress_bar').css('display','none');
+
 		$('.preview').html($.cloudinary.image(data.result.public_id, { format: data.result.format, version: data.result.version, crop: 'limit', width: 320, height: 320 }));	 
 	});
 
