@@ -270,7 +270,11 @@ ui-btn-down-e {
 
 .progress {
 /**	border:solid 4px blue;*/
-	
+}
+
+.progress_bar {
+	height:25px;
+	background:#999999;
 }
 
 .bar {
@@ -393,4 +397,5 @@ ui-btn-down-e {
   margin: 0;
   padding: 0;
   border: none;
-}                
+}          
+      

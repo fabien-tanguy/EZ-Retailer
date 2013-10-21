@@ -9,8 +9,8 @@
 <% end %>
 <ul data-role="listview" data-theme="c" data-inset="true" >
 	<li>
-    	<span class="status">Chargement ...</span>
-    	<span class="preview"></span>	  	
+    	<div class="progress_bar"></div>
+    	<div class="preview"></div>	  	
 	</li>
 </ul>	
 
@@ -23,7 +23,7 @@
 $( document ).bind("pageinit", function( event, data ){
 
 	$('.cloudinary-fileupload').bind('fileuploadprogress', function(e, data) { 
-  		$(".status").html("Chargement... " + Math.round((data.loaded * 100.0) / data.total) + "%");
+	  $('.progress_bar').css('width', Math.round((data.loaded * 100.0) / data.total) + '%'); 
 	});
 
 	$('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {  
