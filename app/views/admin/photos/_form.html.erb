@@ -10,7 +10,7 @@
 </ul>
 
 		<div class="preview"></div>	
-	   	<div class="progress_bar" style="width:0%; height:19px;"></div>	  			
+	   	<div style="width:220px; height:19px;"><%= image_tag 'adw-loader2.gif', :style => "display:none;" , :class => "progress_bar" %></div>	  			
 
 
 <ul data-role="listview" data-theme="c" data-inset="true"  data-divider-theme ="b"  style="display:none;" id="delete-photo">
@@ -21,24 +21,24 @@
 <script>
 	//start
 	$('.cloudinary-fileupload').bind('fileuploadsend', function(e, data) { 
-		$('.preview').html('<p>Merci de patienter lors du chargement de la photo ...</p>');
+		$('.preview').text("Uploading... " + Math.round((data.loaded * 100.0) / data.total) + "%");
+		$(".progress_bar").show();
 	});
 	
    //progress
 	$('.cloudinary-fileupload').bind('fileuploadprogress', function(e, data) { 
-  		$('.progress_bar').css('width', Math.round((data.loaded * 100.0) / data.total) + '%'); 
+		$('.preview').text("Uploading... " + Math.round((data.loaded * 100.0) / data.total) + "%");
 	});
 	
 	//progress
 	$('.cloudinary-fileupload').bind('fileuploaddone', function(e, data) { 
-  		$('.progress_bar').css('width', Math.round((data.loaded * 100.0) / data.total) + '%'); 
+		$('.preview').text("Uploading... " + Math.round((data.loaded * 100.0) / data.total) + "%"); 
 	});
 	
 	// image treatment done
 	$('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) { 
-
 		$('.preview').html($.cloudinary.image(data.result.public_id, { format: data.result.format, version: data.result.version, crop: 'limit', width: 320, height: 320 }));
-	    $('.progress_bar').css('width','0');
+	    $('.progress_bar').hide();
 	});
 
 </script>
