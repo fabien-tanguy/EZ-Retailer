@@ -21,8 +21,7 @@
 <script>
 	//start
 	$('.cloudinary-fileupload').bind('fileuploadsend', function(e, data) { 
-		$('.preview').html('<p>Merci de patienter lors du chargement de la photo ... </p>');
-		 $('.progress_bar').css('width', Math.round((data.loaded * 100.0) / data.total) + '%'); 
+		$('.preview').html('<p>Merci de patienter lors du chargement de la photo ...</p>');
 	});
 	
    //progress
@@ -39,7 +38,7 @@
 	$('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) { 
 
 		$('.preview').html($.cloudinary.image(data.result.public_id, { format: data.result.format, version: data.result.version, crop: 'limit', width: 320, height: 320 }));
-	 
+	    $('.progress_bar').css('width','0');
 	});
 
 </script>
