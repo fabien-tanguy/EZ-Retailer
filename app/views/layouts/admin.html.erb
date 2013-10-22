@@ -35,6 +35,12 @@
 					<li>
 						<%= link_to "<i class='icon-th-list'></i><br>Produits & Services".html_safe, admin_photos_path, "data-ajax" => false %>
 					</li>
+					<li>
+						<%= link_to "<i class='icon-th-large'></i><br>Voir le site".html_safe, root_path, "data-ajax" => false %>
+					</li>
+					<li>
+						<%= link_to "<i class='icon-logout'></i><br>Déconnexion".html_safe, destroy_admin_session_path, "data-ajax" => false %>
+					</li>
 				</ul>
 			</div>
 		</div>

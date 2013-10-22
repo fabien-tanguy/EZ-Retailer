@@ -29,6 +29,14 @@
 			<%= render 'layouts/messages' %>
 			<%= yield %>
 		</div>
+		<div data-role="footer" data-position="fixed" data-id="footer">
+			<div data-role="navbar">
+				<ul>
+					<li>
+						<%= link_to "<i class='icon-login'></i><br>Connexion".html_safe, admin_photos_path, "data-ajax" => false %>
+					</li>
+				</ul>	
+		</div>
 		<!-- end content --> 
 	</div>
 	<!-- end page -->	

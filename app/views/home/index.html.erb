@@ -20,14 +20,4 @@
 <br>
 <br>
 <br>
-<% if admin_signed_in? %>
-	<ul data-role="listview" data-inset="true">
-		<li data-theme="e"><%= link_to "<i class='icon-th-large'></i>&nbsp;&nbsp;Admin".html_safe, admin_index_path %></li>
-		<li data-theme="a"><%= link_to "<i class='icon-logout'></i>&nbsp;Se déconnecter".html_safe, destroy_admin_session_path, method: :delete, data: { confirm: t('main.sure') }, "data-ajax" => "false" %>
-		</li>
-	</ul>
-<% else %>
-	<ul data-role="listview" data-inset="true">
-		<li data-theme="e"><%= link_to "<i class='icon-lock-open'></i>&nbsp;&nbsp;Se connecter".html_safe, new_admin_session_path %></li>
-	</ul>
-<% end %>
+

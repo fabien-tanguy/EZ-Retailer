@@ -393,3 +393,20 @@ ui-btn-down-e {
     margin:0 auto 0 auto;
     text-align:center;	
 }
+
+.img-view {
+	width:80%;
+	margin:0 auto 0 auto;
+}
+
+.img-view img {
+	display:block;
+	width:80%;
+	margin:0 auto 0 auto;
+	max-width:480px;
+	-moz-box-shadow: 3px 5px 10px 3px #656565;
+	-webkit-box-shadow: 3px 5px 10px 3px #656565;
+	-o-box-shadow: 3px 5px 10px 3px #656565;
+	box-shadow: 3px 5px 10px 3px #656565;
+	filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=149, Strength=10);
+}
