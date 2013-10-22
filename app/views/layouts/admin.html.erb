@@ -26,6 +26,18 @@
 			<%= yield %>
 			<%= debug(params) if Rails.env.development? %>
 		</div>
+		<div data-role="footer" data-position="fixed" data-id="footer">
+			<div data-role="navbar">
+				<ul>
+					<li>
+						<%= link_to "<i class='icon-picture'></i><br>Images".html_safe, admin_photos_path, "data-ajax" => false %>
+					</li>
+					<li>
+						<%= link_to "<i class='icon-th-list'></i><br>Produits & Services".html_safe, admin_photos_path, "data-ajax" => false %>
+					</li>
+				</ul>
+			</div>
+		</div>
 		<!-- end content --> 
 	</div>
 	<!-- end page -->	
