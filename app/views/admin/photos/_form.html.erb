@@ -9,11 +9,9 @@
 <% end %>
 </ul>
         <!-- Dialog window upload !-->
-		<div id="photo-uploading" data-role="popup" data-theme="e" data-overlay-theme="a" class="ui-content">
+		<div id="photo-uploading" data-role="popup" data-theme="e" data-overlay-theme="a" class="ui-content" data-transition="slidedown">
 			<h1>Traitement...</h1>
-			<p>	<%= image_tag 'adw-loader2.gif', :style => "display:none; height:19px; width:220px;" , :class => "progress_bar" %>
-			</p>
-			<span id="loaded-datas"></span>
+			<p id="loaded-datas"><strong></strong></p>
 		</div>
 		
 		<div class="preview"></div>	  			
@@ -26,23 +24,18 @@
 <script>
 	//start
 	$('.cloudinary-fileupload').bind('fileuploadsend', function(e, data) { 
-		$("#photo-uploading").popup( "open" );
+		$("#photo-uploading").popup("open");
 	});
 	
    //progress
 	$('.cloudinary-fileupload').bind('fileuploadprogress', function(e, data) { 
-		$('#loaded-datas').text(Math.round((data.loaded * 100.0) / data.total) + "%");
-	});
-	
-	//progress
-	$('.cloudinary-fileupload').bind('fileuploaddone', function(e, data) { 
-		$('#loaded-datas').text("Chargement... " + Math.round((data.loaded * 100.0) / data.total) + "%"); 
+		$('#loaded-datas strong').text(Math.round((data.loaded * 100.0) / data.total) + "%");
 	});
 	
 	// image treatment done
 	$('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) { 
 		$('.preview').html($.cloudinary.image(data.result.public_id, { format: data.result.format, version: data.result.version, crop: 'limit', width: 320, height: 320 }));
-	    $("#photo-uploading").popup( "close" );
+	    $("#photo-uploading").popup("close");
 	});
 
 </script>
