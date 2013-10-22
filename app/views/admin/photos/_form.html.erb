@@ -2,15 +2,15 @@
         <li data-role="fieldcontain">
           <%= cl_image_upload_tag(:image, :html => {:class => "image_upload"}) %>
       </li>
-	  <li data-role="fieldcontain">	
-		  <%= submit_tag "Enregistrer dans l'album" %>
+	  <li>	
+		  <%= submit_tag "Ajouter à l'album" %>
 	  </li>	
 <% end %>
 </ul>
         <!-- Dialog window upload !-->
 		<div id="photo-uploading" data-role="popup" data-theme="e" data-overlay-theme="a" class="ui-content" data-transition="slidedown">
 			<h2>Traitement...</h2>
-			<p id="loaded-datas"><strong></strong></p>
+			<p id="loaded-datas"><strong>0%</strong></p>
 		</div>
 		
 		<div class="preview"></div>	  			
