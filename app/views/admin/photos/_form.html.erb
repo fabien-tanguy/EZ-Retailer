@@ -21,18 +21,17 @@
 <script>
 	//start
 	$('.cloudinary-fileupload').bind('fileuploadsend', function(e, data) { 
-		$('.preview').text("Uploading... " + Math.round((data.loaded * 100.0) / data.total) + "%");
 		$(".progress_bar").show();
 	});
 	
    //progress
 	$('.cloudinary-fileupload').bind('fileuploadprogress', function(e, data) { 
-		$('.preview').text("Uploading... " + Math.round((data.loaded * 100.0) / data.total) + "%");
+		$('.preview').text("Chargement... " + Math.round((data.loaded * 100.0) / data.total) + "%");
 	});
 	
 	//progress
 	$('.cloudinary-fileupload').bind('fileuploaddone', function(e, data) { 
-		$('.preview').text("Uploading... " + Math.round((data.loaded * 100.0) / data.total) + "%"); 
+		$('.preview').text("Chargement... " + Math.round((data.loaded * 100.0) / data.total) + "%"); 
 	});
 	
 	// image treatment done
