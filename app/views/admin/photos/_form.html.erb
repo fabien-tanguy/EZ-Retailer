@@ -1,6 +1,9 @@
 <%= form_tag(admin_photos_path,:method => :post, "data-ajax" => false, :id => "add-photo-form", "enctype" => "multipart/form-data") do  %>
         <li data-role="fieldcontain">
-          <%= cl_image_upload_tag(:image, :html => {:class => "image_upload"}) %>
+          <%= cl_image_upload_tag(:image, :crop => :limit, :width => 600, :height => 600,
+		                        :eager => [{ :crop => :fill, :width => 80, :height => 80 }],
+		 						:html => {:class => "image_upload"}) 
+		  %>
       </li>
 	  <li>	
 		  <%= submit_tag "Ajouter à l'album" %>

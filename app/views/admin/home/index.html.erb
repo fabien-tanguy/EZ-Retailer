@@ -1,4 +1,4 @@
-<ul data-role="listview" data-theme="c" data-inset="true"  data-divider-theme ="b" >
+<ul data-role="listview" data-theme="d" data-inset="true">
 	<li><%= link_to "<i class='icon-tag'></i>&nbsp;&nbsp;Promo&nbsp;#{promo_actived?(@promo)}".html_safe, edit_admin_promo_path(@promo), "data-ajax" => false %></li>
 	<li><%= link_to "<i class='icon-star'></i>&nbsp;&nbsp;Focus&nbsp;#{focus_actived?(@focus)}".html_safe, edit_admin_focu_path(@focus), "data-ajax" => false %></li>
 	<li><%= link_to "<i class='icon-picture'></i>&nbsp;&nbsp;Photos".html_safe, admin_photos_path, "data-ajax" => "false"  %></li>
