@@ -10,7 +10,7 @@
         <!-- Dialog window upload !-->
 		<div id="photo-uploading" data-role="popup" data-theme="e" data-overlay-theme="a" class="ui-content" data-transition="slidedown">
 			<h2>Traitement...</h2>
-			<p id="loaded-datas"><strong>0%</strong></p>
+			<p id="loaded-datas"><strong></strong></p>
 		</div>
 		
 		<div class="preview"></div>	  			
@@ -30,7 +30,7 @@
 	
    //progress
 	$('.cloudinary-fileupload').bind('fileuploadprogress', function(e, data) { 
-		$('#loaded-datas strong').html(Math.round((data.loaded * 100.0) / data.total) + "%");
+		$('#loaded-datas strong').html(Math.round((data.loaded * 100.0) / data.total) + "% effectué");
 	});
 	
 	// image treatment done
@@ -39,5 +39,10 @@
 		$('.preview').addClass("img-view");
 	    $("#photo-uploading").popup("close");
 	});
-
+	
+	// failure during upload 
+	$('.cloudinary-fileupload').bind('fileuploadfail', function(e, data) { 
+		$('#photo-uploading h2').html("Erreur lors du chargement <br><p>Merci de renouveler l'opération</p>");
+	    $("#photo-uploading").popup("close");
+	});
 </script>

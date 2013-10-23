@@ -2,7 +2,8 @@
 class Admin::PhotosController < ApplicationController
 
   before_filter :authenticate_admin!
-  before_filter :no_param_after_destroy, only: :show 
+  before_filter :no_param_after_destroy, only: :show
+  before_filter :photo_uploaded_but_not_added, except: :create 
 
   layout 'admin'
   
