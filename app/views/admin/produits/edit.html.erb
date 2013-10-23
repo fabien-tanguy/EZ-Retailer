@@ -61,15 +61,4 @@
 	<li data-theme="e"><%= link_to "<i class='icon-th-large'></i>&nbsp;Supprimer".html_safe, admin_photo_path, method: :delete, data: { confirm: t('main.sure') }, "data-ajax" => "false" %>
 	</li>	
 </ul>
-<br>
-<br>
-<br>
-<% if admin_signed_in? %>
-	<ul data-role="listview" data-inset="true">
-		<li data-theme="e"><%= link_to "<i class='icon-th-large'></i>&nbsp;Aller dans l'admin".html_safe, edit_admin_focu_path(@produit) %></li>
-		<li data-theme="a"><%= link_to "<i class='icon-th-large'></i>&nbsp;Se déconnecter".html_safe, destroy_admin_session_path, method: :delete, data: { confirm: t('main.sure') }, "data-ajax" => "false" %>
-		</li>	
-	</ul>
-<% end %>
-
 <%= javascript_include_tag('admin/produits') %>
