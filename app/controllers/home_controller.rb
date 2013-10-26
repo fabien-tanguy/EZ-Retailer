@@ -1,8 +1,6 @@
 # encoding: utf-8
 class HomeController < ApplicationController
   
-  before_filter :photo_uploaded_but_not_added, only: :index 
-  
   def index 
     @title = "Site mobile et référencement géolocalisé | Artisans du web"
     @promo = Promo.first

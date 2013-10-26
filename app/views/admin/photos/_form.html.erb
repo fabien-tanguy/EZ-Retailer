@@ -1,23 +1,25 @@
+
 <%= form_tag(admin_photos_path,:method => :post, "data-ajax" => false, :id => "add-photo-form", "enctype" => "multipart/form-data") do  %>
+	<ul data-role="listview" data-theme="c" data-inset="true">
         <li data-role="fieldcontain">
-          <%= cl_image_upload_tag(:image, :crop => :limit, :width => 600, :height => 600,
+          <%= cl_image_upload_tag(:image, :crop => :limit, :width => 480, :height => 480, :quality => 75,
 		                        :eager => [{ :crop => :fill, :width => 80, :height => 80 }],
 		 						:html => {:class => "image_upload"}) 
 		  %>
       </li>
-	  <li>	
-		  <%= submit_tag "Ajouter à l'album" %>
-	  </li>	
-<% end %>
-</ul>
-        <!-- Dialog window upload !-->
-		<div id="photo-uploading" data-role="popup" data-theme="e" data-overlay-theme="a" class="ui-content" data-transition="slidedown">
+   </ul>
+   <!-- Dialog window upload !-->
+	<div id="photo-uploading" data-role="popup" data-theme="e" data-overlay-theme="a" class="ui-content" data-transition="slidedown">
+		<header>
 			<h2>Traitement...</h2>
-			<p id="loaded-datas"><strong></strong></p>
-		</div>
-		
-		<div class="preview"></div>	  			
+		</header>
+		<p id="loaded-datas"><strong></strong></p>
+		<%= submit_tag "Ajouter" %>
+	</div>
+<% end %>
 
+
+			
 
 <ul data-role="listview" data-theme="c" data-inset="true"  data-divider-theme ="b"  style="display:none;" id="delete-photo">
 	<li><%= link_to "#{t('main.destroy')}".html_safe,  admin_destroy_photo_path(:image) , "data-ajax" => false, :id => "delete-photo" %></li>
@@ -38,9 +40,7 @@
 	
 	// image treatment done
 	$('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) { 
-		$('.preview').html($.cloudinary.image(data.result.public_id, { format: data.result.format }));
-		$('.preview').addClass("img-view");
-	    $("#photo-uploading").popup("close");
+		$('#photo-uploading').prepend($.cloudinary.image(data.result.public_id, { format: data.result.format }));
 	});
 	
 	// failure during upload 
