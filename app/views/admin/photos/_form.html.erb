@@ -38,7 +38,7 @@
 	$('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {
 		$('#destroy_cloudinary').attr("href","/admin/destroy_photo_on_cloudinary/"+data.result.public_id);   
 		$('#photo-uploading header h2').fadeOut('slow');
-		$('#photo-uploading').prepend($.cloudinary.image(data.result.public_id, { format: data.result.format,crop: 'fill', width: 320}));
+		$('#photo-uploading').prepend($.cloudinary.image(data.result.public_id, { format: data.result.format,crop: 'fill', width: 250}));
 	});
 	
 	// failure during upload 
