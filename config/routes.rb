@@ -6,6 +6,7 @@ Adw::Application.routes.draw do
         
      #photos 
      get "destroy_photo/:id", :to => "photos#destroy_photo", :as => "destroy_photo"
+     post "destroy_photo_on_cloudinary/:public_id", :to => "photos#destroy_on_cloudinary", :as => "destroy_on_cloudinary"
      
      #produits with photo       
      post "produits-activate-photo", :to => "produits#activate_photo"

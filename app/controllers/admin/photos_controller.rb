@@ -104,6 +104,15 @@ class Admin::PhotosController < ApplicationController
     end  
   end
   
+  
+  # DELETE PHOTO on cloudinary if not attached to the model 
+  def destroy_on_cloudinary
+    unless params[:public_id] == "false"
+      Cloudinary::Uploader.destroy(params[:public_id])
+    end  
+    redirect_to admin_photos_path
+  end   
+  
   private 
   
   def no_param_after_destroy 
