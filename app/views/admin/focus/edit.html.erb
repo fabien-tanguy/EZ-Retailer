@@ -19,28 +19,6 @@
 	<li>
 		<a href="#mypanel">Depuis l'album</a>
 	</li>
-	
-	<!-- *********** Or upload a new photo ************* -->
-	
-
-	<!-- Progress bar -->
-
-	<script id="template-upload" type="text/x-tmpl">
-		<p class="upload-message">Merci de patienter pendant le traitement de votre photo ...</p>
-		<div class="upload">
-			<div class="progress"><div class="bar" style="width: 0%"></div></div>
-		</div>
-	</script>
-
-	<!-- Photo uploading  -->
-	<%= simple_form_for Photo.new, url: admin_upload_to_link_path, html: {:id => "new-photo"} do |f| %>
-		<li class="fieldcontain"><%= f.error_notification %></li>
-		<li class="fieldcontain">
-				<%= f.input :image, label: false, input_html: {"name" => "photo[image]"} %>
-			</li>	
-	<% end %>
-	
-		<!-- ********************************************** -->
 		<li class="photo-actived <%= 'photo-desactived' unless @focus.photo_active %>"  id="thumb-selected">
 			<% if !@focus.photos.empty?
 				@focus.photos.each do |p| %>

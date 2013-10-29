@@ -5,10 +5,4 @@
 <br>
 <br>
 <%= @focus.description.capitalize.gsub(/\n/, '<br/>').html_safe %>
-<% if admin_signed_in? %>
-	<ul data-role="listview" data-inset="true">
-		<li data-theme="e"><%= link_to "<i class='icon-th-large'></i>&nbsp;Aller dans l'admin".html_safe, edit_admin_focu_path(@focus) %></li>
-		<li data-theme="a"><%= link_to "<i class='icon-th-large'></i>&nbsp;Se déconnecter".html_safe, destroy_admin_session_path, method: :delete, data: { confirm: t('main.sure') }, "data-ajax" => "false" %>
-		</li>	
-	</ul>
-<% end %>		
+		
