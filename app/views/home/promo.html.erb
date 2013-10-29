@@ -1,6 +1,8 @@
 <h2 class="title-featured"><%= @promo.title.html_safe.upcase %></h2>
 <% if @promo.photo_active %>
 	<%= image_tag @promo.photos[0].image_url, :alt => "promotion", :class => "photo-featured"  %>
+<% else %>
+	<%= image_tag 'promo.jpg', :width => "480px", :height => "320px"%>
 <% end %>
 <br>
 <br>
