@@ -1,4 +1,4 @@
-<ul data-role="listview" data-divider-theme="a" data-inset="true">
+<ul data-role="listview" data-divider-theme="a" data-inset="true" data-theme="a">
 	<li data-role="list-divider">
 		Produits
 	</li>
@@ -6,7 +6,7 @@
 		<li>
 
 			<% if produit.photo_active and !produit.photos.empty? %>
-				<%= link_to "#{image_tag(produit.photos[0].image_url(), :alt => 'produit', :class => 'photo-featured')}&nbsp;&nbsp;<h1>#{produit.titre}</h1>".html_safe, admin_produit_path(produit) %>
+				<%= link_to "#{image_tag(produit.photos[0].image_url(), :alt => 'produit', :class => 'photo-featured', :width => '80px', :height => '80px')}&nbsp;&nbsp;<h1>#{produit.titre}</h1>".html_safe, admin_produit_path(produit) %>
 			<% else %>
 				<%= link_to "<h1>#{produit.titre}</h1>".html_safe, admin_produit_path(produit) %>
 			<% end %>
