@@ -37,7 +37,7 @@
 .ui-btn-up-b, .ui-btn-hover-b, .ui-btn-down-b {font-family: Helvetica, Arial, sans-serif;}
 
 /* Content Background and Buttons */
-.ui-body-c {color: #333333; text-shadow: 0 1px 0 #fff; background: #f6f3e5; background-image: -moz-linear-gradient(top,  #f6f3e5,  #ffffff); background-image: -webkit-gradient(linear, left top, left bottom,  color-stop(0, #f6f3e5),  color-stop(1, #ffffff)); -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#f6f3e5', EndColorStr='#ffffff')";}
+.ui-body-c {color: #333333; text-shadow: 0 1px 0 #fff; background: #484848; background-image: -moz-linear-gradient(top,  #000000,  #484848); background-image: -webkit-gradient(linear, left top, left bottom,  color-stop(0, #484848),  color-stop(1, #484848)); -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#000000', EndColorStr='#484848')";}
 .ui-body-c, .ui-body-c input, .ui-body-c select, .ui-body-c textarea, .ui-body-c button {font-family: Helvetica, Arial, sans-serif;}
 .ui-body-c .ui-link-inherit {color: #565347;}
 .ui-body-c .ui-link {color: #565347; font-weight: bold; text-decoration: none; border-bottom: 1px dotted #565347;}
@@ -95,7 +95,7 @@ ul.copy-divider {
 #wordmark {
 	background: #F05225;
 	padding: 5px 0;
-	border-bottom: 4px solid #d2bd86;
+	border-bottom: 4px solid #FFFFFF;
 }
 #wordmark img {
 	margin: 0 auto;
