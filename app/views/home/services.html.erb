@@ -1,4 +1,4 @@
-<ul data-role="listview" data-divider-theme="a" data-inset="true">
+<ul data-role="listview" data-divider-theme="" data-inset="true">
 	<li data-role="list-divider">
 		Services
 	</li>
@@ -6,7 +6,7 @@
 		<li>
 
 			<% if serv.photo_active and !serv.photos.empty? %>
-				<%= link_to "#{image_tag(serv.photos[0].image_url(:thumb_list), :alt => 'service', :class => 'photo-featured')}&nbsp;&nbsp;<h1>#{serv.titre}</h1>".html_safe, admin_produit_path(serv) %>
+				<%= link_to "#{image_tag(serv.photos[0].image_url(), :alt => 'service', :class => 'photo-featured')}&nbsp;&nbsp;<h1>#{serv.titre}</h1>".html_safe, admin_produit_path(serv) %>
 			<% else %>
 				<%= link_to "<h1>#{serv.titre}</h1>".html_safe, admin_produit_path(serv) %>
 			<% end %>
