@@ -56,14 +56,17 @@ h2.pageTitle span {
 	padding:8px 0 5px 15px
 }
 
-.b {
-	background:url(/assets/3.jpg) no-repeat;
-	height:300px;
 	.inner-b {
 	background-color:#FFFFFF;
 	border-radius:5px;
-	padding:30px;
+	margin:25px;
+	padding:10px;
 	}	
-} 
+
+
+#bck-content {
+	background:url(/assets/3.jpg) no-repeat;
+	background-position:50% 50%;
+}
 
 

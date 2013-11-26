@@ -26,9 +26,9 @@
 	    <!--/header -->
 	
 		<!-- main content -->
-	    <div data-role="content">
+	    <div data-role="content" 	<% unless request.fullpath != "/"%>id="bck-content" <% end %>>
 			<div data-role="content-padd" class="main-content">
-				<a href="#mypanel_nav" data-role="button" data-mini="true"> > Menu</a>
+				<a href="#mypanel_nav" data-role="button" data-mini="true" data-inline="true" data-icon="plus"> Menu</a>
 				<%= render 'layouts/messages' %>
 				<%= yield %>
 			</div><!-- end content-padd -->
