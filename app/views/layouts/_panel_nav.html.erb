@@ -1,5 +1,5 @@
 <div data-role="panel" data-display="overlay" id="mypanel_nav" style="background:#DEEDB3;">
-	<ul data-role="listview" style="margin-bottom:0px" id="listview">
+	<ul data-role="listview" style="margin-bottom:0px" id="listview" data-theme="c">
 		<li data-role="divider" data-theme="f">Menu</li>
 		<li><%= link_to "Accueil",root_path,  "data-transition" => "flip", "data-prefetch" => ""%></li>
 		<% if @promo.active %>

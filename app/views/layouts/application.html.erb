@@ -12,7 +12,7 @@
   <%= csrf_meta_tags %>
 </head>
 	<body>
-		<div data-role="page">
+		<div data-role="page" data-theme="d">
 			
 			<!-- Menu in Panel -->
 			<%= render "/layouts/panel_nav" %>	
@@ -43,14 +43,14 @@
 		</div><!-- end content -->	 
 		
 		<!-- footer -->
-		<div data-role="footer" data-theme="c">
+		<div data-role="footer" data-theme="f">
 			<div data-role="navbar" class="custom-icons">
 				<ul>
-					<li><a href="http://bit.ly/yx2mXZ" id="run" data-icon="custom">Nous trouver</a></li>
-					<li><a href="tel:18005551234" id="phone2" data-icon="custom">Contact</a></li>
-					<li><a href="twitter.html" id="twitter" data-icon="custom" data-ajax="false">Tweets</a></li>
+					<li><a href="http://bit.ly/yx2mXZ" id="run" data-icon="arrow-u">Nous trouver</a></li>
+					<li><a href="tel:18005551234" id="phone2" data-icon="arrow-u">Contact</a></li>
+					<li><a href="twitter.html" id="twitter" data-icon="arrow-u" data-ajax="false">Tweets</a></li>
 					<li>
-						<%= link_to "Admin".html_safe, admin_index_path, "data-ajax" => false, "data-icon" => "custom"%>
+						<%= link_to "Admin".html_safe, admin_index_path, "data-ajax" => false, "data-icon" => "arrow-u"%>
 					</li>
 				</ul>
 			</div>

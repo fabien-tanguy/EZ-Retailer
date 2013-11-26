@@ -56,12 +56,15 @@ h2.pageTitle span {
 	padding:8px 0 5px 15px
 }
 
-	.inner-b {
+.inner-b {
 	background-color:#FFFFFF;
 	border-radius:5px;
 	margin:25px;
 	padding:10px;
-	}	
+	h1 {
+		color:#99CC66;
+		}	
+}	
 
 
 #bck-content {
@@ -69,4 +72,51 @@ h2.pageTitle span {
 	background-position:50% 50%;
 }
 
+
+/* =============================================================================
+   Footer
+   ========================================================================== */
+
+.ui-footer .ui-navbar ul li a{
+	background-color:#99CC66;
+}
+
+
+
+/* =============================================================================
+   Body Links
+   ========================================================================== */
+
+a {
+	text-decoration:none !important;
+}
+
+.ui-header , .ui-footer 
+	{
+	.ui-btn-inner .ui-btn-text {
+			color:  #FFFFFF;
+			font-weight:bold;
+			text-decoration:none !important;
+			text-shadow:none;
+			box-shadow:none;
+	}		
+}
+
+
+.ui-body-c .ui-link {
+	color:  #81b74d;
+	font-weight: bold;
+}
+
+.ui-body-c .ui-link:hover {
+	color:  #81b74d;
+}
+
+.ui-body-c .ui-link:active {
+	color:  #81b74d;
+}
+
+.ui-body-c .ui-link:visited {
+    color:  #81b74d;
+}
 
