@@ -3,47 +3,37 @@
 <head>
   <title>Artisans du web | Mobile</title>
    <meta name="viewport" content="width=device-width, initial-scale=1">
-  <%= stylesheet_link_tag  "application", :media => "all" %>
+  <%= stylesheet_link_tag  "admin/application", :media => "all" %>
 
   <%= javascript_include_tag "application" %>	
 
   <%= csrf_meta_tags %>
 </head>
-	<body class="home">
-	<!-- Home -->
-	<div data-role="page" class="page" <% unless request.fullpath != "/"%> id="home" <%end%>>
+	<body>
 	
-			<div data-role="header">
-				<a href="/admin" data-icon="home" class="ui-btn-left" data-iconpos="notext" data-transition="flip">Accueil- Administration</a>
-		    	<h1 class="title"><%= @title %></h1>
-		   </div>
-
-		<!-- Panel for media library -->
-		<%= render('/layouts/panel_admin') %>
+	<div data-role="page">
 		
-		<div data-role="content">
-			<%= render 'layouts/messages' %>
-			<%= yield %>
-			<%= debug(params) if Rails.env.development? %>
+		<!-- Menu in Panel -->
+		<%= render "/layouts/panel_admin_nav" %>
+		
+		<!-- header -->
+		<div data-role="header" class="page-header" >
+	    	<a href="index.html" data-icon="arrow-l" data-iconpos="notext" data-direction="reverse" data-rel="back">Back</a>
+	    		<div class="logo"></div>
+	    	<a href="/" data-icon="home" data-iconpos="notext" rel="external" class="ui-btn-right">Home</a>
 		</div>
-		<div data-role="footer" data-position="fixed" data-id="footer">
-			<div data-role="navbar">
-				<ul>
-					<li>
-						<%= link_to "<i class='icon-picture'></i>".html_safe, admin_photos_path, "data-ajax" => false %>
-					</li>
-					<li>
-						<%= link_to "<i class='icon-th-large'></i>".html_safe, root_path, "data-ajax" => false %>
-					</li>
-					<li>
-						<%= link_to "<i class='icon-logout'></i>".html_safe, destroy_admin_session_path, "data-ajax" => false %>
-					</li>
-				</ul>
-			</div>
-		</div>
-		<!-- end content --> 
-	</div>
-	<!-- end page -->	
+	    <!--/header -->
+
+		<!-- main content -->
+	    <div data-role="content">
+			<div data-role="content-padd">
+				<a href="#mypanel_admin_nav">Menu</a>
+				<%= render "layouts/messages" %>
+				<%= yield %>
+				<%= debug(params) if Rails.env.development? %>
+			</div><!-- end content-padd -->
+		</div><!-- end content -->
+	</div><!-- end page -->	
 </body>
 </html>
 

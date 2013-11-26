@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require jquery.mobile
 //= require cloudinary
-//= require cloudinary/processing 
+//= require cloudinary/processing
+//= require_directory . 

@@ -1,10 +1,5 @@
-<div data-role="panel" data-display="overlay" id="mypanel" style="background:#333;">
-	<a href="#my-header" data-rel="close" data-role="button" data-mini="true" data-theme="b">Fermer</a>
-	<br>
-	<br>
 	<% if @photos %> 
 		<% @photos.each do |photo| %>
 					<%= image_tag(photo.image_url, :alt => "", :class => "choose_from_album", :id => photo.id, :width => "80px", :height => "80px") %>
 		<% end %>
 	<% end %>	
-</div><!-- /panel -->

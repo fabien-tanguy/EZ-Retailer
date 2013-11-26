@@ -11,7 +11,7 @@ gem 'rails', '3.2.11'
 gem 'pg'
 
 #server 
-gem 'thin'
+gem 'thin', '~> 1.6.1'
 
 #local
 gem 'rails-i18n'

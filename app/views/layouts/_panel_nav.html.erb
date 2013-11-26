@@ -1,0 +1,23 @@
+<div data-role="panel" data-display="overlay" id="mypanel_nav" style="background:#DEEDB3;">
+	<ul data-role="listview" style="margin-bottom:0px" id="listview">
+		<li data-role="divider">Menu</li>
+		<% if @promo.active %>
+			<li><%= link_to "Promo".html_safe,promo_path,  "data-transition" => "flip", "data-prefetch" => ""%></li>
+		<% end %>	
+		<% if @focus.active %>
+			<li><%= link_to "#{@focus.type_of_focus}".html_safe,focus_path, "data-transition" => "flip", "data-prefetch" => "" %></li>
+		<% end %>
+		<% unless @produits.empty? %>
+			<li><%= link_to "Produits".html_safe,produit_path, "data-transition" => "flip", "data-prefetch" => "" %>
+			</li>
+		<% end %>
+		<% unless @services.empty? %>	
+			<li><%= link_to "Services".html_safe,service_path, "data-transition" => "flip", "data-prefetch" => "" %>
+			</li>
+		<% end %>	
+		<li><%= link_to "Mieux nous connaître".html_safe,activity_path, "data-transition" => "flip", "data-prefetch" => "" %></li>
+		<li><%= link_to "Plan & Horaires".html_safe,map_path, "data-transition" => "flip", "data-prefetch" => "" %></li>
+		<li><%= link_to "Contact".html_safe,contact_path, "data-transition" => "flip", "data-prefetch" => "" %></li>
+	</ul>
+	<!-- /navigation -->
+</div>

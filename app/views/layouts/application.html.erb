@@ -11,35 +11,53 @@
 
   <%= csrf_meta_tags %>
 </head>
-	<body class="home">
-	<!-- Home -->
-	<div data-role="page" class="page" <% unless request.fullpath != "/"%> id="home" <%end%>>
-		<% unless request.fullpath != "/"%>
-			<div id="wordmark"> <%= image_tag "logo-mobile-320px.png", :alt =>" Logo Artisans du web", :width => "320" %> </div>
-			<h2 id="banner">&nbsp;</h2>
-		<% else %>
-			<div data-role="header">
-				<a href="/" data-icon="home" class="ui-btn-left" data-iconpos="notext" data-transition="flip">Accueil</a>
-		    	<h1><%= @title %></h1>
-		   </div>
-		  <!-- /header -->
-		<% end %>
+	<body>
+		<div data-role="page">
+			
+			<!-- Menu in Panel -->
+			<%= render "/layouts/panel_nav" %>	
+			
+		<!-- header -->
+		<div data-role="header" class="page-header" data-theme="f">
+	    	<a href="index.html" data-icon="arrow-l" data-iconpos="notext" data-direction="reverse" data-rel="back">Back</a>
+	    		<div class="logo"></div>
+	    	<a href="/" data-icon="home" data-iconpos="notext" rel="external" class="ui-btn-right">Home</a>
+		</div>
+	    <!--/header -->
+	
+	
+	    <!-- banner & title -->
+		<div class="bannerContainer">
+			<%= image_tag "headers/1.jpg", :class => "banner" %>	
+	    </div>
+	  	<h2 class="pageTitle"><span><%= @title %></span></h2>
+	        <div class="shadow1box"><%= image_tag "shadow1.png", :class => "shadow1", :alt => "shadow" %></div>
+		<!-- /banner & title -->
+	
+		<!-- main content -->
+	    <div data-role="content">
+			<div data-role="content-padd" class="main-content">
+				<a href="#mypanel_nav">Menu</a>
+				<%= render 'layouts/messages' %>
+				<%= yield %>
+			</div><!-- end content-padd -->
+		</div><!-- end content -->	 
 		
-		<div data-role="content">
-			<%= render 'layouts/messages' %>
-			<%= yield %>
-		</div>
-		<div data-role="footer" data-position="fixed" data-id="footer">
-			<div data-role="navbar">
-				<ul>
+		<!-- footer -->
+		<div data-role="footer" data-theme="f">
+			<div data-role="navbar" class="custom-icons" data-theme="e">
+				<ul  data-theme="e">
+					<li><a href="http://bit.ly/yx2mXZ" id="run" data-icon="custom" data-theme="b">Nous trouver</a></li>
+					<li><a href="tel:18005551234" id="phone2" data-icon="custom" data-theme="b">Contact</a></li>
+					<li><a href="twitter.html" id="twitter" data-icon="custom" data-theme="b" data-ajax="false">Tweets</a></li>
 					<li>
-						<%= link_to "<i class='icon-user'></i>&nbsp;Administration".html_safe, admin_index_path, "data-ajax" => false %>
+						<%= link_to "Admin".html_safe, admin_index_path, "data-ajax" => false, "data-icon" => "custom", "data-theme" => "b" %>
 					</li>
-				</ul>	
+				</ul>
+			</div>
 		</div>
-		<!-- end content --> 
-	</div>
-	<!-- end page -->	
+		<!-- /footer -->
+	</div><!-- end page -->	
 </body>
 </html>
 

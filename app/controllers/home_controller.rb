@@ -2,7 +2,7 @@
 class HomeController < ApplicationController
   
   def index 
-    @title = "Site mobile et référencement géolocalisé | Artisans du web"
+    @title = "Vos experts en sites mobiles"
     @promo = Promo.first
     @focus = Focu.first
     @produits = Produit.where(:type_of_produit => "Produit").limit(15).order("created_at DESC")
