@@ -1,3 +1,10 @@
+<!-- banner & title -->
+<div class="bannerContainer">
+	<%= image_tag "2.jpg", :class => "banner" %>	
+</div>
+<h2 class="pageTitle"><span><%= @title %></span></h2>
+<!-- /banner & title -->
+
 <h2 class="title-featured"><%= @promo.title.html_safe.upcase %></h2>
 <% if @promo.photo_active %>
 	<%= image_tag @promo.photos[0].image_url, :alt => "promotion", :class => "photo-featured"  %>

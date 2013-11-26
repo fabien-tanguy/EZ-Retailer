@@ -1,10 +1,17 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
-  before_filter :title
+  before_filter :title, :nav
   
   def title 
     @title ||= "Artisans du web"
+  end  
+  
+  def nav 
+    @promo = Promo.first
+    @focus = Focu.first
+    @produits = Produit.where(:type_of_produit => "Produit").limit(15).order("created_at DESC")
+    @services = Produit.where(:type_of_produit => "Service").limit(15).order("created_at DESC")
   end  
   
   #devise

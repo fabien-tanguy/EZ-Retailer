@@ -25,33 +25,24 @@
 		</div>
 	    <!--/header -->
 	
-	
-	    <!-- banner & title -->
-		<div class="bannerContainer">
-			<%= image_tag "headers/1.jpg", :class => "banner" %>	
-	    </div>
-	  	<h2 class="pageTitle"><span><%= @title %></span></h2>
-	        <div class="shadow1box"><%= image_tag "shadow1.png", :class => "shadow1", :alt => "shadow" %></div>
-		<!-- /banner & title -->
-	
 		<!-- main content -->
 	    <div data-role="content">
 			<div data-role="content-padd" class="main-content">
-				<a href="#mypanel_nav">Menu</a>
+				<a href="#mypanel_nav" data-role="button" data-mini="true"> > Menu</a>
 				<%= render 'layouts/messages' %>
 				<%= yield %>
 			</div><!-- end content-padd -->
 		</div><!-- end content -->	 
 		
 		<!-- footer -->
-		<div data-role="footer" data-theme="f">
-			<div data-role="navbar" class="custom-icons" data-theme="e">
-				<ul  data-theme="e">
-					<li><a href="http://bit.ly/yx2mXZ" id="run" data-icon="custom" data-theme="b">Nous trouver</a></li>
-					<li><a href="tel:18005551234" id="phone2" data-icon="custom" data-theme="b">Contact</a></li>
-					<li><a href="twitter.html" id="twitter" data-icon="custom" data-theme="b" data-ajax="false">Tweets</a></li>
+		<div data-role="footer" data-theme="c">
+			<div data-role="navbar" class="custom-icons">
+				<ul>
+					<li><a href="http://bit.ly/yx2mXZ" id="run" data-icon="custom">Nous trouver</a></li>
+					<li><a href="tel:18005551234" id="phone2" data-icon="custom">Contact</a></li>
+					<li><a href="twitter.html" id="twitter" data-icon="custom" data-ajax="false">Tweets</a></li>
 					<li>
-						<%= link_to "Admin".html_safe, admin_index_path, "data-ajax" => false, "data-icon" => "custom", "data-theme" => "b" %>
+						<%= link_to "Admin".html_safe, admin_index_path, "data-ajax" => false, "data-icon" => "custom"%>
 					</li>
 				</ul>
 			</div>
