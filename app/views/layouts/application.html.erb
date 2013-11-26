@@ -19,7 +19,7 @@
 			
 		<!-- header -->
 		<div data-role="header" class="page-header" data-theme="f">
-			    <a href="#mypanel_nav" data-role="button" data-icon="plus"> Menu</a>		
+			    <a href="#mypanel_nav" data-role="button" data-icon="arrow-r"> Menu</a>		
 	    		<div class="logo"></div>
 			    	<a href="index.html" data-icon="arrow-l" data-iconpos="notext" data-direction="reverse" data-rel="back" data-role="button">Back</a>    			
 					<!--<a href="/" data-icon="home" data-iconpos="notext" rel="external" class="ui-btn-right">Home</a>-->
@@ -27,9 +27,17 @@
 	    <!--/header -->
 	
 		<!-- main content -->
-	    <div data-role="content" 	<% unless request.fullpath != "/"%>id="bck-content" <% end %>>
+	    <div data-role="content" <% unless request.fullpath != "/"%>id="bck-content" <% end %>>
 			<div data-role="content-padd" class="main-content">
 				<%= render 'layouts/messages' %>
+				<% unless request.fullpath == "/"%>
+					<!-- banner & title -->
+					<div class="bannerContainer">
+						<%= image_tag "2.jpg", :class => "banner" %>	
+					</div>
+					<h2 class="pageTitle"><span><%= @title %></span></h2>
+					<!-- /banner & title -->
+				<% end %>
 				<%= yield %>
 			</div><!-- end content-padd -->
 		</div><!-- end content -->	 
