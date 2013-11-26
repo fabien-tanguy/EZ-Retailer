@@ -27,10 +27,10 @@
 	    <!--/header -->
 	
 		<!-- main content -->
-	    <div data-role="content" <% unless request.fullpath != "/"%>id="bck-content" <% end %>>
+	    <div data-role="content" id="bck-content">
 			<div data-role="content-padd" class="main-content">
 				<%= render 'layouts/messages' %>
-				<% unless request.fullpath == "/"%>
+				 <% unless request.fullpath == "/"%>
 					<!-- banner & title -->
 					<div class="bannerContainer">
 						<%= image_tag "2.jpg", :class => "banner" %>	
