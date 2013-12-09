@@ -7,6 +7,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+# Create Admin 
+Admin.delete_all 
+Admin.create!(:email => "adw.coop@gmail.com", :password => "SalutMaPoule8600", :password_confirmation => "SalutMaPoule8600")
+
 
 # Create Activity 
 Activity.delete_all 
