@@ -12,16 +12,16 @@
   <%= csrf_meta_tags %>
 </head>
 	<body>
-		<div data-role="page" data-theme="d">
+		<div data-role="page" data-theme="c">
 			
 			<!-- Menu in Panel -->
 			<%= render "/layouts/panel_nav" %>	
 			
 		<!-- header -->
-		<div data-role="header" class="page-header" data-theme="f">
-			    <a href="#mypanel_nav" data-role="button"> Menu</a>		
-	    		<div class="logo"></div>
-			    	<a href="index.html" data-icon="arrow-l" data-iconpos="notext" data-direction="reverse" data-rel="back" data-role="button">Back</a>    			
+		<div data-role="header" class="page-header" data-theme="c">
+	    	<a href="index.html" data-icon="arrow-l" data-iconpos="notext" data-direction="reverse" data-rel="back" data-role="button" class="ui-btn-left">Back</a>    			
+	    	<h1><%= @title %></h1>
+			<a href="#mypanel_nav" data-role="button"  class="ui-btn-right"> Menu</a>	
 					<!--<a href="/" data-icon="home" data-iconpos="notext" rel="external" class="ui-btn-right">Home</a>-->
 		</div>
 	    <!--/header -->
@@ -43,7 +43,7 @@
 		</div><!-- end content -->	 
 		
 		<!-- footer -->
-		<div data-role="footer" data-theme="f">
+		<div data-role="footer" data-theme="c" data-position="fixed">
 			<div data-role="navbar" class="custom-icons">
 				<ul>
 					<li><a href="http://bit.ly/yx2mXZ" id="run" data-icon="arrow-u">Nous trouver</a></li>

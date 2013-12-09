@@ -1,17 +1,17 @@
 <!-- Dialog window upload !-->
-	<div id="photo-uploading" data-role="popup" data-theme="e" data-overlay-theme="a" class="ui-content" data-transition="slidedown" data-position-to=".title" data-dismissible="false">
+	<div id="photo-uploading" data-role="popup" data-theme="c" data-overlay-theme="c" class="ui-content" data-transition="slidedown" data-position-to=".title" data-dismissible="false">
 		<%= form_tag(admin_photos_path,:method => :post, "data-ajax" => false, :id => "add-photo-form", "enctype" => "multipart/form-data") do  %>
 			<%= hidden_field_tag(:public_id,false) %>
-			<ul data-role="listview" data-theme="c" data-inset="true">
+			<ul data-role="listview" data-theme="c">
 		        <li data-role="fieldcontain">
 		          <%= cl_image_upload_tag(:image, :crop => :limit, :width => 480, :height => 480, :quality => 75,
 				                        :eager => [{ :crop => :fill, :width => 80, :height => 80 }],
-				 						:html => {:class => "image_upload"}) 
+				 						:html => {:class => "image_upload", "data-role"=>"none"}) 
 				  %>
 		      </li>
 		   </ul>
-		   <%= submit_tag "Ajouter", "data-theme" => "a" %>
-		   <%= link_to "Supprimer", "#", :method => "post", "data-role" => "button", "data-theme" => "e", :id => "destroy_cloudinary", "data-ajax"=> false %>
+		   <%= submit_tag "Ajouter", "data-theme" => "c" %>
+		   <%= link_to "Supprimer", "#", :method => "post", "data-role" => "button", "data-theme" => "c", :id => "destroy_cloudinary", "data-ajax"=> false %>
 		<% end %>
 		<footer style="display:none;">
 			<h2>Traitement<span>&nbsp;&nbsp;<span><%= image_tag 'ajax-loader.gif', :id => "photo-ajax-loader"%></span>&nbsp;<small id="loaded-datas"></small></h2>
@@ -21,7 +21,7 @@
 <!-- Javascript -->
 
 <%= cloudinary_js_config %>
-<script>
+<script type ="text/javascript">
 	//start
 	$('.cloudinary-fileupload').bind('fileuploadsend', function(e, data) {
 		 

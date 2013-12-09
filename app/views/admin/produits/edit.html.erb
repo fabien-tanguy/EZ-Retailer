@@ -1,6 +1,6 @@
 <h2 class="title-featured">Modifier un produit ou un service</h2>
 <form class="add-photo">
-    <ul data-role="listview" data-divider-theme="e" data-inset="true">
+    <ul data-role="listview" data-divider-theme="c" data-inset="true">
         <li data-role="list-divider">
 			Ajouter une photo à mon produit 
 		</li>	
@@ -34,7 +34,7 @@
 <br>
 <br>
 <ul data-role="listview" data-inset="true">	
-	<li data-theme="e"><%= link_to "<i class='icon-th-large'></i>&nbsp;Supprimer".html_safe, admin_photo_path, method: :delete, data: { confirm: t('main.sure') }, "data-ajax" => "false" %>
+	<li data-theme="c"><%= link_to "<i class='icon-th-large'></i>&nbsp;Supprimer".html_safe, admin_photo_path, method: :delete, data: { confirm: t('main.sure') }, "data-ajax" => "false" %>
 	</li>	
 </ul>
 <%= javascript_include_tag('admin/produits') %>
