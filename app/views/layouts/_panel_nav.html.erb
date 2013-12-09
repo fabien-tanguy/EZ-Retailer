@@ -1,7 +1,7 @@
 <div data-role="panel" data-display="overlay" id="mypanel_nav" data-theme="a">
 	<ul data-role="listview" style="margin-bottom:0px" data-theme="c" data-divider-theme="a">
 		<li data-role="divider">Menu</li>
-		<li><%= link_to "Accueil",root_path,  "data-transition" => "flip", "data-prefetch" => ""%></li>
+		<li><%= link_to image_tag("home-16x16.png",:class => "ui-li-icon")+"Accueil".html_safe,root_path,  "data-transition" => "flip", "data-prefetch" => "" %></li>
 		<% if @promo.active %>
 			<li><%= link_to "Promo".html_safe,promo_path,  "data-transition" => "flip", "data-prefetch" => ""%></li>
 		<% end %>	

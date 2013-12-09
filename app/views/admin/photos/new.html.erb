@@ -1,3 +1,7 @@
+<%= link_to image_tag('icon-image-upload.png', :alt => "charger une image"), admin_photos_path, :id => "add-photo"%>
+
+
+
 <!-- Dialog window upload !-->
 	<div id="photo-uploading" data-role="popup" data-theme="c" data-overlay-theme="a" class="ui-content" data-transition="slidedown" data-position-to=".title" data-dismissible="false">
 		<%= form_tag(admin_photos_path,:method => :post, "data-ajax" => false, :id => "add-photo-form", "enctype" => "multipart/form-data") do  %>
@@ -10,13 +14,18 @@
 				  %>
 		      </li>
 		   </ul>
-		   <%= submit_tag "Ajouter", "data-theme" => "c" %>
-		   <%= link_to "Supprimer", "#", :method => "post", "data-role" => "button", "data-theme" => "c", :id => "destroy_cloudinary", "data-ajax"=> false %>
+		   <div id="ok-ajouter-photo">	
+		   		<%= submit_tag "OK", "data-theme" => "a", "data-inline" => "true" %>
+		 		<%= link_to "Annuler", "#", :method => "post", "data-role" => "button", :id => "destroy_cloudinary", "data-ajax"=> false, "data-inline" => "true", "data-theme" => "c" %>
+		   </div>
+		<%= link_to "annuler", admin_photos_path, "data-role" => "button", :id => "cancel-add-photo", "data-ajax" => false %>
 		<% end %>
 		<footer style="display:none;">
-			<h2>Traitement<span>&nbsp;&nbsp;<span><%= image_tag 'ajax-loader.gif', :id => "photo-ajax-loader"%></span>&nbsp;<small id="loaded-datas"></small></h2>
+			<h3 style="text-align:center;">Traitement<span>&nbsp;&nbsp;<span><%= image_tag 'ajax-loader.gif', :id => "photo-ajax-loader"%></span>&nbsp;<small id="loaded-datas"></small></h3>
 		</footer>
 	</div>
+
+
 
 <!-- Javascript -->
 
@@ -25,31 +34,45 @@
 
     // open dialog box
 
-	$('.mypage').bind('pageinit',function(){
-		alert("cool");
-		$('#photo-uploading').popup('open');
-	});
+	$('.mypage').bind('pagecreate',function(){
+		
+		$('#add-photo').click(function(e){
+			e.preventDefault();
+			$('#ok-ajouter-photo').hide();
+			$('#photo-uploading').popup('open');
+		});
+		
+		// in case we cancel add a photo 
+		
+		$('#cancel-add-photo').click(function(){
+			e.preventDefault();
+			$('#photo-uploading').popup('close');			
+		});
 
-	//start
-	$('.cloudinary-fileupload').bind('fileuploadsend', function(e, data) {
-		 
-		$("#photo-uploading footer").show();
-	});
-	
-   //progress
-	$('.cloudinary-fileupload').bind('fileuploadprogress', function(e, data) { 
-		$('#loaded-datas').html(Math.round((data.loaded * 100.0) / data.total) + "%");
-	});
-	
-	// image treatment done
-	$('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {
-		$('#destroy_cloudinary').attr("href","/admin/destroy_photo_on_cloudinary/"+data.result.public_id);   
-		$('#photo-uploading footer h2').fadeOut('slow');
-		$('#photo-uploading').prepend($.cloudinary.image(data.result.public_id, { format: data.result.format,crop: 'fill', width: 250}));
-	});
-	
-	// failure during upload 
-	$('.cloudinary-fileupload').bind('fileuploadfail', function(e, data) { 
-		$('#photo-uploading footer').html("<h2>Erreur lors du chargement</h2><p>Merci de renouveler l'opération</p>");
+		//start
+		$('.cloudinary-fileupload').bind('fileuploadsend', function(e, data) {
+	 		$('#cancel-add-photo').hide();
+			$('#ok-ajouter-photo').show();
+			$("#photo-uploading footer").show();
+			
+		});
+
+	   //progress
+		$('.cloudinary-fileupload').bind('fileuploadprogress', function(e, data) { 
+			$('#loaded-datas').html(Math.round((data.loaded * 100.0) / data.total) + "%");
+		});
+
+		// image treatment done
+		$('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {
+			$('#destroy_cloudinary').attr("href","/admin/destroy_photo_on_cloudinary/"+data.result.public_id);   
+			$('#photo-uploading footer h3').fadeOut('slow');
+			$('#photo-uploading').append($.cloudinary.image(data.result.public_id, { format: data.result.format,crop: 'fill', width: 250}));
+		});
+
+		// failure during upload 
+		$('.cloudinary-fileupload').bind('fileuploadfail', function(e, data) { 
+			$('#photo-uploading footer').html("<h2>Erreur lors du chargement</h2><p>Merci de renouveler l'opération</p>");
+		});
+		
 	});
 </script>

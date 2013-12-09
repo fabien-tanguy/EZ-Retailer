@@ -1,5 +1,5 @@
 <ul data-role="listview" data-theme="c" data-inset="true">
-	<li><%= link_to "Ajouter une photo", admin_photos_path, :id => "add-photo"%></li>
+	<li><%= link_to "Ajouter une photo", new_admin_photo_path, "data-ajax" => false %></li>
 </ul> 
 <ul data-role="listview" data-theme="c" data-inset="true"  data-divider-theme ="a">
 	<li data-role="list-divider">
@@ -11,78 +11,3 @@
 		<% end %>
 	<% end %>	
 </ul>
-<!-- Dialog window upload !-->
-	<div id="photo-uploading" data-role="popup" data-theme="c" data-overlay-theme="a" class="ui-content" data-transition="slidedown" data-position-to=".title" data-dismissible="false">
-		<%= form_tag(admin_photos_path,:method => :post, "data-ajax" => false, :id => "add-photo-form", "enctype" => "multipart/form-data") do  %>
-			<%= hidden_field_tag(:public_id,false) %>
-			<ul data-role="listview" data-theme="c" data-inset="true">
-		        <li data-role="fieldcontain">
-		          <%= cl_image_upload_tag(:image, :crop => :limit, :width => 480, :height => 480, :quality => 75,
-				                        :eager => [{ :crop => :fill, :width => 80, :height => 80 }],
-				 						:html => {:class => "image_upload"}) 
-				  %>
-		      </li>
-		   </ul>
-		   <div id="ok-ajouter-photo">	
-		   		<%= submit_tag "OK", "data-theme" => "a", "data-inline" => "true" %>
-		 		<%= link_to "Annuler", "#", :method => "post", "data-role" => "button", :id => "destroy_cloudinary", "data-ajax"=> false, "data-inline" => "true", "data-theme" => "c" %>
-		   </div>
-		<%= link_to "annuler", admin_photos_path, "data-role" => "button", :id => "cancel-add-photo"%>
-		<% end %>
-		<footer style="display:none;">
-			<h2>Traitement<span>&nbsp;&nbsp;<span><%= image_tag 'ajax-loader.gif', :id => "photo-ajax-loader"%></span>&nbsp;<small id="loaded-datas"></small></h2>
-		</footer>
-	</div>
-
-
-
-<!-- Javascript -->
-
-<%= cloudinary_js_config %>
-<script>
-
-    // open dialog box
-
-	$('.mypage').bind('pagecreate',function(){
-		
-		$('#add-photo').click(function(e){
-			e.preventDefault();
-			$('#ok-ajouter-photo').hide();
-			$('#photo-uploading').popup('open');
-		});
-		
-		// in case we cancel add a photo 
-		
-		$('#cancel-add-photo').click(function(){
-			e.preventDefault();
-			$('#photo-uploading').popup('close');			
-		});
-
-		//start
-		$('.cloudinary-fileupload').bind('fileuploadsend', function(e, data) {
-	 		$('#cancel-add-photo').hide();
-			$('#ok-ajouter-photo').show();
-			$("#photo-uploading footer").show();
-			
-		});
-
-	   //progress
-		$('.cloudinary-fileupload').bind('fileuploadprogress', function(e, data) { 
-			$('#loaded-datas').html(Math.round((data.loaded * 100.0) / data.total) + "%");
-		});
-
-		// image treatment done
-		$('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {
-			$('#destroy_cloudinary').attr("href","/admin/destroy_photo_on_cloudinary/"+data.result.public_id);   
-			$('#photo-uploading footer h2').fadeOut('slow');
-			$('#photo-uploading').prepend($.cloudinary.image(data.result.public_id, { format: data.result.format,crop: 'fill', width: 250}));
-		});
-
-		// failure during upload 
-		$('.cloudinary-fileupload').bind('fileuploadfail', function(e, data) { 
-			$('#photo-uploading footer').html("<h2>Erreur lors du chargement</h2><p>Merci de renouveler l'opération</p>");
-		});
-		
-	});
-</script>
-
