@@ -11,11 +11,6 @@
 Admin.delete_all 
 Admin.create!(:email => "adw.coop@gmail.com", :password => "SalutMaPoule8600", :password_confirmation => "SalutMaPoule8600")
 
-
-# Create Activity 
-Activity.delete_all 
-Activity.create!(:description => "décrire mon activité (mes produits et services), attention la description doit contenir au minimum 30 lettres")
-
 # Create Promo
 Promo.delete_all 
 Promo.create!(:title => "le titre de votre promo", :description => "décrire ma ou mes promo(s), attention la description doit contenir au minimum 10 lettres")

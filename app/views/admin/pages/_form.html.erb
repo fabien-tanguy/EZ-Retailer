@@ -1,0 +1,21 @@
+<%= simple_form_for(@page) do |f| %>
+  <%= f.error_notification %>
+
+  <ul data-role="listview" data-divider-theme="c" data-theme="c">
+      <li data-role="list-divider"><%= @page %></li>
+	  <li class="fieldcontain">
+	  	<%= f.input :titre_menu %>
+	  </li>
+	  <li class="fieldcontain">	
+	    <%= f.input :titre %>
+	  </li>
+	  <li class="fieldcontain">	
+	    <%= f.input :photo %>
+	  </li>
+	  <li class="fieldcontain">		
+		<%= f.input :description %>
+      </li>	
+	  <li class="fieldcontain">	
+        <%= f.button :submit, "data-inline" => "true"  %>
+      </li>
+<% end %>

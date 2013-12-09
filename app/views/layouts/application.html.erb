@@ -30,7 +30,7 @@
 	    <div data-role="content" id="bck-content">
 			<div data-role="content-padd" class="main-content">
 				<%= render 'layouts/messages' %>
-				 <% unless request.fullpath == "/"%>
+				 <% if request.fullpath == "/"%>
 					<!-- banner & title -->
 					<div class="bannerContainer">
 						<%= image_tag "2.jpg", :class => "banner" %>	

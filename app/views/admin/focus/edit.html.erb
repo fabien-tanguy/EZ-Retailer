@@ -1,5 +1,5 @@
 <form class="add-photo">
-    <ul data-role="listview" data-divider-theme="c" data-inset="true">
+    <ul data-role="listview" data-divider-theme="c">
         <li data-role="list-divider">
 			Ajouter une photo à mon focus 
 		</li>
@@ -12,7 +12,7 @@
     </ul>
 </form>
 
-<ul data-role="listview" data-theme="c" data-divider-theme="c" data-inset="true" class="photo-actived <%='photo-desactived' unless @focus.photo_active %>">
+<ul data-role="listview" data-theme="c" data-divider-theme="c" class="photo-actived <%='photo-desactived' unless @focus.photo_active %>">
 	<li data-role="list-divider">
 		&nbsp;
 	</li>
@@ -32,7 +32,7 @@
 <%= simple_form_for(@focus, url: admin_focu_path(@focus), method: "put", html: {"data-ajax" => false}) do |f| %>
   <%= f.error_notification %>
   
-  <ul data-role="listview" data-theme="c" data-inset="true"  data-divider-theme ="b">
+  <ul data-role="listview" data-theme="c"  data-divider-theme ="b">
 		
 		<% unless @focus.photos.empty? %>
 			<%= hidden_field_tag(:photo_attached, @focus.photos[0].id, :id => "photo-selected-to-register") %>			

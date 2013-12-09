@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe ProduitsController do
+describe Admin::ProduitsController do
   describe "routing" do
 
     it "routes to #index" do

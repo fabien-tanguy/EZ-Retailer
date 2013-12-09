@@ -1,5 +1,5 @@
 <form class="add-photo">
-    <ul data-role="listview" data-divider-theme="c" data-inset="true">
+    <ul data-role="listview" data-divider-theme="c">
         <li data-role="list-divider">
 			Ajouter une photo à ma promo 
 		</li>	
@@ -12,7 +12,7 @@
     </ul>
 </form>
 	
-<ul data-role="listview" data-theme="c" data-divider-theme="c" data-inset="true" class="photo-actived <%='photo-desactived' unless @promo.photo_active %>">
+<ul data-role="listview" data-theme="c" data-divider-theme="c"  class="photo-actived <%='photo-desactived' unless @promo.photo_active %>">
 	<li data-role="list-divider">
 		&nbsp;
 	</li>
@@ -33,7 +33,7 @@
 <%= simple_form_for(@promo, url: admin_promo_path(@promo), method: "put", html: {"data-ajax" => false}) do |f| %>
   <%= f.error_notification %>
   
-  <ul data-role="listview" data-theme="c" data-inset="true"  data-divider-theme ="b">
+  <ul data-role="listview" data-theme="c"  data-divider-theme ="b">
 		<% unless @promo.photos.empty? %>
 			<%= hidden_field_tag(:photo_attached, @promo.photos[0].id, :id => "photo-selected-to-register") %>			
 		<% else %>

@@ -18,7 +18,7 @@
 		   		<%= submit_tag "OK", "data-theme" => "a", "data-inline" => "true" %>
 		 		<%= link_to "Annuler", "#", :method => "post", "data-role" => "button", :id => "destroy_cloudinary", "data-ajax"=> false, "data-inline" => "true", "data-theme" => "c" %>
 		   </div>
-		<%= link_to "annuler", admin_photos_path, "data-role" => "button", :id => "cancel-add-photo", "data-ajax" => false %>
+		<%= link_to "annuler", admin_photos_path, "data-role" => "button", :id => "cancel-add-photo" %>
 		<% end %>
 		<footer style="display:none;">
 			<h3 style="text-align:center;">Traitement<span>&nbsp;&nbsp;<span><%= image_tag 'ajax-loader.gif', :id => "photo-ajax-loader"%></span>&nbsp;<small id="loaded-datas"></small></h3>

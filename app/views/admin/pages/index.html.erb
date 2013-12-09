@@ -1,0 +1,24 @@
+<h1>Liste des pages</h1>
+<table data-role="table" id="table-column-toggle" data-mode="columntoggle" class="ui-responsive table-stroke ui-body-d table-stripe" data-column-btn-text="Afficher +">
+  <thead>
+    <tr class="ui-bar-d">
+      <th data-priority="1">Elément du menu</th>
+      <th data-priority="1">Titre de la page</th>
+      <th data-priority="1" colspan="3">Voir la page</th>
+    </tr>
+  </thead>
+  <tbody>
+		<% @pages.each do |page| %>
+		<tr>
+	    	<td><%= page.titre_menu %></td>
+		    <td><%= page.titre %></td>
+		    <td><%= link_to 'Voir', page %></td>
+		    <td data-priority="2"><%= link_to "", admin_edit_page_path(page), "data-role"=>"button", "data-icon" => "edit" %></td>
+	      <td data-priority="2"><%= link_to "", admin_page_path(page), method: :delete, data: { confirm: 'Etes vous sur ?' }, "data-role"=>"button", "data-icon" => "delete" %></td>
+	<% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'Nouvelle Page', new_admin_page_path %>

@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe PhotosController do
+describe Admin::PhotosController do
   describe "routing" do
 
     it "routes to #index" do

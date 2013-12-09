@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Titre menu:</b>
+  <%= @page.titre_menu %>
+</p>
+
+<p>
+  <b>Titre:</b>
+  <%= @page.titre %>
+</p>
+
+<p>
+  <b>Photo:</b>
+  <%= @page.photo %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @page.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_page_path(@page) %> |
+<%= link_to 'Back', pages_path %>
