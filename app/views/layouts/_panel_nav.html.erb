@@ -1,24 +1,24 @@
 <div data-role="panel" data-display="overlay" id="mypanel_nav" data-theme="a">
 	<ul data-role="listview" style="margin-bottom:0px" data-theme="c" data-divider-theme="a">
 		<li data-role="divider">Menu</li>
-		<li><%= link_to image_tag("home-16x16.png",:class => "ui-li-icon")+" Accueil".html_safe,root_path,  "data-transition" => "flip", "data-prefetch" => "" %></li>
+		<li><%= link_to image_tag("home-16x16.png", :class => "ui-li-icon")+"&nbsp;Accueil".html_safe,root_path,  "data-transition" => "flip" %></li>
 		<% if @promo.active %>
-			<li><%= link_to "Promo".html_safe,promo_path,  "data-transition" => "flip", "data-prefetch" => ""%></li>
+			<li><%= link_to image_tag("home-16x16.png")+"&nbsp;Promo".html_safe,promo_path,  "data-transition" => "flip" %></li>
 		<% end %>	
 		<% if @focus.active %>
-			<li><%= link_to "#{@focus.type_of_focus}".html_safe,focus_path, "data-transition" => "flip", "data-prefetch" => "" %></li>
+			<li><%= link_to image_tag("home-16x16.png", :class => "ui-li-icon")+"&nbsp;#{@focus.type_of_focus}".html_safe,focus_path, "data-transition" => "flip", "data-prefetch" => "" %></li>
 		<% end %>
 		<% unless @produits.empty? %>
-			<li><%= link_to "Produits".html_safe,produit_path, "data-transition" => "flip", "data-prefetch" => "" %>
+			<li><%= link_to image_tag("home-16x16.png", :class => "ui-li-icon")+"&nbsp;Produits".html_safe,produit_path, "data-transition" => "flip", "data-prefetch" => "" %>
 			</li>
 		<% end %>
 		<% unless @services.empty? %>	
-			<li><%= link_to "Services".html_safe,service_path, "data-transition" => "flip", "data-prefetch" => "" %>
+			<li><%= link_to image_tag("home-16x16.png", :class => "ui-li-icon")+"&nbsp;Services".html_safe,service_path, "data-transition" => "flip", "data-prefetch" => "" %>
 			</li>
 		<% end %>	
-		<li><%= link_to "Mieux nous connaître".html_safe,activity_path, "data-transition" => "flip" %></li>
-		<li><%= link_to "Plan & Horaires".html_safe,map_path, "data-transition" => "flip", "data-prefetch" => "" %></li>
-		<li><%= link_to "Contact".html_safe,contact_path, "data-transition" => "flip", "data-prefetch" => "" %></li>
+		<li><%= link_to image_tag("home-16x16.png", :class => "ui-li-icon")+"&nbsp;Mieux nous connaître".html_safe,activity_path, "data-transition" => "flip" %></li>
+		<li><%= link_to image_tag("home-16x16.png", :class => "ui-li-icon")+"&nbsp;Plan & Horaires".html_safe,map_path, "data-transition" => "flip", "data-prefetch" => "" %></li>
+		<li><%= link_to image_tag("home-16x16.png", :class => "ui-li-icon")+"&nbsp;Contact".html_safe,contact_path, "data-transition" => "flip", "data-prefetch" => "" %></li>
 	</ul>
 	<!-- /navigation -->
 </div>

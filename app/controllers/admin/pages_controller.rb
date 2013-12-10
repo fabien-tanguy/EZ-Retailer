@@ -1,4 +1,6 @@
 class Admin::PagesController < ApplicationController
+    layout 'admin'
+  
   # GET /pages
   # GET /pages.json
   def index
