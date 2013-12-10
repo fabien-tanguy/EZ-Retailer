@@ -25,7 +25,7 @@ class Admin::PagesController < ApplicationController
   # GET /pages/new.json
   def new
     @page = Page.new
-
+    @photos = Photo.all
     respond_to do |format|
       format.html # new.html.erb
     end
@@ -34,6 +34,7 @@ class Admin::PagesController < ApplicationController
   # GET /pages/1/edit
   def edit
     @page = Page.find(params[:id])
+    @photos = Photo.all
   end
 
   # POST /pages

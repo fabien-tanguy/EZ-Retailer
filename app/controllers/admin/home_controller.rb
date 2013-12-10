@@ -9,7 +9,6 @@ class Admin::HomeController < ApplicationController
     @title = "Administration"
     @promo = Promo.first
     @focus = Focu.first
-    @activity = Activity.first
   end
     
 end

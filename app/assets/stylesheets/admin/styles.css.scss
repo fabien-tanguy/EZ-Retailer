@@ -13,9 +13,9 @@
 }
 
 
-/***********************/
-/*  Ajouter une photo  */
-/***********************/
+/********************************/
+/*  Ajouter une photo à l'album */
+/********************************/
 
 #add-photo {
 	display:block;
@@ -55,3 +55,14 @@
   max-width:100%;
 }
 
+/******************************************/
+/*  Ajouter une photo à une page, etc ... */
+/******************************************/
+
+.choose_from_album:hover {
+-webkit-transform: scale(1.2) !important;
+    -moz-transform: scale(1.2)!important;
+     -ms-transform: scale(1.2)!important;
+      -o-transform: scale(1.2)!important;
+         transform: scale(1.2)!important;
+}

@@ -1,5 +1,0 @@
-	<% if @photos %> 
-		<% @photos.each do |photo| %>
-					<%= image_tag(photo.image_url, :alt => "", :class => "choose_from_album", :id => photo.id, :width => "80px", :height => "80px") %>
-		<% end %>
-	<% end %>	

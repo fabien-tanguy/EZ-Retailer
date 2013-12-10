@@ -33,11 +33,6 @@ class HomeController < ApplicationController
     @title = "Services"
   end
   
-  
-  def activities
-    @title = "Notre activité"    
-    @activity = Activity.first
-  end  
 
   def map 
     @title = "Plan & horaires"

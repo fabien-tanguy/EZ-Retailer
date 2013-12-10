@@ -1,21 +1,41 @@
-<%= simple_form_for(@page) do |f| %>
+<%= simple_form_for(admin_pages_path(@page)) do |f| %>
   <%= f.error_notification %>
 
-  <ul data-role="listview" data-divider-theme="c" data-theme="c">
-      <li data-role="list-divider"><%= @page %></li>
+  <ul data-role="listview" data-divider-theme="c" data-theme="c" data-inset="true">
+      <li data-role="list-divider"></li>
 	  <li class="fieldcontain">
-	  	<%= f.input :titre_menu %>
+	  	<%= f.input :titre_menu, label: "Elément du menu" %>
 	  </li>
 	  <li class="fieldcontain">	
-	    <%= f.input :titre %>
+	    <%= f.input :titre, label: "Titre de la page" %>
 	  </li>
-	  <li class="fieldcontain">	
-	    <%= f.input :photo %>
+	  <li class="fieldcontain">
+		<select name="flip-mini" id="add-photo-page" data-role="slider" data-mini="true" data-page="<%= @page %>" >
+			<option value=off <%= 'selected="true"' unless @page.photo %> >Off</option>
+			<option value=on <%= 'selected="true"' if @page.photo %>  >On</option>
+		</select>	
+	    <%= f.input :photo, :as => "hidden" %>
 	  </li>
 	  <li class="fieldcontain">		
 		<%= f.input :description %>
       </li>	
 	  <li class="fieldcontain">	
         <%= f.button :submit, "data-inline" => "true"  %>
+		<%= f.button :submit, "annuler", :type => "reset" , "data-inline" => "true"  %>
       </li>
 <% end %>
+
+<!-- Photos Gallery -->
+<%= render 'layouts/popup_photos_to_new_page' %>
+
+<script>
+	// open dialog window
+	$('#add-photo-page').on('change', function() {
+		//$(this).slider({ disabled: true });
+	  	if($(this).val() == 'off') 
+		{
+			$('.photos-gallery-popup').popup('open');
+		}
+
+	});		
+</script>
