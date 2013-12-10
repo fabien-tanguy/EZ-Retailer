@@ -1,0 +1,3 @@
+$(document).on('pageinit',function() { 
+	
+});
