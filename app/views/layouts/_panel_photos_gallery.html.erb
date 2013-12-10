@@ -1,4 +1,4 @@
-<div data-role="panel" data-display="overlay" id="mypanel_gallery" data-theme="a" data-position="right">
+<div data-role="panel" data-display="push" id="mypanel_gallery" data-theme="a" data-position="right" >
 	<% if @photos %> 
 		<% @photos.each do |photo| %>
 					<%= link_to image_tag(photo.image_url, :alt => "", :class => "choose_from_album", :id => photo.id, :width => "80px", :height => "80px"),"#" %>
