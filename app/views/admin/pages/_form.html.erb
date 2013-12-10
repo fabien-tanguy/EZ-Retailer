@@ -1,4 +1,4 @@
-<%= simple_form_for(admin_pages_path(@page)) do |f| %>
+<%= simple_form_for(@page, url: admin_pages_path, method: "post", html: {"data-ajax" => false}) do |f| %>
   <%= f.error_notification %>
 
   <ul data-role="listview" data-divider-theme="c" data-theme="c" data-inset="true">

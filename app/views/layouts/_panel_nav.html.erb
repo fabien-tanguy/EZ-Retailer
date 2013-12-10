@@ -1,5 +1,5 @@
 <div data-role="panel" data-display="overlay" id="mypanel_nav" data-theme="a">
-	<ul data-role="listview" style="margin-bottom:0px" data-theme="c" data-divider-theme="a">
+	<ul data-role="listview" style="margin-bottom:0px" data-theme="c" data-divider-theme="a" class="ui-icon-alt">
 		<li data-role="divider">Menu</li>
 		<li><%= link_to image_tag("home-16x16.png", :class => "ui-li-icon")+"&nbsp;Accueil".html_safe,root_path,  "data-transition" => "flip" %></li>
 		<% if @promo.active %>
