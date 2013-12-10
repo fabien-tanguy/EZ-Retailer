@@ -59,10 +59,24 @@
 /*  Ajouter une photo à une page, etc ... */
 /******************************************/
 
-.choose_from_album:hover {
+.photos-gallery-popup img{
+	position:absolute;
+	z-index:1;
+	height:80px;width:auto;
+	margin:0;
+	box-shadow:0 0 3px black;
+	-webkit-transition:all .5s cubic-bezier(.6,2,.4,1);
+	    -moz-transition:all .5s cubic-bezier(.6,2,.4,1);
+	     -ms-transition:all .5s cubic-bezier(.6,2,.4,1);
+	      -o-transition:all .5s cubic-bezier(.6,2,.4,1);
+	         transition:all .5s cubic-bezier(.6,2,.4,1);
+}
+.photos-gallery-popup a:hover img{
 -webkit-transform: scale(1.2) !important;
     -moz-transform: scale(1.2)!important;
      -ms-transform: scale(1.2)!important;
       -o-transform: scale(1.2)!important;
          transform: scale(1.2)!important;
 }
+
+
