@@ -25,17 +25,13 @@
       </li>
 <% end %>
 
-<!-- Photos Gallery -->
-<%= render 'layouts/popup_photos_to_new_page' %>
-
 <script>
 	// open dialog window
 	$('#add-photo-page').on('change', function() {
 		//$(this).slider({ disabled: true });
-	  	if($(this).val() == 'off') 
+	  	if($(this).val() != 'off') 
 		{
-			$('.photos-gallery-popup').popup('open');
+			$('#mypanel_gallery').panel('open');
 		}
-
 	});		
 </script>

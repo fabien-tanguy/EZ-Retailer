@@ -1,9 +1,0 @@
-<!-- Dialog window upload !-->
-<div class="photos-gallery-popup" data-role="popup" data-theme="b" data-overlay-theme="a" class="ui-content" data-transition="slidedown" data-dismissible="false" data-position-to="window">
-		<% if @photos %> 
-			<% @photos.each do |photo| %>
-						<%= link_to image_tag(photo.image_url, :alt => "", :class => "choose_from_album", :id => photo.id, :width => "80px", :height => "80px"),"#" %>
-			<% end %>
-		<% end %>
-	<%= link_to "annuler", new_admin_page_path, "data-role" => "button", :id => "cancel-add-photo-to-page", "data-mini" => true, "data-theme" => "b" %>
-</div>	

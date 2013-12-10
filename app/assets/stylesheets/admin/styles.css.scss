@@ -59,7 +59,7 @@
 /*  Ajouter une photo à une page, etc ... */
 /******************************************/
 
-.photos-gallery-popup img{
+.photos-gallery-popup a img {
 	position:absolute;
 	z-index:1;
 	height:80px;width:auto;
@@ -71,6 +71,7 @@
 	      -o-transition:all .5s cubic-bezier(.6,2,.4,1);
 	         transition:all .5s cubic-bezier(.6,2,.4,1);
 }
+
 .photos-gallery-popup a:hover img{
 -webkit-transform: scale(1.2) !important;
     -moz-transform: scale(1.2)!important;
@@ -79,4 +80,9 @@
          transform: scale(1.2)!important;
 }
 
-
+.photo-selected {
+	border: solid 2px #FFFFFF;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
