@@ -1,4 +1,4 @@
-<%= simple_form_for(@page, url: admin_pages_path, method: "post") do |f| %>
+<%= simple_form_for(@page, url: admin_page_path, method: "put") do |f| %>
   <%= f.error_notification %>
 
   <ul data-role="listview" data-divider-theme="c" data-theme="c" data-inset="true">
@@ -9,7 +9,7 @@
 	    <%= f.input :titre, label: "Titre de la page" %>
 	  </li>
 	  <li class="fieldcontain">
-		<label for="flip-mini" class="string optional control-label ui-input-text">Ajouter une photo ?</label>
+		<label for="flip-mini">Ajouter une photo ?:</label>
 		<select name="flip-mini" id="add-photo-page" data-role="slider" data-mini="true" data-page="<%= @page %>" >
 			<option value=off <%= 'selected="true"' unless @page.photo %> >Non</option>
 			<option value=on <%= 'selected="true"' if @page.photo %>  >Oui</option>
@@ -29,16 +29,9 @@
 	// open dialog window
 	$('#add-photo-page').on('change', function() {
 		//$(this).slider({ disabled: true });
-	  	if($(this).val() != 'off') {
+	  	if($(this).val() != 'off') 
+		{
 			$('#mypanel_gallery').panel('open');
 		}
-		else {
-			$('#mypanel_gallery').panel('close');			
-		}
-	});
-	
-	$('#mypanel_gallery img').click(function(){
-		var photo_selected = $(this).attr("name");
-		$('#page_photo').val(photo_selected);
 	});		
 </script>

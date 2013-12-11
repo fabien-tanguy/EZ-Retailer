@@ -3,7 +3,8 @@
   <thead>
     <tr class="ui-bar-d">
       <th data-priority="1">Elément du menu</th>
-      <th data-priority="1" colspan="4">Titre de la page</th>
+      <th data-priority="1">Titre de la page</th>
+      <th data-priority="1" colspan="3">Image</th>
     </tr>
   </thead>
   <tbody>
@@ -11,6 +12,7 @@
 		<tr>
 	    	<td><%= page.titre_menu %></td>
 		    <td><%= page.titre %></td>
+		    <td><%= page.photo %></td>
 		    <td data-priority="2"><%= link_to "Modifier", edit_admin_page_path(page.id), "data-role"=>"button", "data-icon" => "edit", "data-iconpos" => "notext", :class => "ui-icon-alt" %></td>
 	      <td data-priority="2"><%= link_to "Supprimer", admin_page_path(page.id), method: :delete, data: { confirm: 'Etes vous sur ?' }, "data-role"=>"button", "data-icon" => "delete" , "data-iconpos" => "notext", :class => "ui-icon-alt" %></td>
 	<% end %>

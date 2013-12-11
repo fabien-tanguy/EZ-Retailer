@@ -1,8 +1,10 @@
-<div data-role="panel" data-display="overlay" id="mypanel_gallery" data-theme="a" data-position="right" >
+<div data-role="panel" data-display="overlay" id="mypanel_gallery" data-theme="a" data-position="right" data-swipe-close="false" data-dismissible="false">
+	<h1>Choisir dans ma galerie</h1>
 	<% if @photos %> 
 		<% @photos.each do |photo| %>
-					<%= link_to image_tag(photo.image_url, :alt => "", :class => "choose_from_album", :id => photo.id, :width => "80px", :height => "80px"),"#" %>
+			<%= image_tag(photo.image_url, :alt => "mes photos", :class => "choose_from_album", :id => photo.id, :width => "60px", :height => "60px", :crop => :scale, :name => photo.image_url) %>
 		<% end %>
 	<% end %>
-	<%= link_to "annuler", new_admin_page_path, "data-role" => "button", :id => "cancel-add-photo-to-page", "data-mini" => true, "data-theme" => "b" %>
+	<br>
+	<%= link_to "annuler", new_admin_page_path, "data-role" => "button", :id => "cancel-add-photo-to-page", "data-mini" => true, "data-theme" => "c" %>
 </div>	
